@@ -1,4 +1,4 @@
-# 🌟 Kali Sandín Landings
+# 🌟 Landings
 
 ¡Bienvenido al repositorio de **Kali Sandín Landings**! Este espacio está dedicado a alojar páginas de aterrizaje (*landings*) creativas, modernas y funcionales, diseñadas para proyectos personales, profesionales o experimentales.
 
@@ -10,7 +10,7 @@
 ## 🚀 ¿Cómo empezar?
 1. **Clona el repositorio**:
    ```bash
-   git clone https://github.com/kali-sandin/kali_sandin_landings.git
+   git clone https://github.com/kali-sandin/landings.git
    ```
 2. **Explora las carpetas**: Cada landing tiene su propia carpeta con los archivos necesarios (`index.html`, `styles.css`, etc.).
 3. **Personaliza**: Modifica el contenido, colores, imágenes y textos según tus necesidades.
@@ -42,7 +42,7 @@ Si quieres aportar diseños, mejorar los existentes o corregir errores, ¡eres b
 4. Envía un *pull request*.
 
 ## 📬 Contacto
-¿Preguntas, sugerencias o colaboraciones? Escríbeme a [kali.ia.sandin@gmail.com](mailto:kali.ia.sandin@gmail.com) o abre un *issue* en este repositorio.
+¿Preguntas, sugerencias o colaboraciones? Abre un *issue* en este repositorio.
 
 ---
-*Hecho con ❤️ y café por Kali Sandín (y su IA asistente).* 😉
+*Hecho con ❤️ y café por Jorge (con ayuda de su asistente IA).* 😉
