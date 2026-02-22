@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Kali Project</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --accent: #fd79a8;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        h1, h2, h3 {
+            color: var(--primary);
+        }
+        .section {
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 1rem;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+        .btn:hover {
+            background-color: var(--secondary);
+        }
+        .diagram {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .changelog {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .changelog h3 {
+            margin-top: 0;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: var(--dark);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>The Kali Project</h1>
+            <p>Tu asistente de IA personal, siempre a tu servicio</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>¿Qué es Kali?</h2>
+            <p>Kali es un asistente de inteligencia artificial diseñado para ayudarte en tu día a día. Desde gestionar tu calendario hasta automatizar tareas, Kali está aquí para hacer tu vida más fácil.</p>
+            <p>Utiliza tecnologías como <strong>OpenClaw</strong>, <strong>OVOS</strong> (Open Voice OS) y <strong>WhatsApp</strong> para ofrecerte una experiencia fluida y accesible.</p>
+            
+            <div class="diagram">
+                <h3>Diagrama de Flujo</h3>
+                <div class="mermaid">
+                    graph TD;
+                        A[Usuario] -->|Mensaje de WhatsApp| B(OpenClaw);
+                        B -->|Procesa solicitud| C(OVOS);
+                        C -->|Respuesta de voz| D[Usuario];
+                        B -->|Ejecuta acciones| E[Sistema];
+                        E -->|Feedback| B;
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>¿Cómo funciona?</h2>
+            <p>Kali se integra con tu vida digital para ofrecerte asistencia en tiempo real. Aquí te explicamos cómo:</p>
+            
+            <h3>1. Comunicación por WhatsApp</h3>
+            <p>Envía mensajes a Kali como lo harías con cualquier contacto. Kali procesa tu solicitud y te responde con información útil o realiza acciones por ti.</p>
+            
+            <h3>2. Voz con OVOS</h3>
+            <p>Kali puede comunicarse contigo mediante voz gracias a <strong>OVOS</strong> (Open Voice OS). Esto incluye respuestas en tiempo real y notificaciones importantes.</p>
+            <p><strong>Bugfix reciente:</strong> Ahora con voz femenina para una experiencia más natural.</p>
+            
+            <button class="btn" onclick="playVoiceDemo()">Escuchar Demo de Voz</button>
+            
+            <h3>3. Automatización con OpenClaw</h3>
+            <p>OpenClaw es el cerebro detrás de Kali. Se encarga de gestionar tareas, ejecutar comandos y mantener todo en sincronía.</p>
+        </section>
+
+        <section class="section">
+            <h2>Historial de Mejoras</h2>
+            <div class="changelog">
+                <h3>Changelog</h3>
+                <ul>
+                    <li><strong>22/02/2026:</strong> Integración de voz femenina en OVOS para una experiencia más natural.</li>
+                    <li><strong>20/02/2026:</strong> Configuración inicial de OpenClaw y sincronización con WhatsApp.</li>
+                    <li><strong>18/02/2026:</strong> Primer prototipo funcional de Kali con respuestas básicas.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>¿Qué puede hacer Kali por ti?</h2>
+            <p>Aquí tienes algunas de las cosas que Kali puede hacer:</p>
+            <ul>
+                <li>Gestionar tu calendario y recordarte eventos importantes.</li>
+                <li>Resumir tus emails diarios en puntos clave.</li>
+                <li>Automatizar tareas repetitivas en tu sistema.</li>
+                <li>Responder preguntas y buscar información en la web.</li>
+                <li>Comunicarse contigo mediante voz o texto, según prefieras.</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 The Kali Project. Hecho con ❤️ por Jorge y Kali.</p>
+        </div>
+    </footer>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+        
+        function playVoiceDemo() {
+            const text = "Hola, soy Kali. Esta es mi voz femenina mejorada. ¿Te gusta cómo sueno?";
+            // Simulación para GitHub Pages
+            alert("Demo de voz (en local): " + text);
+            
+            // En local, ejecutaría:
+            // source /home/kali/.venvs/ovos/bin/activate && ovos-speak "Hola, soy Kali. Esta es mi voz femenina mejorada. ¿Te gusta cómo sueno?"
+            console.log("Reproduciendo: " + text);
+        }
+    </script>
+</body>
+</html>
