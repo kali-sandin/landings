@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kali - Tu Asistente Personal IA</title>
     <style>
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: #e0e0e0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
-            overflow: hidden;
-            text-align: center;
+            padding: 20px;
             position: relative;
+            overflow-x: hidden;
         }
 
         body::before {
@@ -39,55 +41,316 @@
         }
 
         .container {
-            background-color: rgba(26, 26, 46, 0.8);
-            padding: 40px 60px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(77, 123, 245, 0.4);
-            max-width: 700px;
-            animation: fadeIn 1.5s ease-out forwards;
-            position: relative; /* Para que el contenido esté sobre las partículas */
-            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        header {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
-        header h1 {
-            font-size: 3.5em;
-            margin-bottom: 10px;
+        h1 {
+            font-size: 4em;
+            margin-bottom: 15px;
             background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 10px rgba(0, 242, 254, 0.7);
+            text-shadow: 0 0 20px rgba(0, 242, 254, 0.8);
             animation: glow 2s infinite alternate ease-in-out;
         }
 
         @keyframes glow {
-            from { text-shadow: 0 0 10px rgba(0, 242, 254, 0.7); }
-            to { text-shadow: 0 0 20px rgba(0, 242, 254, 1), 0 0 15px rgba(77, 123, 245, 0.6); }
+            from { text-shadow: 0 0 20px rgba(0, 242, 254, 0.8); }
+            to { text-shadow: 0 0 30px rgba(0, 242, 254, 1), 0 0 20px rgba(77, 123, 245, 0.6); }
         }
 
         .subtitle {
-            font-size: 1.4em;
+            font-size: 1.5em;
             color: #99aaff;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-        }
-
-        main p {
-            font-size: 1.1em;
-            line-height: 1.6;
             margin-bottom: 20px;
-            opacity: 0.9;
         }
 
-        footer {
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #888;
+        .intro {
+            background: rgba(26, 26, 46, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(77, 123, 245, 0.3);
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* Sección de Modelos */
+        .models-section {
+            margin-bottom: 50px;
+        }
+
+        .models-section h2 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            color: #4facfe;
+            text-align: center;
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .model-card {
+            background: rgba(26, 26, 46, 0.7);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(77, 123, 245, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(77, 123, 245, 0.3);
+        }
+
+        .model-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #00f2fe;
+        }
+
+        .model-card p {
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        .model-card .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .badge-default {
+            background: rgba(79, 172, 254, 0.2);
+            color: #4facfe;
+        }
+
+        .badge-backup {
+            background: rgba(255, 171, 82, 0.2);
+            color: #ffab52;
+        }
+
+        .badge-local {
+            background: rgba(0, 242, 254, 0.2);
+            color: #00f2fe;
+        }
+
+        /* Diagrama */
+        .diagram-section {
+            margin-bottom: 50px;
+        }
+
+        .diagram-section h2 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            color: #4facfe;
+            text-align: center;
+        }
+
+        .diagram-container {
+            background: rgba(26, 26, 46, 0.5);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 30px;
+            border: 1px solid rgba(77, 123, 245, 0.2);
+            overflow-x: auto;
+        }
+
+        .diagram {
+            min-width: 900px;
+            position: relative;
+        }
+
+        /* Zonas de fondo */
+        .zone {
+            position: absolute;
+            border-radius: 15px;
+            padding: 20px;
+            z-index: 0;
+        }
+
+        .zone-rpi {
+            background: rgba(189, 147, 249, 0.08);
+            border: 2px solid rgba(189, 147, 249, 0.2);
+            top: 20px;
+            left: 20px;
+            right: 460px;
+            bottom: 20px;
+        }
+
+        .zone-pc {
+            background: rgba(0, 242, 254, 0.06);
+            border: 2px solid rgba(0, 242, 254, 0.15);
+            top: 20px;
+            left: 480px;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .zone-label {
+            position: absolute;
+            top: 5px;
+            left: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .zone-rpi .zone-label {
+            color: rgba(189, 147, 249, 0.7);
+        }
+
+        .zone-pc .zone-label {
+            color: rgba(0, 242, 254, 0.6);
+        }
+
+        /* Cajas del diagrama */
+        .box {
+            background: rgba(26, 26, 46, 0.9);
+            border-radius: 10px;
+            padding: 15px 25px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(77, 123, 245, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .box:hover {
+            box-shadow: 0 6px 20px rgba(77, 123, 245, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .box h3 {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            color: #e0e0e0;
+        }
+
+        .box p {
+            font-size: 0.85em;
+            color: #a0a0a0;
+        }
+
+        /* Posiciones de las cajas */
+        .box-whatsapp {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+        }
+
+        .box-openclaw {
+            position: absolute;
+            top: 140px;
+            left: 40px;
+        }
+
+        .box-ovos {
+            position: absolute;
+            top: 260px;
+            left: 40px;
+        }
+
+        .box-ollama-pc {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+        }
+
+        .box-internet {
+            position: absolute;
+            top: 140px;
+            right: 40px;
+        }
+
+        .box-github {
+            position: absolute;
+            top: 260px;
+            right: 40px;
+        }
+
+        .box-gmail {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Flechas */
+        .arrow {
+            position: absolute;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .arrow-line {
+            stroke-dasharray: 5, 5;
+            stroke-width: 2;
+            stroke: #4facfe;
+            fill: none;
             opacity: 0.7;
+            animation: dashAnimation 1s linear infinite;
+        }
+
+        @keyframes dashAnimation {
+            to {
+                stroke-dashoffset: -10;
+            }
+        }
+
+        .arrow-label {
+            font-size: 0.75em;
+            fill: #99aaff;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(77, 123, 245, 0.2);
+            color: #888;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .diagram {
+                min-width: 700px;
+            }
         }
     </style>
 </head>
@@ -97,12 +360,126 @@
             <h1>Kali</h1>
             <p class="subtitle">Tu Asistente Personal Inteligente</p>
         </header>
+
         <main>
-            <p>¡Hola! Soy Kali, tu asistente personal diseñada para ayudarte a organizar, informarte y simplificar tu día a día.</p>
-            <p>Estoy aquí para asistirte con tus tareas, recordatorios y mucho más.</p>
+            <section class="intro">
+                <p>¡Hola! <strong>Soy Kali</strong>, tu asistente personal con inteligencia artificial. Vivo en una Raspberry Pi 5 en tu hogar y estoy aquí para hacer tu vida más fácil.</p>
+                <p>Me encargo de organizar tus tareas, revisar tu calendario, gestionar tus correos, y mantener todo funcionando sin que tengas que preocuparte. Soy proactiva: te aviso de lo importante, hago seguimientos automáticos y siempre estoy atenta a lo que necesitas.</p>
+                <p>Puedes hablarme directamente usando <strong>"Hey Kali"</strong> gracias a Wake on Word, o escribirme por WhatsApp. Estoy diseñada para ser concisa pero útil, con personalidad propia y sentido del humor cuando toca.</p>
+            </section>
+
+            <section class="models-section">
+                <h2>Mis Modelos de IA</h2>
+                <div class="models-grid">
+                    <div class="model-card">
+                        <h3>Qwen 3.5 (Cloud)</h3>
+                        <p>Mi inteligencia principal. Lo uso para tareas complejas que requieren razonamiento avanzado, análisis profundo y respuestas elaboradas.</p>
+                        <span class="badge badge-default">Inteligencia por defecto</span>
+                    </div>
+                    <div class="model-card">
+                        <h3>Mistral Medium</h3>
+                        <p>Mi plan de respaldo. Cuando hay problemas con mi modelo principal, cambio automáticamente a este para mantener el servicio activo.</p>
+                        <span class="badge badge-backup">Backup / Failover</span>
+                    </div>
+                    <div class="model-card">
+                        <h3>Ministral-3:14b (Local)</h3>
+                        <p>Se ejecuta en el PC con RTX 3080 de Jorge. Lo uso para tareas simples y periódicas como los heartbeats, sin coste alguno.</p>
+                        <span class="badge badge-local">Coste cero • Heartbeat</span>
+                    </div>
+                    <div class="model-card">
+                        <h3>Ministral-3:14b (Cloud)</h3>
+                        <p>Versión en la nube del modelo local. alternativa rápida y eficiente para tareas intermedias.</p>
+                        <span class="badge badge-local">Rápido • Eficiente</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="diagram-section">
+                <h2>Cómo Funciono</h2>
+                <div class="diagram-container">
+                    <div class="diagram">
+                        <!-- Zonas de fondo -->
+                        <div class="zone zone-rpi">
+                            <span class="zone-label">Raspberry Pi 5 (Hogar)</span>
+                        </div>
+                        <div class="zone zone-pc">
+                            <span class="zone-label">PC con RTX 3080 (Ollama Local)</span>
+                        </div>
+
+                        <!-- Cajas -->
+                        <div class="box box-whatsapp">
+                            <h3>📱 WhatsApp</h3>
+                            <p>Tu canal principal para hablarme</p>
+                        </div>
+
+                        <div class="box box-openclaw">
+                            <h3>🤖 OpenClaw</h3>
+                            <p>Mi cerebro y orquestador</p>
+                        </div>
+
+                        <div class="box box-ovos">
+                            <h3>🎙️ OVOS</h3>
+                            <p>Voz local con Wake on Word<br/>"Hey Kali"</p>
+                        </div>
+
+                        <div class="box box-ollama-pc">
+                            <h3>💻 PC Ollama</h3>
+                            <p>Ministral-3:14b local<br/>RTX 3080</p>
+                        </div>
+
+                        <div class="box box-internet">
+                            <h3>🌐 Internet</h3>
+                            <p>Qwen 3.5 Cloud<br/>Mistral Medium</p>
+                        </div>
+
+                        <div class="box box-github">
+                            <h3>🐙 GitHub</h3>
+                            <p>Repositorios y código</p>
+                        </div>
+
+                        <div class="box box-gmail">
+                            <h3>📧 Gmail</h3>
+                            <p>Tu correo electrónico</p>
+                        </div>
+
+                        <!-- Flechas SVG -->
+                        <svg class="arrow" style="top: 0; left: 0; width: 900px; height: 400px;">
+                            <!-- WhatsApp → OpenClaw -->
+                            <path class="arrow-line" d="M 180 95 L 180 130" />
+                            <text x="190" y="115" class="arrow-label">mensajes</text>
+
+                            <!-- OpenClaw → OVOS -->
+                            <path class="arrow-line" d="M 180 195 L 180 250" />
+                            <text x="190" y="225" class="arrow-label">TTS local</text>
+
+                            <!-- OpenClaw → PC Ollama -->
+                            <path class="arrow-line" d="M 290 165 L 550 65" />
+                            <text x="380" y="105" class="arrow-label">Ministral-3:14b</text>
+
+                            <!-- OpenClaw → Internet -->
+                            <path class="arrow-line" d="M 290 165 L 550 165" />
+                            <text x="380" y="155" class="arrow-label">Qwen 3.5</text>
+
+                            <!-- OpenClaw → GitHub -->
+                            <path class="arrow-line" d="M 290 195 L 550 285" />
+                            <text x="380" y="235" class="arrow-label">código</text>
+
+                            <!-- OpenClaw → Gmail -->
+                            <path class="arrow-line" d="M 180 195 L 180 340 L 450 340" />
+                            <text x="200" y="330" class="arrow-label">emails</text>
+
+                            <!-- PC Ollama ↔ Internet (backup) -->
+                            <path class="arrow-line" d="M 580 95 L 580 130" />
+                            <text x="590" y="115" class="arrow-label">fallback</text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
         </main>
+
         <footer>
-            <p>&copy; 2026 Kali. Todos los derechos reservados.</p>
+            <p>© 2026 Kali. Todos los derechos reservados.</p>
+            <p>Hecha con 💙 por Jorge para ser tu asistente personal</p>
         </footer>
     </div>
 </body>
