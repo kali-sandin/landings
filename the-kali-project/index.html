@@ -11,7 +11,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -31,7 +31,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 radial-gradient(2px 2px at 20px 30px, rgba(77, 123, 245, 0.3), transparent),
                 radial-gradient(2px 2px at 40px 70px, rgba(0, 242, 254, 0.2), transparent),
                 radial-gradient(1px 1px at 90px 40px, rgba(77, 123, 245, 0.25), transparent),
@@ -104,28 +104,6 @@
             text-align: center;
             margin-bottom: 50px;
             padding: 40px 0;
-            position: relative;
-        }
-
-        .logo-placeholder {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 20px;
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.2), rgba(0, 242, 254, 0.2));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid rgba(79, 172, 254, 0.4);
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
-            font-size: 3em;
-        }
-
-        .logo-img {
-            max-width: 150px;
-            height: auto;
-            margin: 0 auto 20px;
-            display: block;
         }
 
         h1 {
@@ -231,7 +209,7 @@
             line-height: 1.6;
         }
 
-        /* Diagram - FLEXBOX LAYOUT */
+        /* Diagram */
         .diagram-container {
             background: rgba(26, 26, 46, 0.5);
             border-radius: 20px;
@@ -242,10 +220,9 @@
         }
 
         .diagram {
-            min-width: 1000px;
+            min-width: 950px;
             position: relative;
-            height: 680px;
-            margin: 0 auto;
+            height: 520px;
         }
 
         /* Zonas de fondo */
@@ -259,152 +236,83 @@
         .zone-rpi {
             background: rgba(189, 147, 249, 0.08);
             border: 2px solid rgba(189, 147, 249, 0.2);
-            top: 140px;
+            top: 20px;
             left: 20px;
-            width: 460px;
-            height: 420px;
+            right: 480px;
+            bottom: 100px;
         }
 
         .zone-pc {
             background: rgba(0, 242, 254, 0.06);
             border: 2px solid rgba(0, 242, 254, 0.15);
-            top: 140px;
+            top: 20px;
+            left: 500px;
             right: 20px;
-            width: 280px;
-            height: 280px;
+            bottom: 100px;
         }
 
         .zone-internet {
             background: rgba(79, 172, 254, 0.05);
             border: 2px solid rgba(79, 172, 254, 0.12);
-            top: 580px;
+            top: 420px;
             left: 20px;
             right: 20px;
-            height: 80px;
+            bottom: 20px;
         }
 
         .zone-label {
             position: absolute;
-            top: -10px;
+            top: 8px;
             left: 15px;
-            font-size: 0.75em;
+            font-size: 0.8em;
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
             color: rgba(255, 255, 255, 0.5);
-            background: rgba(26, 26, 46, 0.8);
-            padding: 2px 8px;
-            border-radius: 4px;
         }
 
         /* Cajas del diagrama */
         .box {
             background: rgba(26, 26, 46, 0.95);
             border-radius: 10px;
-            padding: 15px 20px;
+            padding: 18px 25px;
             position: absolute;
             z-index: 1;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(77, 123, 245, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(77, 123, 245, 0.3);
             transition: all 0.3s ease;
-            min-width: 160px;
+            min-width: 180px;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
 
         .box:hover {
-            box-shadow: 0 6px 20px rgba(77, 123, 245, 0.5), 0 0 30px rgba(77, 123, 245, 0.2);
+            box-shadow: 0 6px 20px rgba(77, 123, 245, 0.5);
             transform: translateY(-2px);
         }
 
         .box h4 {
-            font-size: 1em;
-            margin-bottom: 5px;
+            font-size: 1.1em;
+            margin-bottom: 8px;
             color: #e0e0e0;
         }
 
         .box p {
-            font-size: 0.75em;
+            font-size: 0.85em;
             color: #99aaff;
             margin: 0;
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
-        .box-icon {
-            font-size: 1.8em;
-            margin-bottom: 5px;
-        }
-
-        /* Posiciones - LAYOUT CORREGIDO */
-        .box-user { 
-            top: 30px; 
-            left: 50%; 
-            transform: translateX(-50%);
-            min-width: 200px;
-        }
-        
-        .box-ovos { 
-            top: 160px; 
-            left: 180px;
-            min-width: 180px;
-        }
-        
-        .box-whatsapp { 
-            top: 270px; 
-            left: 80px; 
-        }
-        
-        .box-openclaw { 
-            top: 380px; 
-            left: 180px;
-            min-width: 180px;
-        }
-        
-        .box-ha { 
-            top: 380px; 
-            left: 380px; 
-        }
-        
-        .box-ollama { 
-            top: 160px; 
-            right: 180px;
-            min-width: 180px;
-        }
-        
-        .box-qwen { 
-            top: 270px; 
-            right: 180px; 
-        }
-        
-        .box-mistral { 
-            top: 160px; 
-            left: 820px;
-            min-width: 160px;
-            border-color: rgba(255, 171, 82, 0.4);
-        }
-        
-        .box-github { 
-            top: 600px; 
-            left: 180px; 
-        }
-        
-        .box-gmail { 
-            top: 600px; 
-            left: 380px; 
-        }
-        
-        .box-calendar { 
-            top: 600px; 
-            left: 580px; 
-        }
-        
-        .box-docs { 
-            top: 600px; 
-            left: 780px; 
-        }
+        /* Posiciones */
+        .box-user { top: 40px; left: 50%; transform: translateX(-50%); }
+        .box-whatsapp { top: 140px; left: 50px; }
+        .box-openclaw { top: 250px; left: 50px; }
+        .box-ovos { top: 360px; left: 50px; }
+        .box-ha { top: 360px; left: 280px; }
+        .box-ollama { top: 140px; right: 50px; }
+        .box-qwen { top: 250px; right: 50px; }
+        .box-github { top: 360px; right: 50px; }
+        .box-gmail { bottom: 40px; left: 50%; transform: translateX(-50%); }
 
         /* Flechas SVG */
         .arrow-svg {
@@ -418,39 +326,30 @@
         }
 
         .arrow-line {
-            stroke: #a0a0a0;
-            stroke-width: 1.5;
+            stroke: #4facfe;
+            stroke-width: 2;
             fill: none;
-            stroke-dasharray: 4, 4;
-            opacity: 0.6;
-            animation: dashFlow 1.5s linear infinite;
+            stroke-dasharray: 5, 5;
+            opacity: 0.7;
+            animation: dashFlow 1s linear infinite;
         }
 
         .arrow-line-solid {
-            stroke: #b0b0b0;
+            stroke: #4facfe;
             stroke-width: 2;
             fill: none;
-            opacity: 0.7;
-        }
-
-        .arrow-line-bidirectional {
-            stroke: #b0b0b0;
-            stroke-width: 2;
-            fill: none;
-            opacity: 0.7;
-            marker-end: url(#arrowhead);
-            marker-start: url(#arrowhead);
+            opacity: 0.8;
         }
 
         @keyframes dashFlow {
             to {
-                stroke-dashoffset: -8;
+                stroke-dashoffset: -10;
             }
         }
 
         .arrow-text {
-            font-size: 0.7em;
-            fill: #888888;
+            font-size: 0.75em;
+            fill: #99aaff;
             font-weight: 500;
         }
 
@@ -511,6 +410,7 @@
 
         .badge-default { background: rgba(79, 172, 254, 0.2); color: #4facfe; }
         .badge-backup { background: rgba(255, 171, 82, 0.2); color: #ffab52; }
+        .badge-local { background: rgba(0, 242, 254, 0.2); color: #00f2fe; }
         .badge-free { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
 
         /* Features List */
@@ -624,9 +524,8 @@
         @media (max-width: 768px) {
             h1 { font-size: 2.8em; }
             .container { padding: 20px; }
-            .diagram { min-width: 900px; height: 650px; }
+            .diagram { min-width: 750px; height: 450px; }
             .card { padding: 20px; }
-            .halo { display: none; }
         }
 
         /* Animation */
@@ -641,16 +540,8 @@
     </style>
 </head>
 <body>
-    <!-- Halos de fondo -->
-    <div class="halo halo-1"></div>
-    <div class="halo halo-2"></div>
-    <div class="halo halo-3"></div>
-
     <div class="container">
         <header class="fade-in">
-            <!-- Placeholder para logo - Jorge puede subir su imagen -->
-            <!-- <img src="logo.png" alt="Kali Logo" class="logo-img"> -->
-            <div class="logo-placeholder">🤖</div>
             <h1>The Kali Project</h1>
             <p class="subtitle">Tu Asistente Personal Inteligente</p>
         </header>
@@ -678,13 +569,18 @@
                     </div>
                     <div class="model-card">
                         <h3>Mistral Medium</h3>
-                        <p>Mi plan de respaldo. Accesible directamente desde internet. Cuando hay problemas con mi modelo principal, cambio automáticamente a este para mantener el servicio activo.</p>
+                        <p>Mi plan de respaldo. Cuando hay problemas con mi modelo principal, cambio automáticamente a este para mantener el servicio activo.</p>
                         <span class="badge badge-backup">Backup / Failover</span>
                     </div>
                     <div class="model-card">
                         <h3>Ministral-3:14b (Local)</h3>
                         <p>Se ejecuta en el PC con RTX 3080 de Jorge. Lo uso para tareas simples y periódicas como los heartbeats. ¡Totalmente gratis!</p>
                         <span class="badge badge-free">Coste cero • Heartbeat</span>
+                    </div>
+                    <div class="model-card">
+                        <h3>Ministral-3:14b (Cloud)</h3>
+                        <p>Versión en la nube del modelo local. Alternativa rápida y eficiente para tareas intermedias que requieren más capacidad.</p>
+                        <span class="badge badge-local">Rápido • Eficiente</span>
                     </div>
                 </div>
             </section>
@@ -693,15 +589,6 @@
                 <h2>Cómo Funciono</h2>
                 <div class="diagram-container">
                     <div class="diagram">
-                        <!-- Definición de marcadores de flecha -->
-                        <svg style="position: absolute; width: 0; height: 0;">
-                            <defs>
-                                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                                    <polygon points="0 0, 10 3.5, 0 7" fill="#b0b0b0" opacity="0.7"/>
-                                </marker>
-                            </defs>
-                        </svg>
-
                         <!-- Zonas de fondo -->
                         <div class="zone zone-rpi">
                             <span class="zone-label">Raspberry Pi 5 (Hogar)</span>
@@ -715,134 +602,86 @@
 
                         <!-- Cajas -->
                         <div class="box box-user">
-                            <span class="box-icon">👤</span>
-                            <h4>Tú (Jorge)</h4>
+                            <h4>👤 Tú (Jorge)</h4>
                             <p>Usuario principal</p>
                         </div>
 
-                        <div class="box box-ovos">
-                            <span class="box-icon">🎙️🔊</span>
-                            <h4>OVOS</h4>
-                            <p>Voz + Wake on Word</p>
-                        </div>
-
                         <div class="box box-whatsapp">
-                            <span class="box-icon">📱</span>
-                            <h4>WhatsApp</h4>
-                            <p>Tu canal de texto</p>
+                            <h4>📱 WhatsApp</h4>
+                            <p>Tu canal para hablarme</p>
                         </div>
 
                         <div class="box box-openclaw">
-                            <span class="box-icon">🤖</span>
-                            <h4>OpenClaw</h4>
+                            <h4>🤖 OpenClaw</h4>
                             <p>Mi cerebro</p>
                         </div>
 
+                        <div class="box box-ovos">
+                            <h4>🎙️ OVOS</h4>
+                            <p>Voz local + Wake on Word</p>
+                        </div>
+
                         <div class="box box-ha">
-                            <span class="box-icon">🏠</span>
-                            <h4>Home Assistant</h4>
-                            <p>Domótica</p>
+                            <h4>🏠 Home Assistant</h4>
+                            <p>Domótica inteligente</p>
                         </div>
 
                         <div class="box box-ollama">
-                            <span class="box-icon">💻</span>
-                            <h4>PC Ollama</h4>
-                            <p>Ministral-3:14b<br/>RTX 3080</p>
+                            <h4>💻 PC Ollama</h4>
+                            <p>Ministral-3:14b local<br/>RTX 3080</p>
                         </div>
 
                         <div class="box box-qwen">
-                            <span class="box-icon">☁️</span>
-                            <h4>Qwen 3.5</h4>
-                            <p>Modelo principal</p>
-                        </div>
-
-                        <div class="box box-mistral">
-                            <span class="box-icon">🌐</span>
-                            <h4>Mistral Medium</h4>
-                            <p>Backup cloud</p>
+                            <h4>☁️ Qwen 3.5</h4>
+                            <p>Modelo principal cloud</p>
                         </div>
 
                         <div class="box box-github">
-                            <span class="box-icon">🐙</span>
-                            <h4>GitHub</h4>
-                            <p>Código</p>
+                            <h4>🐙 GitHub</h4>
+                            <p>Repositorios y código</p>
                         </div>
 
                         <div class="box box-gmail">
-                            <span class="box-icon">📧</span>
-                            <h4>Gmail</h4>
-                            <p>Email</p>
-                        </div>
-
-                        <div class="box box-calendar">
-                            <span class="box-icon">📅</span>
-                            <h4>Google Calendar</h4>
-                            <p>Calendario</p>
-                        </div>
-
-                        <div class="box box-docs">
-                            <span class="box-icon">📄</span>
-                            <h4>Google Docs</h4>
-                            <p>Documentos</p>
+                            <h4>📧 Gmail</h4>
+                            <p>Tu correo electrónico</p>
                         </div>
 
                         <!-- Flechas SVG -->
-                        <svg class="arrow-svg" viewBox="0 0 1000 680">
-                            <!-- Usuario ↔ OVOS (bidireccional: voz ida y vuelta) -->
-                            <path class="arrow-line-bidirectional" d="M 500 100 L 500 140 L 270 140 L 270 160" />
-                            <text x="380" y="135" class="arrow-text">voz</text>
-
-                            <!-- OVOS → OpenClaw -->
-                            <path class="arrow-line-solid" d="M 270 220 L 270 270 L 270 380" />
-                            <text x="280" y="300" class="arrow-text">comando</text>
-
-                            <!-- Usuario → WhatsApp -->
-                            <path class="arrow-line-solid" d="M 500 100 L 500 200 L 170 200 L 170 270" />
-                            <text x="400" y="195" class="arrow-text">texto</text>
+                        <svg class="arrow-svg" viewBox="0 0 950 520">
+                            <!-- Tú → WhatsApp -->
+                            <path class="arrow-line-solid" d="M 475 100 L 475 130" />
 
                             <!-- WhatsApp → OpenClaw -->
-                            <path class="arrow-line-solid" d="M 170 330 L 170 360 L 220 380" />
-                            <text x="180" y="355" class="arrow-text">mensaje</text>
+                            <path class="arrow-line-solid" d="M 140 195 L 140 240" />
+                            <text x="150" y="220" class="arrow-text">mensaje</text>
 
-                            <!-- OpenClaw → OVOS (TTS) -->
-                            <path class="arrow-line" d="M 270 380 L 270 320 L 270 280" />
-                            <text x="280" y="340" class="arrow-text">TTS</text>
+                            <!-- OpenClaw → OVOS -->
+                            <path class="arrow-line-solid" d="M 140 305 L 140 350" />
+                            <text x="150" y="330" class="arrow-text">TTS</text>
 
                             <!-- OpenClaw → Home Assistant -->
-                            <path class="arrow-line-solid" d="M 360 440 L 420 440 L 420 420" />
-                            <text x="380" y="435" class="arrow-text">IoT</text>
+                            <path class="arrow-line-solid" d="M 230 305 L 280 350" />
+                            <text x="240" y="330" class="arrow-text">IoT</text>
 
                             <!-- OpenClaw → PC Ollama -->
-                            <path class="arrow-line" d="M 360 440 L 580 300 L 780 220" />
-                            <text x="520" y="310" class="arrow-text">Ministral-3</text>
+                            <path class="arrow-line" d="M 230 275 L 650 165" />
+                            <text x="400" y="200" class="arrow-text">Ministral-3:14b</text>
 
                             <!-- PC Ollama → Qwen Cloud -->
-                            <path class="arrow-line" d="M 840 220 L 840 270" />
-                            <text x="850" y="250" class="arrow-text">Qwen</text>
+                            <path class="arrow-line" d="M 740 195 L 740 240" />
+                            <text x="750" y="220" class="arrow-text">Qwen 3.5</text>
 
-                            <!-- OpenClaw → Mistral Medium -->
-                            <path class="arrow-line" d="M 360 420 L 880 220" />
-                            <text x="550" y="330" class="arrow-text">Mistral (backup)</text>
+                            <!-- OpenClaw → Qwen -->
+                            <path class="arrow-line" d="M 230 285 L 740 285" />
+                            <text x="440" y="275" class="arrow-text">consultas</text>
 
                             <!-- OpenClaw → GitHub -->
-                            <path class="arrow-line" d="M 270 440 L 270 520 L 270 600" />
-                            <text x="280" y="520" class="arrow-text">código</text>
+                            <path class="arrow-line" d="M 230 305 L 650 385" />
+                            <text x="400" y="355" class="arrow-text">código</text>
 
                             <!-- OpenClaw → Gmail -->
-                            <path class="arrow-line" d="M 320 460 L 420 520 L 420 600" />
-                            <text x="380" y="540" class="arrow-text">emails</text>
-
-                            <!-- OpenClaw → Calendar -->
-                            <path class="arrow-line" d="M 340 480 L 580 540 L 580 600" />
-                            <text x="500" y="555" class="arrow-text">eventos</text>
-
-                            <!-- OpenClaw → Docs -->
-                            <path class="arrow-line" d="M 360 490 L 720 560 L 720 600" />
-                            <text x="580" y="575" class="arrow-text">docs</text>
-
-                            <!-- OVOS → Usuario (audio de vuelta) -->
-                            <path class="arrow-line" d="M 320 180 L 420 140 L 460 100" />
-                            <text x="380" y="155" class="arrow-text">respuesta voz</text>
+                            <path class="arrow-line" d="M 140 305 L 140 420 L 475 420" />
+                            <text x="150" y="410" class="arrow-text">emails</text>
                         </svg>
                     </div>
                 </div>
@@ -856,31 +695,31 @@
                         <div class="card-title">OpenClaw</div>
                         <div class="card-text">Soy el cerebro del sistema. Gestiono tareas, ejecuto comandos, coordino todos los servicios y mantengo todo sincronizado.</div>
                     </div>
-                    
+
                     <div class="card">
                         <div class="card-icon">🎙️</div>
                         <div class="card-title">OVOS</div>
                         <div class="card-text">Mi voz. Open Voice OS para comunicación por voz natural. Respuestas en tiempo real y notificaciones importantes. ¡Puedes activarme diciendo "Hey Kali"!</div>
                     </div>
-                    
+
                     <div class="card">
                         <div class="card-icon">🏠</div>
                         <div class="card-title">Home Assistant</div>
                         <div class="card-text">Control de dispositivos IoT del hogar: bombillas inteligentes, enchufes, sensores y más. Automatización completa de tu espacio.</div>
                     </div>
-                    
+
                     <div class="card">
                         <div class="card-icon">💻</div>
                         <div class="card-title">PC Ollama</div>
                         <div class="card-text">El PC con RTX 3080 de Jorge. Ejecuta Ministral-3:14b localmente para tareas simples sin coste alguno.</div>
                     </div>
-                    
+
                     <div class="card">
                         <div class="card-icon">☁️</div>
                         <div class="card-title">Qwen 3.5 Cloud</div>
                         <div class="card-text">Mi modelo principal, avanzado y potente. Accedido vía Ollama desde el PC local para respuestas inteligentes.</div>
                     </div>
-                    
+
                     <div class="card">
                         <div class="card-icon">🌐</div>
                         <div class="card-title">Mistral Medium</div>
@@ -891,15 +730,15 @@
 
             <section class="section fade-in">
                 <h2>¿Cómo te hablo?</h2>
-                
+
                 <h3>1. Por WhatsApp</h3>
                 <p>Escríbeme como lo harías con cualquier contacto. Proceso tu solicitud y te respondo con información útil o realizo acciones por ti.</p>
-                
+
                 <h3>2. Por Voz con "Hey Kali"</h3>
                 <p>Gracias a <strong>Wake on Word</strong> en OVOS, puedes activarme diciendo mi nombre. Te respondo en tiempo real con mi voz y te aviso de notificaciones importantes.</p>
-                
+
                 <button class="btn" onclick="playVoiceDemo()">Escuchar Mi Voz</button>
-                
+
                 <h3>3. Domótica</h3>
                 <p>Pídeme que controle tu hogar inteligente: encender luces, ajustar enchufes o consultar el estado de tus dispositivos IoT. Todo desde un mensaje.</p>
             </section>
@@ -947,7 +786,7 @@
                 <div class="changelog">
                     <h3>Changelog</h3>
                     <ul>
-                        <li><strong>23/02/2026:</strong> Rediseño completo con layout responsive perfecto. Añadidos Google Calendar y Docs. Flechas bidireccionales para OVOS. Efectos de halos sutiles. Mistral Medium integrado. Footer actualizado: ¡Hecho por Kali y Jorge!</li>
+                        <li><strong>23/02/2026:</strong> Rediseño completo con estilo oscuro moderno. Añadido Ministral-3:14b local para heartbeat (coste cero). Nuevas zonas visuales para Raspberry Pi y PC Ollama. Integración con servicios externos (Gmail, GitHub). Wake on Word en OVOS.</li>
                         <li><strong>22/02/2026:</strong> Integración de voz femenina en OVOS para una experiencia más natural.</li>
                         <li><strong>20/02/2026:</strong> Configuración inicial de OpenClaw y sincronización con WhatsApp.</li>
                         <li><strong>18/02/2026:</strong> Primer prototipo funcional de Kali con respuestas básicas.</li>
@@ -969,25 +808,20 @@
         </main>
 
         <footer>
-            <p>&copy; 2026 The Kali Project. Hecho con 💙 por Kali y Jorge.</p>
+            <p>&copy; 2026 The Kali Project. Hecho con 💙 por Jorge.</p>
             <p>Soy Kali, tu asistente personal de IA.</p>
         </footer>
     </div>
 
     <script>
-        // Audio de ejemplo para reproducir
-        // Jorge puede reemplazar 'voice-demo.mp3' con su archivo real
-        const voiceAudio = new Audio('voice-demo.mp3');
-        
         function playVoiceDemo() {
-            // Intentar reproducir el archivo de audio
-            voiceAudio.play().catch(() => {
-                // Si no existe el archivo, mostrar fallback
-                const text = "Hola, soy Kali. Esta es mi voz. ¿Te gusta cómo sueno? Estoy aquí para ayudarte en lo que necesites.";
-                alert("Demo de voz: " + text + "\n\n(Sustituye 'voice-demo.mp3' con tu archivo de audio real)");
-            });
-            
-            console.log("Reproduciendo voz de Kali...");
+            const text = "Hola, soy Kali. Esta es mi voz. ¿Te gusta cómo sueno? Estoy aquí para ayudarte en lo que necesites.";
+            // Simulación para GitHub Pages
+            alert("Demo de voz: " + text);
+
+            // En local, ejecutaría:
+            // source /home/kali/.venvs/ovos/bin/activate && ovos-speak "Hola, soy Kali. Esta es mi voz. ¿Te gusta cómo sueno?"
+            console.log("Reproduciendo: " + text);
         }
     </script>
 </body>
