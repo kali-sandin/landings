@@ -5,78 +5,335 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Kali Project</title>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6c5ce7;
-            --secondary: #a29bfe;
-            --dark: #2d3436;
-            --light: #f5f6fa;
-            --accent: #fd79a8;
+            --primary: #5B4CDB;
+            --primary-dark: #4A3FB5;
+            --primary-light: #7B6EE8;
+            --secondary: #8B5CF6;
+            --accent: #EC4899;
+            --dark: #1E1B4B;
+            --light: #FAFAFF;
+            --white: #FFFFFF;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.15);
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--primary-light) 100%);
         }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        
+        * {
             margin: 0;
             padding: 0;
-            background-color: var(--light);
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, var(--light) 0%, #F0EEFF 100%);
             color: var(--dark);
             line-height: 1.6;
+            min-height: 100vh;
         }
+        
+        /* Header */
         header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
         }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+            position: relative;
+            z-index: 1;
         }
-        h1, h2, h3 {
-            color: var(--primary);
+        
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        
+        /* Section Styles */
         .section {
-            padding: 2rem 0;
-            border-bottom: 1px solid #eee;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--gray-200);
         }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        h3 {
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: #4B5563;
+        }
+        
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card-icon.primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+        }
+        
+        .card-icon.accent {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            color: var(--white);
+        }
+        
+        .card-title {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-text {
+            font-size: 0.95rem;
+            color: #6B7280;
+            line-height: 1.5;
+        }
+        
+        /* Diagram */
+        .diagram-container {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+        
+        .diagram {
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* Buttons */
         .btn {
             display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
             text-decoration: none;
             margin-top: 1rem;
             cursor: pointer;
             border: none;
             font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
         }
+        
         .btn:hover {
-            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
-        .diagram {
-            text-align: center;
-            margin: 2rem 0;
-            padding: 1rem;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        
+        .btn-accent {
+            background: var(--gradient-accent);
         }
+        
+        /* Changelog */
         .changelog {
-            background-color: white;
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary);
         }
+        
         .changelog h3 {
             margin-top: 0;
+            color: var(--primary);
         }
+        
+        .changelog ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .changelog li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-100);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .changelog li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .changelog li:last-child {
+            border-bottom: none;
+        }
+        
+        .changelog strong {
+            color: var(--primary-dark);
+        }
+        
+        /* Feature List */
+        .feature-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .feature-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .feature-icon {
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+        
+        /* Footer */
         footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 2rem 0;
             text-align: center;
-            padding: 1rem 0;
-            background-color: var(--dark);
-            color: white;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            color: var(--gray-300);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .section {
+                padding: 2rem 0;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
         }
     </style>
 </head>
@@ -89,46 +346,162 @@
     </header>
 
     <div class="container">
-        <section class="section">
+        <section class="section fade-in">
             <h2>¿Qué es Kali?</h2>
-            <p>Kali es un asistente de inteligencia artificial diseñado para ayudarte en tu día a día. Desde gestionar tu calendario hasta automatizar tareas, Kali está aquí para hacer tu vida más fácil.</p>
-            <p>Utiliza tecnologías como <strong>OpenClaw</strong>, <strong>OVOS</strong> (Open Voice OS) y <strong>WhatsApp</strong> para ofrecerte una experiencia fluida y accesible.</p>
+            <p>Kali es un asistente de inteligencia artificial diseñado para ayudarte en tu día a día. Desde gestionar tu calendario hasta automatizar tareas del hogar, Kali está aquí para hacer tu vida más fácil.</p>
+            <p>Utiliza tecnologías como <strong>OpenClaw</strong>, <strong>OVOS</strong> (Open Voice OS), <strong>Home Assistant</strong> y <strong>WhatsApp</strong> para ofrecerte una experiencia fluida y accesible.</p>
             
-            <div class="diagram">
-                <h3>Diagrama de Flujo</h3>
-                <div class="mermaid">
-                    graph TD;
-                        A[Usuario] -->|Mensaje de WhatsApp| B(OpenClaw);
-                        B -->|Procesa solicitud| C(OVOS);
-                        C -->|Respuesta de voz| D[Usuario];
-                        B -->|Ejecuta acciones| E[Sistema];
-                        E -->|Feedback| B;
+            <div class="diagram-container">
+                <h3 style="margin-top: 0;">Arquitectura del Sistema</h3>
+                <div class="diagram">
+                    <div class="mermaid">
+graph TD;
+    U[👤 Usuario] -->|WhatsApp Message| OC[🤖 OpenClaw];
+    OC -->|Voice Response| V[🎤 OVOS];
+    V -->|Audio Output| U;
+    OC -->|Smart Home Control| HA[🏠 Home Assistant];
+    HA -->|Bombillas/Enchufes| SH[💡 Dispositivos IoT];
+    OC -->|LLM Requests| OL[💻 PC Ollama];
+    OL -->|Qwen 3.5 Cloud| QC[☁️ Qwen 3.5 Cloud];
+    QC -->|Response| OL;
+    OL -->|Processed| OC;
+    OC -.->|Internet| MM[🌐 Mistral Medium];
+    MM -.->|Response| OC;
+    style U fill:#5B4CDB,color:#fff
+    style OC fill:#8B5CF6,color:#fff
+    style V fill:#EC4899,color:#fff
+    style HA fill:#F59E0B,color:#fff
+    style SH fill:#FCD34D,color:#000
+    style OL fill:#10B981,color:#fff
+    style QC fill:#3B82F6,color:#fff
+    style MM fill:#EF4444,color:#fff
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section fade-in">
+            <h2>Componentes Principales</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon primary">🤖</div>
+                    <div class="card-title">OpenClaw</div>
+                    <div class="card-text">El cerebro del sistema. Gestiona tareas, ejecuta comandos, coordina todos los servicios y mantiene todo sincronizado.</div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon accent">🎤</div>
+                    <div class="card-title">OVOS</div>
+                    <div class="card-text">Open Voice OS para comunicación por voz natural. Respuestas en tiempo real y notificaciones importantes con voz femenina.</div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon primary">🏠</div>
+                    <div class="card-title">Home Assistant</div>
+                    <div class="card-text">Control de dispositivos IoT del hogar: bombillas inteligentes, enchufes, sensores y más. Automatización completa de tu espacio.</div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon accent">💻</div>
+                    <div class="card-title">PC Ollama</div>
+                    <div class="card-text">Servidor local que ejecuta modelos LLM. Conecta con Qwen 3.5 Cloud para procesamiento avanzado de IA.</div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon primary">☁️</div>
+                    <div class="card-title">Qwen 3.5 Cloud</div>
+                    <div class="card-text">Modelo LLM avanzado alojado en la nube. Accedido vía Ollama para respuestas inteligentes y contextualizadas.</div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon accent">🌐</div>
+                    <div class="card-title">Mistral Medium</div>
+                    <div class="card-text">Modelo LLM alternativo accesible directamente desde internet. Opción adicional para diversidad de respuestas.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fade-in">
             <h2>¿Cómo funciona?</h2>
-            <p>Kali se integra con tu vida digital para ofrecerte asistencia en tiempo real. Aquí te explicamos cómo:</p>
             
             <h3>1. Comunicación por WhatsApp</h3>
             <p>Envía mensajes a Kali como lo harías con cualquier contacto. Kali procesa tu solicitud y te responde con información útil o realiza acciones por ti.</p>
             
             <h3>2. Voz con OVOS</h3>
             <p>Kali puede comunicarse contigo mediante voz gracias a <strong>OVOS</strong> (Open Voice OS). Esto incluye respuestas en tiempo real y notificaciones importantes.</p>
-            <p><strong>Bugfix reciente:</strong> Ahora con voz femenina para una experiencia más natural.</p>
+            <p><strong>Actualización reciente:</strong> Voz femenina mejorada para una experiencia más natural.</p>
             
             <button class="btn" onclick="playVoiceDemo()">Escuchar Demo de Voz</button>
             
-            <h3>3. Automatización con OpenClaw</h3>
-            <p>OpenClaw es el cerebro detrás de Kali. Se encarga de gestionar tareas, ejecutar comandos y mantener todo en sincronía.</p>
+            <h3>3. Domótica con Home Assistant</h3>
+            <p>Controla tu hogar inteligente directamente desde WhatsApp. Pídele a Kali que encienda luces, ajuste enchufes o consulte el estado de tus dispositivos IoT.</p>
+            
+            <div class="cards-grid" style="margin-top: 1.5rem;">
+                <div class="card">
+                    <div class="card-icon primary">💡</div>
+                    <div class="card-title">Iluminación</div>
+                    <div class="card-text">Controla bombillas inteligentes por habitaciones, colores e intensidad.</div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon accent">🔌</div>
+                    <div class="card-title">Enchufes</div>
+                    <div class="card-text">Gestión remota de enchufes inteligentes. Programa y monitoriza consumo.</div>
+                </div>
+            </div>
+            
+            <h3>4. IA con Múltiples Modelos</h3>
+            <p>Kali utiliza diferentes modelos de IA según la tarea:</p>
+            <ul>
+                <li><strong>Qwen 3.5 Cloud:</strong> Principal, vía PC local con Ollama.</li>
+                <li><strong>Mistral Medium:</strong> Alternativo, acceso directo por internet.</li>
+            </ul>
         </section>
 
-        <section class="section">
+        <section class="section fade-in">
+            <h2>Características</h2>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <span>Gestión de calendario y recordatorios automáticos</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <span>Resumen diario de emails en puntos clave</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <span>Automatización de tareas repetitivas</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <span>Control de domótica (bombillas, enchufes, sensores)</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <span>Búsquedas web y respuestas inteligentes</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <span>Comunicación por voz o texto según preferencia</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <span>Múltiples modelos LLM (Qwen 3.5, Mistral Medium)</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <span>Integración completa con WhatsApp</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fade-in">
             <h2>Historial de Mejoras</h2>
             <div class="changelog">
                 <h3>Changelog</h3>
                 <ul>
+                    <li><strong>23/02/2026:</strong> Integración con Home Assistant para control de domótica (bombillas, enchufes). Nuevo diagrama de arquitectura con Qwen 3.5 Cloud y Mistral Medium. Rediseño visual moderno con gama azul-morado.</li>
                     <li><strong>22/02/2026:</strong> Integración de voz femenina en OVOS para una experiencia más natural.</li>
                     <li><strong>20/02/2026:</strong> Configuración inicial de OpenClaw y sincronización con WhatsApp.</li>
                     <li><strong>18/02/2026:</strong> Primer prototipo funcional de Kali con respuestas básicas.</li>
@@ -136,16 +509,17 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section fade-in">
             <h2>¿Qué puede hacer Kali por ti?</h2>
-            <p>Aquí tienes algunas de las cosas que Kali puede hacer:</p>
+            <p>Imagina tener un asistente que:</p>
             <ul>
-                <li>Gestionar tu calendario y recordarte eventos importantes.</li>
-                <li>Resumir tus emails diarios en puntos clave.</li>
-                <li>Automatizar tareas repetitivas en tu sistema.</li>
-                <li>Responder preguntas y buscar información en la web.</li>
-                <li>Comunicarse contigo mediante voz o texto, según prefieras.</li>
+                <li>Te despierta con tu música favorita y te resume las noticias del día</li>
+                <li>Apaga las luces y baja la calefacción cuando te vas a dormir</li>
+                <li>Te avisa si va a llover antes de salir</li>
+                <li>Gestiona tus emails importantes mientras estás ocupado</li>
+                <li>Reserva restaurantes, busca información o simplemente charla contigo</li>
             </ul>
+            <p><strong>Kali hace todo esto y más.</strong></p>
         </section>
     </div>
 
@@ -156,7 +530,18 @@
     </footer>
 
     <script>
-        mermaid.initialize({ startOnLoad: true });
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#5B4CDB',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#4A3FB5',
+                lineColor: '#8B5CF6',
+                secondaryColor: '#EC4899',
+                tertiaryColor: '#FAFAFF'
+            }
+        });
         
         function playVoiceDemo() {
             const text = "Hola, soy Kali. Esta es mi voz femenina mejorada. ¿Te gusta cómo sueno?";
