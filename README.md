@@ -1,48 +1,47 @@
-# 🌟 Landings
+# Landings de Kali
 
-¡Bienvenido al repositorio de **Kali Sandín Landings**! Este espacio está dedicado a alojar páginas de aterrizaje (*landings*) creativas, modernas y funcionales, diseñadas para proyectos personales, profesionales o experimentales.
+Repositorio de páginas estáticas para demos y landings de **The Kali Project**.
 
-## 📌 ¿Qué encontrarás aquí?
-- **Diseños modernos**: Plantillas visualmente atractivas y adaptables.
-- **Código limpio**: Estructura organizada y fácil de modificar.
-- **Ejemplos prácticos**: Landings para diferentes propósitos (portafolios, productos, eventos, etc.).
+## Contenido actual
 
-## 🚀 ¿Cómo empezar?
-1. **Clona el repositorio**:
-   ```bash
-   git clone https://github.com/kali-sandin/landings.git
-   ```
-2. **Explora las carpetas**: Cada landing tiene su propia carpeta con los archivos necesarios (`index.html`, `styles.css`, etc.).
-3. **Personaliza**: Modifica el contenido, colores, imágenes y textos según tus necesidades.
-4. **Despliega**: Sube los archivos a tu hosting favorito (GitHub Pages, Netlify, Vercel, etc.).
-
-## 🛠 Tecnologías utilizadas
-- **HTML5** y **CSS3** (con flexbox/grid para diseños responsivos).
-- **JavaScript** (vanilla o frameworks como React/Vue si es necesario).
-- **GitHub Pages** para despliegue rápido y gratuito.
-
-## 📂 Estructura del proyecto
-```
-kali_sandin_landings/
-├── landing1/          # Ejemplo: Portafolio personal
-│   ├── index.html
-│   ├── styles.css
-│   └── assets/
-├── landing2/          # Ejemplo: Producto/servicio
-│   ├── index.html
-│   └── ...
-└── README.md          # Este archivo
+```text
+landings/
+├── kali_assistant.html                 # Landing legacy (single-file)
+├── README.md
+└── the-kali-project/
+    ├── index.html                      # Landing principal actual
+    ├── logo.png
+    ├── voice-demo.mp3
+    ├── voice-demo.wav
+    ├── media/
+    │   └── gallery/
+    │       └── .gitkeep               # Carpeta donde colocar fotos
+    └── README.md
 ```
 
-## 🎨 Contribuir
-Si quieres aportar diseños, mejorar los existentes o corregir errores, ¡eres bienvenido!
-1. Haz un *fork* del repositorio.
-2. Crea una rama con tu cambio: `git checkout -b mi-nueva-landing`.
-3. Haz *commit* de tus cambios: `git commit -m "Añadida landing X"`.
-4. Envía un *pull request*.
+## Landing principal
 
-## 📬 Contacto
-¿Preguntas, sugerencias o colaboraciones? Abre un *issue* en este repositorio.
+- Ruta: `the-kali-project/index.html`
+- URL esperada en GitHub Pages:
+  - `https://kali-sandin.github.io/landings/the-kali-project/`
 
----
-*Hecho con ❤️ y café por Jorge (con ayuda de su asistente IA).* 😉
+## Stack usado
+
+- HTML + CSS + JavaScript vanilla
+- Diseño responsive
+- Efectos visuales ligeros (canvas sutil, scroll lateral suave por secciones)
+
+## Flujo rápido de trabajo
+
+```bash
+cd landings
+# editar archivos
+git add .
+git commit -m "update landing"
+git push
+```
+
+## Notas
+
+- Este repo solo guarda contenido público de landings.
+- No incluir información privada ni archivos del workspace personal.
