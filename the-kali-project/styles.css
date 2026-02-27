@@ -551,7 +551,7 @@ p{
   display:grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
-    "pcollama pcollama"
+    "pcollama ."
     ". ministral";
   gap: 14px;
   justify-items:center;
@@ -565,8 +565,8 @@ p{
   display:grid;
   grid-template-columns: repeat(5, minmax(150px, 1fr));
   grid-template-areas:
-    "whatsapp github gpt qwen ."
-    "gdocs gdocs gcal gmail mistral";
+    "whatsapp github github gpt qwen "
+    "gdocs gcal gmail . mistral";
   gap: 14px;
   justify-items:center;
   align-items:start;
@@ -746,6 +746,7 @@ p{
 .cube-section{
   position: relative;
   z-index: 1;
+  padding-top: 20px;
   padding-bottom: 20px; /* separa del footer */
 }
 .cube-anchor{
@@ -763,7 +764,7 @@ p{
   justify-content:center;
   gap: 8px;
   flex-wrap: wrap;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .cube-tab{
@@ -793,7 +794,7 @@ p{
   position: relative;
   width: 100%;
   max-width: 740px;
-  margin: 100px auto;
+  margin: 150px auto 40px;
   perspective: 1000px;
   touch-action: pan-y;
   cursor: grab;
@@ -835,6 +836,9 @@ p{
 .cube-face-inner h3{
   font-size: 1.05em;
   margin: 14px 0 8px;
+}
+.cube-face-inner li{
+  font-size: 0.8em;
 }
 .cube-face-inner p{
   font-size: 0.7em;
