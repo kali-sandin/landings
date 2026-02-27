@@ -95,18 +95,18 @@
   if (!diagram || !svg || !resetBtn) return;
 
   const links = [
-    { from: 'user', to: 'ovos', label: 'voz', style: 'solid' },
-    { from: 'ovos', to: 'user', label: 'audio', style: 'solid' },
+    { from: 'user', to: 'ovos', label: 'voz,audio', style: 'solid' },
+    { from: 'ovos', to: 'user', label: '', style: 'solid' },
 
     { from: 'user', to: 'whatsapp', label: 'texto', style: 'solid' },
-    { from: 'whatsapp', to: 'openclaw', label: 'mensaje', style: 'solid' },
+    { from: 'whatsapp', to: 'openclaw', label: 'mensajes', style: 'solid' },
+    { from: 'openclaw', to: 'whatsapp', label: 'mensajes', style: 'solid' },
 
-    { from: 'ovos', to: 'openclaw', label: 'STT', style: 'solid' },
-    { from: 'openclaw', to: 'ovos', label: 'TTS', style: 'solid' },
+    { from: 'openclaw', to: 'ovos', label: 'TTS,STT', style: 'solid' },
 
     { from: 'openclaw', to: 'ha', label: 'IoT', style: 'solid' },
 
-    { from: 'openclaw', to: 'pcollama', label: 'LLM', style: 'dashed' },
+    { from: 'openclaw', to: 'pcollama', label: 'LLM', style: 'solid' },
     { from: 'pcollama', to: 'ministral', label: 'heartbeat', style: 'solid' },
 
     { from: 'openclaw', to: 'gpt', label: 'principal', style: 'dashed' },
@@ -314,7 +314,7 @@
 
   const faceAngles = { voz: 0, capacidades: -90, mejoras: -180, imagina: 90 };
   let angleY = 0;
-  const tiltX = -6;
+  const tiltX = 0;
 
   function updateDepth() {
     const w = Math.max(320, scene.clientWidth);
