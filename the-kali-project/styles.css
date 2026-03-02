@@ -181,6 +181,7 @@ h1{
   font-size: 4em;
   margin-bottom: 10px;
   background: linear-gradient(90deg, var(--c1) 0%, var(--c2) 100%);
+  background-clip:text;
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   text-shadow: 0 0 18px rgba(0,242,254,0.7);
