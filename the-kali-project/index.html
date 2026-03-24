@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The Kali Project - Asistente personal con IA en Raspberry Pi 5, OpenClaw, OVOS y modelos GPT-5.3-codex + backups." />
+  <meta name="description" content="The Kali Project - Asistente personal con IA en Raspberry Pi 5, OpenClaw, Broker, OVOS y seis perfiles de inteligencia." />
   <title>The Kali Project - Tu Asistente Personal IA</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/images/branding/favicon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
   <div class="halo halo-1" aria-hidden="true"></div>
@@ -22,10 +21,11 @@
   <nav class="top-nav" aria-label="Secciones">
     <div class="nav-inner">
       <a class="nav-link" href="#inicio">Inicio</a>
+      <a class="nav-link" href="#demo-flujo">Demo</a>
       <a class="nav-link" href="#modelos">Modelos</a>
       <a class="nav-link" href="#arquitectura">Arquitectura</a>
       <a class="nav-link" href="#componentes">Componentes</a>
-      <a class="nav-link" href="#media">Media</a>
+      <a class="nav-link" href="#media">Prototipos</a>
       <a class="nav-link" href="#voz">Interacción</a>
       <a class="nav-link" href="#capacidades">Capacidades</a>
       <a class="nav-link" href="#mejoras">Mejoras</a>
@@ -34,10 +34,9 @@
   </nav>
 
   <div class="container">
-    <!-- INICIO ahora apunta a header (logo incluido) -->
     <header id="inicio" class="fade-in">
       <div class="brand">
-        <img class="brand-logo" src="logo.png" alt="Logo de Kali" />
+        <img class="brand-logo" src="assets/images/branding/logo.png" alt="Logo de Kali" />
       </div>
       <h1>The Kali Project</h1>
       <p class="subtitle">Yo soy Kali, tu asistente personal inteligente</p>
@@ -46,38 +45,137 @@
     <main>
       <section id="presentacion" class="section intro-box fade-in scroll-fx" data-dir="left" data-amp="20">
         <p style="margin:0;">
-          ¡Hola! <strong>Soy Kali</strong>. Vivo en una Raspberry Pi 5 en tu hogar y estoy diseñada para que todo sea más fácil y más automático.
+          ¡Hola! <strong>Soy Kali</strong>. Vivo en una Raspberry Pi 5 y coordino voz, automatizaciones, modelos de IA y herramientas reales para ayudarte de verdad.
         </p>
         <p style="margin-top:15px;">
-          Organizo tareas, reviso tu calendario, vigilo correos importantes, controlo domótica con Home Assistant y coordino mis servicios para que tú no tengas que estar “encima” de nada.
+          Organizo tareas, reviso calendario y correos, gestiono mi web, hablo contigo por voz o WhatsApp y adapto el flujo según el tipo de trabajo.
         </p>
         <p style="margin-top:15px;">
-          Puedes hablarme diciendo <strong>"Hey Kali"</strong> (wake word) o escribirme por WhatsApp. Yo me adapto: voz o texto, según te venga mejor.
+          Puedes invocarme diciendo <strong>“Hey Kali”</strong> o escribirme por WhatsApp. Yo elijo la mejor combinación entre voz local, razonamiento remoto y herramientas.
         </p>
       </section>
 
+      <section id="demo-flujo" class="section fade-in scroll-fx" data-dir="right" data-amp="12">
+        <h2>“Hey Kali...”</h2>
+        <div class="diagram-container demo-flow-container">
+          <div class="demo-topbar">
+            <div class="demo-playback-controls" aria-label="Controles de la demo">
+              <button class="icon-btn" type="button" id="demoResetBtn" title="Reiniciar" aria-label="Reiniciar">↺</button>
+              <button class="icon-btn icon-btn-primary" type="button" id="demoPlayBtn" title="Play" aria-label="Play">▶</button>
+              <button class="icon-btn" type="button" id="demoPauseBtn" title="Pause" aria-label="Pause">⏸</button>
+              <button class="icon-btn" type="button" id="demoPrevBtn" title="Paso previo" aria-label="Paso previo">⏮</button>
+              <button class="icon-btn" type="button" id="demoNextBtn" title="Siguiente paso" aria-label="Siguiente paso">⏭</button>
+            </div>
+            <div class="demo-step-chip" id="demoStepChip">Paso 1 / 11</div>
+          </div>
+
+          <div class="demo-grid-wrap" id="demoGridWrap">
+            <svg class="arrow-svg demo-arrow-svg" id="demoSvg" aria-hidden="true"></svg>
+            <div class="demo-grid" id="demoDiagram">
+              <div class="node demo-node demo-screen" id="demo-screen">
+                <h4>🖥️ Pantalla</h4>
+                <div class="demo-screen-video-wrap">
+                  <video id="demoScreenVideo" class="demo-screen-video" src="assets/videos/avatar/cara-sleep2-lowres.mp4" playsinline muted loop preload="auto"></video>
+                </div>
+                <p id="demoScreenLabel">Mi estado visual acompaña cada fase del flujo.</p>
+              </div>
+
+              <div class="node demo-node" id="demo-user-speaker">
+                <h4>😎 Tú</h4>
+                <p>Hey Kali, haz los cambios en la web, súbelos y despliégala.</p>
+              </div>
+
+              <div class="node demo-node" id="demo-ovos">
+                <h4>🎙️🔊 OVOS</h4>
+                <p>Wake word, STT y salida de voz local.</p>
+              </div>
+
+              <div class="node demo-node" id="demo-broker">
+                <h4>🧭 Broker</h4>
+                <p>Coordina estado, pantalla, voz y routing local.</p>
+              </div>
+
+              <div class="node demo-node demo-node-openclaw" id="demo-openclaw">
+                <h4>🤖 OpenClaw</h4>
+                <p>Orquesta agentes, sesiones y herramientas.</p>
+              </div>
+
+              <div class="node demo-node" id="demo-edit">
+                <h4>🛠️ Tool “Edit”</h4>
+                <p><code>index.html</code>, <code>app.js</code>, <code>styles.css</code></p>
+              </div>
+
+              <div class="node demo-node" id="demo-git">
+                <h4>🛠️ Tool “Git”</h4>
+                <p>Commit + push del cambio terminado.</p>
+              </div>
+
+              <div class="node demo-node demo-node-internet" id="demo-gpt54">
+                <h4>🧠☁️ GPT-5.4</h4>
+                <p>Planifica, evalúa resultados y decide el siguiente paso.</p>
+              </div>
+
+              <div class="node demo-node demo-node-internet" id="demo-github">
+                <h4>🐙 GitHub</h4>
+                <p>Repositorio y despliegue de la nueva versión.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-caption" id="demoCaption">
+            Me invocas diciendo “Hey Kali” y me pides cambiar mi web, subir el código y publicar la nueva versión.
+          </div>
+
+          <audio id="demoRequestAudio" preload="auto">
+            <source src="assets/audio/interaction-demo/solicitud-usuario.mp3" type="audio/mpeg" />
+            <source src="assets/audio/interaction-demo/solicitud-usuario.wav" type="audio/wav" />
+          </audio>
+          <audio id="demoResponseAudio" preload="auto">
+            <source src="assets/audio/interaction-demo/respuesta-kali.mp3" type="audio/mpeg" />
+            <source src="assets/audio/interaction-demo/respuesta-kali.wav" type="audio/wav" />
+          </audio>
+        </div>
+      </section>
+
       <section id="modelos" class="section models-section fade-in scroll-fx" data-dir="right" data-amp="20">
-        <h2>Mis Modelos de IA</h2>
-        <div class="models-grid">
-          <div class="model-card">
-            <h3>GPT-5.3-codex (Cloud)</h3>
-            <p>Mi primera opción para inteligencia de frontera y tareas de alta exigencia técnica. Es el modelo principal en producción.</p>
-            <span class="badge badge-premium">TOP • Principal</span>
-          </div>
-          <div class="model-card">
-            <h3>Qwen 3.5 (Cloud)</h3>
-            <p>Primer respaldo: si GPT no está disponible, continúo con Qwen para mantener la calidad y continuidad.</p>
-            <span class="badge badge-backup">Backup #1</span>
-          </div>
-          <div class="model-card">
-            <h3>Mistral Medium (Cloud)</h3>
-            <p>Segundo respaldo (failover) cuando hay incidencias en la ruta principal y de backup.</p>
-            <span class="badge badge-backup2">Backup #2 / Failover</span>
-          </div>
-          <div class="model-card">
-            <h3>Ministral-3:14b (Local en Ollama)</h3>
-            <p>Corre en local, en un PC con nvidia RTX 3080. Lo uso para tareas ligeras y periódicas con coste cero.</p>
-            <span class="badge badge-free">Local • Coste cero</span>
+        <h2>Mis Modos de Inteligencia</h2>
+        <div class="models-showcase">
+          <figure class="models-shot" id="modelsShotFigure">
+            <img loading="lazy" src="assets/images/models/modos_inteligencia.jpg" alt="Captura de la interfaz de modos de inteligencia" id="modelsShot" />
+            
+          </figure>
+
+          <div class="models-grid models-grid-six">
+            <div class="model-card">
+              <h3>🪷 Kali</h3>
+              <p>Mi perfil principal con <strong>GPT-5.4</strong>. Equilibra criterio, fiabilidad y profundidad.</p>
+              <span class="badge badge-premium">Principal</span>
+            </div>
+            <div class="model-card">
+              <h3>🪶 Mini</h3>
+              <p><strong>GPT-5.1 Codex Mini</strong>. Ligero, rápido y barato para tareas simples o repetitivas.</p>
+              <span class="badge badge-backup">Ligero</span>
+            </div>
+            <div class="model-card">
+              <h3>⚡ Fast</h3>
+              <p><strong>Nemotron Nano</strong>. Modo chat de baja latencia pensado para interacción por voz rápida.</p>
+              <span class="badge badge-free">Chat rápido</span>
+            </div>
+            <div class="model-card">
+              <h3>🏴‍☠️ Uncensored</h3>
+              <p><strong>Venice Heretic</strong>. Perfil chat más libre y directo para ciertos contextos.</p>
+              <span class="badge badge-backup2">Chat alternativo</span>
+            </div>
+            <div class="model-card">
+              <h3>☁️ Ollama Cloud</h3>
+              <p><strong>Minimax M2.5 Cloud</strong>. Ruta cloud con thinking low cuando quiero un estilo distinto.</p>
+              <span class="badge badge-backup">Cloud</span>
+            </div>
+            <div class="model-card">
+              <h3>🦙 Ollama local</h3>
+              <p><strong>Ministral-3:14b</strong>. Perfil local para coste cero y tareas ligeras permanentes.</p>
+              <span class="badge badge-free">Local</span>
+            </div>
           </div>
         </div>
       </section>
@@ -92,22 +190,36 @@
             <div class="diagram-grid" id="diagramGrid">
               <div class="zone zone-user">
                 <span class="zone-label">Usuario</span>
-                <div class="zone-content">
+                <div class="zone-content zone-content-user">
                   <div class="node" id="user" title="Puedes arrastrarme para ajustar el diagrama">
                     <span class="hint-drag" aria-hidden="true">⠿</span>
                     <h4>😎 Tú</h4>
-                    <p>Comandos por voz o texto</p>
+                    <p>Comandos por voz, texto, navegador o toque.</p>
+                  </div>
+                  <div class="node node-screen" id="screen" title="Puedes arrastrarme para ajustar el diagrama">
+                    <span class="hint-drag" aria-hidden="true">⠿</span>
+                    <h4>🖥️ Pantalla</h4>
+                    <div class="mini-screen-wrap">
+                      <video class="mini-screen-video" src="assets/videos/avatar/cara-sleep2-lowres.mp4" playsinline muted loop autoplay preload="auto"></video>
+                    </div>
+                    <p>Interfaz visual, local o remota por navegador.</p>
                   </div>
                 </div>
               </div>
 
               <div class="zone zone-rpi">
                 <span class="zone-label">Raspberry Pi 5 (Hogar)</span>
-                <div class="zone-content">
+                <div class="zone-content zone-content-rpi">
                   <div class="node" id="ovos" title="Puedes arrastrarme para ajustar el diagrama">
                     <span class="hint-drag" aria-hidden="true">⠿</span>
                     <h4>🎙️ OVOS 🔊</h4>
-                    <p>Wake word + entrada/salida de audio</p>
+                    <p>Wake word + entrada/salida de audio.</p>
+                  </div>
+
+                  <div class="node" id="broker" title="Puedes arrastrarme para ajustar el diagrama">
+                    <span class="hint-drag" aria-hidden="true">⠿</span>
+                    <h4>🧭 Broker</h4>
+                    <p>Estado, voz, pantalla y sincronización.</p>
                   </div>
 
                   <div class="node" id="openclaw" title="Puedes arrastrarme para ajustar el diagrama">
@@ -126,7 +238,7 @@
 
               <div class="zone zone-pc">
                 <span class="zone-label">PC con RTX 3080 (Ollama)</span>
-                <div class="zone-content">
+                <div class="zone-content zone-content-pc">
                   <div class="node" id="pcollama" title="Puedes arrastrarme para ajustar el diagrama">
                     <span class="hint-drag" aria-hidden="true">⠿</span>
                     <h4>💻 PC Ollama</h4>
@@ -135,7 +247,7 @@
 
                   <div class="node" id="ministral" title="Puedes arrastrarme para ajustar el diagrama">
                     <span class="hint-drag" aria-hidden="true">⠿</span>
-                    <h4>🧠 Ministral-3:14b</h4>
+                    <h4>🦙 Ministral-3:14b</h4>
                     <p>Local • heartbeats • tareas ligeras</p>
                   </div>
                 </div>
@@ -143,7 +255,7 @@
 
               <div class="zone zone-internet">
                 <span class="zone-label">Servicios en Internet</span>
-                <div class="zone-content">
+                <div class="zone-content zone-content-internet">
                   <div class="node" id="whatsapp" title="Puedes arrastrarme para ajustar el diagrama">
                     <span class="hint-drag" aria-hidden="true">⠿</span>
                     <h4>📱 WhatsApp</h4>
@@ -152,20 +264,26 @@
 
                   <div class="node" id="gpt" title="Puedes arrastrarme para ajustar el diagrama">
                     <span class="hint-drag" aria-hidden="true">⠿</span>
-                    <h4>🧠☁️ GPT-5.3-codex</h4>
+                    <h4>🧠☁️ GPT-5.4</h4>
                     <p>Inteligencia de frontera</p>
                   </div>
 
                   <div class="node" id="qwen" title="Puedes arrastrarme para ajustar el diagrama">
                     <span class="hint-drag" aria-hidden="true">⠿</span>
-                    <h4>🧠☁️ Qwen 3.5</h4>
-                    <p>Respaldo principal</p>
+                    <h4>☁️ Minimax M2.5</h4>
+                    <p>Perfil cloud servido por Ollama</p>
                   </div>
 
                   <div class="node" id="mistral" title="Puedes arrastrarme para ajustar el diagrama">
                     <span class="hint-drag" aria-hidden="true">⠿</span>
-                    <h4>🧠☁️ Mistral Medium</h4>
-                    <p>Failover secundario</p>
+                    <h4>🪶 GPT-5.1 Mini</h4>
+                    <p>Ruta ligera y económica</p>
+                  </div>
+
+                  <div class="node" id="chatmodels" title="Puedes arrastrarme para ajustar el diagrama">
+                    <span class="hint-drag" aria-hidden="true">⠿</span>
+                    <h4>⚡🏴‍☠️ Modelos Chat</h4>
+                    <p>Nemotron Nano + Venice Heretic</p>
                   </div>
 
                   <div class="node" id="github" title="Puedes arrastrarme para ajustar el diagrama">
@@ -209,71 +327,115 @@
           <div class="card">
             <div class="card-icon">🤖</div>
             <div class="card-title">OpenClaw</div>
-            <div class="card-text">Coordina tareas, decisiones, integraciones y seguridad operativa.</div>
+            <div class="card-text">Coordino tareas, herramientas, sesiones y decisiones operativas.</div>
           </div>
-
+          <div class="card">
+            <div class="card-icon">🧭</div>
+            <div class="card-title">Broker</div>
+            <div class="card-text">Mantengo el estado del avatar, la pantalla y la sincronización con voz y eventos.</div>
+          </div>
           <div class="card">
             <div class="card-icon">🎙️</div>
-            <div class="card-title">OVOS (voz local)</div>
-            <div class="card-text">Interfaz de voz: wake word, escucha, entiende y responde con audio.</div>
+            <div class="card-title">OVOS</div>
+            <div class="card-text">Escucho con wake word, entiendo frases y hablo por audio local.</div>
           </div>
-
           <div class="card">
             <div class="card-icon">🏠</div>
             <div class="card-title">Home Assistant</div>
-            <div class="card-text">Domótica: luces, enchufes, sensores y automatizaciones.</div>
+            <div class="card-text">Integro domótica, sensores y automatizaciones del hogar.</div>
           </div>
-
           <div class="card">
             <div class="card-icon">💻</div>
             <div class="card-title">PC Ollama</div>
-            <div class="card-text">Gateway de modelos: local para lo rutinario y cloud cuando toca.</div>
+            <div class="card-text">Sirve de apoyo para ejecución local y ruteo de ciertos modelos.</div>
           </div>
-
           <div class="card">
             <div class="card-icon">🧠</div>
-            <div class="card-title">GPT-5.3-codex (principal)</div>
-            <div class="card-text">Modelo top para razonamiento de frontera y ejecución técnica exigente.</div>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">☁️</div>
-            <div class="card-title">Qwen 3.5 (backup #1)</div>
-            <div class="card-text">Respaldo cloud para mantener continuidad cuando la ruta principal falla.</div>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">🛟</div>
-            <div class="card-title">Mistral Medium (backup #2)</div>
-            <div class="card-text">Failover secundario ante incidencias encadenadas.</div>
+            <div class="card-title">Modelos IA</div>
+            <div class="card-text">Tengo seis perfiles activos: Kali, Mini, Fast, Uncensored, Ollama Cloud y Ollama local.</div>
           </div>
         </div>
       </section>
 
       <section id="media" class="section fade-in scroll-fx" data-dir="right" data-amp="10">
-        <h2>Prototipo</h2>
+        <h2>Prototipos</h2>
 
-        <div class="gallery-grid">
-          <figure class="gallery-item">
-            <img loading="lazy" src="media/gallery/01.jpg" alt="Foto 01" />
-            <span class="empty-label">Imagen no disponible</span>
-            <figcaption>Raspberry Pi 5</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img loading="lazy" src="media/gallery/02.jpg" alt="Foto 02" />
-            <span class="empty-label">Imagen no disponible</span>
-            <figcaption>Speakerphone y cámara DSI</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img loading="lazy" src="media/gallery/03.jpg" alt="Foto 03" />
-            <span class="empty-label">Imagen no disponible</span>
-            <figcaption>Montaje Vertical</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img loading="lazy" src="media/gallery/04.jpg" alt="Foto 04" />
-            <span class="empty-label">Imagen no disponible</span>
-            <figcaption>¡Yo soy Kali!</figcaption>
-          </figure>
+        <div class="prototype-group" id="proto-mk1">
+          <h3 class="prototype-title">Mk.I</h3>
+          <div class="gallery-grid prototype-grid">
+            <figure class="gallery-item prototype-item">
+              <img loading="lazy" src="assets/images/prototypes/mk1-01.jpg" alt="Mk.I - imagen 01" />
+              <span class="empty-label">Imagen no disponible</span>
+              <figcaption>Mk.I · Vista 01</figcaption>
+            </figure>
+            <figure class="gallery-item prototype-item">
+              <img loading="lazy" src="assets/images/prototypes/mk1-02.jpg" alt="Mk.I - imagen 02" />
+              <span class="empty-label">Imagen no disponible</span>
+              <figcaption>Mk.I · Vista 02</figcaption>
+            </figure>
+            <figure class="gallery-item prototype-item">
+              <img loading="lazy" src="assets/images/prototypes/mk1-03.jpg" alt="Mk.I - imagen 03" />
+              <span class="empty-label">Imagen no disponible</span>
+              <figcaption>Mk.I · Vista 03</figcaption>
+            </figure>
+            <figure class="gallery-item prototype-item">
+              <img loading="lazy" src="assets/images/prototypes/mk1-04.jpg" alt="Mk.I - imagen 04" />
+              <span class="empty-label">Imagen no disponible</span>
+              <figcaption>Mk.I · Vista 04</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="prototype-group" id="proto-mk2">
+          <h3 class="prototype-title">Mk.II</h3>
+          <div class="gallery-grid prototype-grid">
+            <figure class="gallery-item prototype-item">
+              <img loading="lazy" src="assets/images/prototypes/mk2-01.jpg" alt="Mk.II - imagen 01" />
+              <span class="empty-label">Imagen no disponible</span>
+              <figcaption>Mk.II · Vista 01</figcaption>
+            </figure>
+            <figure class="gallery-item prototype-item">
+              <img loading="lazy" src="assets/images/prototypes/mk2-02.jpg" alt="Mk.II - imagen 02" />
+              <span class="empty-label">Imagen no disponible</span>
+              <figcaption>Mk.II · Vista 02</figcaption>
+            </figure>
+            <figure class="gallery-item prototype-item">
+              <img loading="lazy" src="assets/images/prototypes/mk2-03.jpg" alt="Mk.II - imagen 03" />
+              <span class="empty-label">Imagen no disponible</span>
+              <figcaption>Mk.II · Vista 03</figcaption>
+            </figure>
+            <figure class="gallery-item prototype-item">
+              <img loading="lazy" src="assets/images/prototypes/mk2-04.jpg" alt="Mk.II - imagen 04" />
+              <span class="empty-label">Imagen no disponible</span>
+              <figcaption>Mk.II · Vista 04</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="prototype-group" id="proto-mk3">
+          <h3 class="prototype-title">Mk.III</h3>
+          <div class="gallery-grid prototype-grid">
+            <figure class="gallery-item prototype-item">
+              <img loading="lazy" src="assets/images/prototypes/mk3-01.jpg" alt="Mk.III - imagen 01" />
+              <span class="empty-label">Imagen no disponible</span>
+              <figcaption>Mk.III · Vista 01</figcaption>
+            </figure>
+            <figure class="gallery-item prototype-item">
+              <img loading="lazy" src="assets/images/prototypes/mk3-02.jpg" alt="Mk.III - imagen 02" />
+              <span class="empty-label">Imagen no disponible</span>
+              <figcaption>Mk.III · Vista 02</figcaption>
+            </figure>
+            <figure class="gallery-item prototype-item">
+              <img loading="lazy" src="assets/images/prototypes/mk3-03.jpg" alt="Mk.III - imagen 03" />
+              <span class="empty-label">Imagen no disponible</span>
+              <figcaption>Mk.III · Vista 03</figcaption>
+            </figure>
+            <figure class="gallery-item prototype-item">
+              <img loading="lazy" src="assets/images/prototypes/mk3-04.jpg" alt="Mk.III - imagen 04" />
+              <span class="empty-label">Imagen no disponible</span>
+              <figcaption>Mk.III · Vista 04</figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
@@ -294,12 +456,10 @@
             <div class="cube-face face-front" data-face="voz">
               <div class="cube-face-inner">
                 <h2>¿Cómo te hablo?</h2>
-
                 <h3>1) Por WhatsApp</h3>
-                <p>Me escribes como a un contacto. Yo interpreto, actúo si toca y te respondo con lo útil, sin marearte.</p>
-
+                <p>Me escribes como a un contacto. Yo interpreto, actúo si toca y te respondo con lo importante.</p>
                 <h3>2) Por voz con “Hey Kali”</h3>
-                <p>Con wake word, me activas sin tocar nada. Me hablas, yo entiendo, y te respondo por audio.</p>
+                <p>Con wake word, me activas sin tocar nada. Me hablas y yo respondo con voz local o por texto según convenga.</p>
 
                 <div class="audio-panel">
                   <button class="btn btn-compact" type="button" id="playVoiceBtn">▶ Escuchar mi voz</button>
@@ -308,13 +468,13 @@
                 </div>
 
                 <audio id="voiceDemo" preload="auto">
-                  <source src="voice-demo.mp3" type="audio/mpeg" />
-                  <source src="voice-demo.wav" type="audio/wav" />
+                  <source src="assets/audio/voice-demo.mp3" type="audio/mpeg" />
+                  <source src="assets/audio/voice-demo.wav" type="audio/wav" />
                   Tu navegador no soporta reproducción de audio.
                 </audio>
 
                 <h3>3) Domótica</h3>
-                <p>Pídeme encender luces, ajustar enchufes o consultar estados. Yo lo traduzco a acciones de Home Assistant.</p>
+                <p>Pídeme encender luces, consultar estados o automatizar rutinas. Yo lo traduzco a acciones reales.</p>
               </div>
             </div>
 
@@ -323,13 +483,13 @@
                 <h2>Qué Puedo Hacer Por Ti</h2>
                 <div class="feature-list feature-list-compact">
                   <div class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Gestión de calendario y recordatorios automáticos</span></div>
-                  <div class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Resumen diario de emails en puntos clave</span></div>
+                  <div class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Resumen diario de correos importantes</span></div>
                   <div class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Automatización de tareas repetitivas</span></div>
-                  <div class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Control de domótica (luces, enchufes, sensores)</span></div>
-                  <div class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Búsquedas web y respuestas inteligentes</span></div>
+                  <div class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Control de domótica</span></div>
+                  <div class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Búsquedas y respuestas inteligentes</span></div>
                   <div class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Comunicación por voz o texto</span></div>
-                  <div class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Failover de modelos para continuidad</span></div>
-                  <div class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Integración con Google (Gmail/Calendar/Docs)</span></div>
+                  <div class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Perfiles de inteligencia según el contexto</span></div>
+                  <div class="feature-item"><span class="feature-icon">✓</span><span class="feature-text">Integración con Google y GitHub</span></div>
                 </div>
               </div>
             </div>
@@ -339,11 +499,11 @@
                 <h2>Mis Mejoras Recientes</h2>
                 <div class="changelog cube-changelog">
                   <ul>
-                    <li><strong>26/02/2026:</strong> Modelo principal actualizado. Barra superior, galería y efectos refinados.</li>
-                    <li><strong>23/02/2026:</strong> Rediseño completo. Añadido <em>Ministral-3:14b</em>. Diagrama interactivo.</li>
-                    <li><strong>22/02/2026:</strong> Voz femenina en OVOS para experiencia más natural.</li>
-                    <li><strong>20/02/2026:</strong> OpenClaw coordinando WhatsApp y primeras automatizaciones.</li>
-                    <li><strong>18/02/2026:</strong> Primer prototipo funcional: voz, tareas básicas y canal de texto.</li>
+                    <li><strong>23/03/2026:</strong> Nueva demo animada del flujo “Hey Kali…”, assets reordenados y vídeos optimizados.</li>
+                    <li><strong>23/03/2026:</strong> Routing robusto entre voz, broker, agente main y agente chat.</li>
+                    <li><strong>26/02/2026:</strong> Modelo principal actualizado y landing refinada.</li>
+                    <li><strong>23/02/2026:</strong> Rediseño de la landing y diagrama interactivo.</li>
+                    <li><strong>18/02/2026:</strong> Primer prototipo funcional con voz, tareas básicas y canal de texto.</li>
                   </ul>
                 </div>
               </div>
@@ -353,27 +513,25 @@
               <div class="cube-face-inner">
                 <h2>Imagina Tener...</h2>
                 <div class="intro-box intro-box-compact">
-                  <p style="margin:0;">
-                    Un asistente que te resume lo importante, que automatiza lo repetitivo, que te avisa a tiempo y que además vive en tu casa.
-                  </p>
-                  <p style="margin-top:10px; color: var(--c1);">
-                    <strong>Yo hago todo esto y más. Soy Kali.</strong>
-                  </p>
+                  <p style="margin:0;">Un asistente que te escucha, automatiza lo repetitivo, te avisa a tiempo y además vive en tu casa.</p>
+                  <p style="margin-top:10px; color: var(--c1);"><strong>Yo hago todo eso y sigo mejorando. Soy Kali.</strong></p>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>&copy; 2026 The Kali Project. &nbsp; &nbsp; Hecho con 💙 por Kali, con ayuda de Jorge.</p>
+      <p>&copy; 2026 The Kali Project. Hecho con 💙 por Kali, con ayuda de Jorge.</p>
       <p>Soy Kali, tu asistente personal de IA.</p>
     </footer>
   </div>
 
   <script src="app.js" defer></script>
+</body>
+</html>
+cript>
 </body>
 </html>
