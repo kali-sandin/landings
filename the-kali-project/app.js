@@ -124,6 +124,7 @@
   const screenLabel = document.getElementById('demoScreenLabel');
   const caption = document.getElementById('demoCaption');
   const chip = document.getElementById('demoStepChip');
+  const dotsWrap = document.getElementById('demoStepDots');
   const playBtn = document.getElementById('demoPlayBtn');
   const pauseBtn = document.getElementById('demoPauseBtn');
   const nextBtn = document.getElementById('demoNextBtn');
@@ -133,6 +134,7 @@
   const responseAudio = document.getElementById('demoResponseAudio');
 
   const STEP_MS = 5000;
+  const RESPONSE_AUDIO_FALLBACK_MS = 12112;
   const avatarBase = 'assets/videos/avatar/';
 
   const links = [
@@ -246,6 +248,41 @@
   let currentStep = 0;
   let timer = null;
   let playing = false;
+
+  function syncPlayButton() {
+    playBtn?.classList.toggle('is-active', playing);
+    pauseBtn?.classList.remove('is-active');
+  }
+
+  function buildDots() {
+    if (!dotsWrap) return;
+    dotsWrap.innerHTML = '';
+    steps.forEach((step, index) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'demo-step-dot';
+      dot.setAttribute('aria-label', `Ir al ${step.label}`);
+      dot.title = step.label;
+      dot.addEventListener('click', () => {
+        pauseSequence();
+        renderStep(index);
+      });
+      dotsWrap.appendChild(dot);
+    });
+  }
+
+  function updateDots() {
+    if (!dotsWrap) return;
+    [...dotsWrap.children].forEach((dot, index) => {
+      dot.classList.toggle('is-done', index < currentStep);
+      dot.classList.toggle('is-active', index === currentStep);
+      dot.setAttribute('aria-pressed', index === currentStep ? 'true' : 'false');
+    });
+  }
+
+  [requestAudio, responseAudio].forEach((audioEl) => {
+    try { audioEl?.load(); } catch (_) {}
+  });
 
   function stopAudio() {
     [requestAudio, responseAudio].forEach((audioEl) => {
@@ -374,6 +411,7 @@
 
     if (caption) caption.textContent = step.caption;
     if (chip) chip.textContent = step.label;
+    updateDots();
     setVideo(step.screen, step.screenLabel);
     renderDemoLinks(step.edges || []);
 
@@ -388,9 +426,20 @@
     }
   }
 
+  function stepDelayMs(step, index) {
+    if (index === 9) {
+      const responseMs = Number.isFinite(responseAudio?.duration)
+        ? Math.ceil(responseAudio.duration * 1000) + 1000
+        : RESPONSE_AUDIO_FALLBACK_MS;
+      return responseMs;
+    }
+    return step.durationMs || STEP_MS;
+  }
+
   function scheduleNext() {
     clearTimer();
     if (!playing) return;
+    const delayMs = stepDelayMs(steps[currentStep], currentStep);
     timer = setTimeout(() => {
       if (currentStep >= steps.length - 1) {
         playing = false;
@@ -399,20 +448,21 @@
       }
       renderStep(currentStep + 1);
       scheduleNext();
-    }, STEP_MS);
+    }, delayMs);
   }
 
   function playSequence() {
     playing = true;
+    syncPlayButton();
     renderStep(currentStep);
     scheduleNext();
   }
 
   function pauseSequence() {
     playing = false;
+    syncPlayButton();
     clearTimer();
     stopAudio();
-    screenVideo?.pause();
   }
 
   function goRelative(offset) {
@@ -422,6 +472,7 @@
 
   function resetSequence({ autoplay = false } = {}) {
     playing = autoplay;
+    syncPlayButton();
     clearTimer();
     renderStep(0, { playAudio: autoplay });
     if (autoplay) scheduleNext();
@@ -435,6 +486,8 @@
   window.addEventListener('resize', () => renderDemoLinks(steps[currentStep].edges || []), { passive: true });
   window.addEventListener('load', () => renderDemoLinks(steps[currentStep].edges || []), { passive: true });
 
+  buildDots();
+  syncPlayButton();
   renderStep(0, { playAudio: false });
 })();
 
@@ -582,6 +635,7 @@
 
     function onDown(e) {
       dragging = true;
+      el.classList.add('is-dragging');
       el.setPointerCapture?.(e.pointerId);
       startX = e.clientX;
       startY = e.clientY;
@@ -600,6 +654,7 @@
 
     function onUp(e) {
       dragging = false;
+      el.classList.remove('is-dragging');
       try { el.releasePointerCapture?.(e.pointerId); } catch (_) {}
     }
 
@@ -616,7 +671,10 @@
       el.style.setProperty('--tx', `${p.x}px`);
       el.style.setProperty('--ty', `${p.y}px`);
     });
-    render();
+    requestAnimationFrame(() => {
+      render();
+      requestAnimationFrame(render);
+    });
   }
 
   nodeIds.forEach(id => {

@@ -61,12 +61,18 @@
           <div class="demo-topbar">
             <div class="demo-playback-controls" aria-label="Controles de la demo">
               <button class="icon-btn" type="button" id="demoResetBtn" title="Reiniciar" aria-label="Reiniciar">↺</button>
-              <button class="icon-btn icon-btn-primary" type="button" id="demoPlayBtn" title="Play" aria-label="Play">▶</button>
-              <button class="icon-btn" type="button" id="demoPauseBtn" title="Pause" aria-label="Pause">⏸</button>
+              <button class="icon-btn" type="button" id="demoPlayBtn" title="Reproducir pasos" aria-label="Reproducir pasos">▶</button>
+              <button class="icon-btn" type="button" id="demoPauseBtn" title="Pausar pasos" aria-label="Pausar pasos">⏸</button>
               <button class="icon-btn" type="button" id="demoPrevBtn" title="Paso previo" aria-label="Paso previo">⏮</button>
               <button class="icon-btn" type="button" id="demoNextBtn" title="Siguiente paso" aria-label="Siguiente paso">⏭</button>
             </div>
-            <div class="demo-step-chip" id="demoStepChip">Paso 1 / 11</div>
+            <div class="demo-caption demo-caption-top" id="demoCaption">
+              Me invocas diciendo “Hey Kali” y me pides cambiar mi web, subir el código y publicar la nueva versión.
+            </div>
+            <div class="demo-step-status">
+              <div class="demo-step-chip" id="demoStepChip">Paso 1 / 11</div>
+              <div class="demo-step-dots" id="demoStepDots" aria-label="Pasos de la demo"></div>
+            </div>
           </div>
 
           <div class="demo-grid-wrap" id="demoGridWrap">
@@ -122,13 +128,9 @@
             </div>
           </div>
 
-          <div class="demo-caption" id="demoCaption">
-            Me invocas diciendo “Hey Kali” y me pides cambiar mi web, subir el código y publicar la nueva versión.
-          </div>
 
           <audio id="demoRequestAudio" preload="auto">
             <source src="assets/audio/interaction-demo/solicitud-usuario.mp3" type="audio/mpeg" />
-            <source src="assets/audio/interaction-demo/solicitud-usuario.wav" type="audio/wav" />
           </audio>
           <audio id="demoResponseAudio" preload="auto">
             <source src="assets/audio/interaction-demo/respuesta-kali.mp3" type="audio/mpeg" />
@@ -202,7 +204,7 @@
                     <div class="mini-screen-wrap">
                       <video class="mini-screen-video" src="assets/videos/avatar/cara-sleep2-lowres.mp4" playsinline muted loop autoplay preload="auto"></video>
                     </div>
-                    <p>Interfaz visual, local o remota por navegador.</p>
+                    <p>Interfaz visual local o remota.</p>
                   </div>
                 </div>
               </div>
@@ -530,8 +532,5 @@
   </div>
 
   <script src="app.js" defer></script>
-</body>
-</html>
-cript>
 </body>
 </html>
