@@ -800,6 +800,11 @@ code{
   transform: none;
   touch-action: auto;
   white-space: normal;
+  cursor: default;
+}
+.demo-node:active,
+.demo-node.is-dragging{
+  cursor: default;
 }
 .demo-node h4,
 .demo-node p{
