@@ -8,6 +8,11 @@ Repositorio de páginas estáticas para demos y landings de **The Kali Project**
 landings/
 ├── kali_assistant.html                 # Landing legacy (single-file)
 ├── README.md
+├── the-office-project/
+│   ├── index.html                      # Landing de The Office
+│   ├── styles.css
+│   ├── app.js
+│   └── assets/screenshots/             # Capturas reales pendientes
 └── the-kali-project/
     ├── index.html                      # Landing principal actual
     ├── logo.png
@@ -24,6 +29,12 @@ landings/
 - Ruta: `the-kali-project/index.html`
 - URL esperada en GitHub Pages:
   - `https://kali-sandin.github.io/landings/the-kali-project/`
+
+## Landing de The Office
+
+- Ruta: `the-office-project/index.html`
+- URL esperada en GitHub Pages:
+  - `https://kali-sandin.github.io/landings/the-office-project/`
 
 ## Stack usado
 
