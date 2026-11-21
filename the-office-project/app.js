@@ -61,7 +61,7 @@
       {
         title: "01 — Orientarse",
         event: "PROJECT.CURRENT",
-        heading: "Primero, entender dónde está.",
+        heading: "Consultar el contexto del proyecto.",
         description: "El agente refresca el proyecto activo y recibe el contexto mínimo para actuar sobre el repositorio correcto.",
         proof: "Monitor actualizado + agente en zona de proyecto",
         terminal: [
@@ -73,7 +73,7 @@
       {
         title: "02 — Coordinarse",
         event: "CHAT.READ",
-        heading: "Leer antes de irrumpir.",
+        heading: "Consultar la coordinación reciente.",
         description: "Consulta la conversación reciente, identifica dependencias y deja un mensaje solo cuando aporta coordinación real.",
         proof: "Contexto compartido + mensaje trazado si hace falta",
         terminal: [
@@ -85,7 +85,7 @@
       {
         title: "03 — Elegir trabajo",
         event: "KANBAN.ASSIGN",
-        heading: "Una tarea concreta, no una nube de intención.",
+        heading: "Seleccionar una tarea con alcance definido.",
         description: "Revisa el tablero, elige una tarjeta compatible con su rol y la mueve a trabajo en curso antes de tocar código.",
         proof: "Responsable, prioridad e histórico visibles",
         terminal: [
@@ -97,7 +97,7 @@
       {
         title: "04 — Declarar intención",
         event: "AGENT.THINK",
-        heading: "El plan aparece antes que los cambios.",
+        heading: "Registrar el plan de ejecución.",
         description: "Registra qué va a comprobar, qué modificará y cómo sabrá que ha terminado. La oficina representa esa intención.",
         proof: "Bocadillo de pensamiento + evento persistido",
         terminal: [
@@ -110,7 +110,7 @@
         title: "05 — Ejecutar",
         event: "WORK.STARTED",
         heading: "Trabajar en el repositorio real.",
-        description: "El agente entra en su clon, inspecciona el estado y realiza cambios acotados. La oficina coordina; no finge la ejecución.",
+        description: "El agente entra en su clon, inspecciona el estado y realiza cambios acotados. La oficina coordina y registra la ejecución.",
         proof: "Agente en escritorio + tarea vinculada",
         terminal: [
           ["command", "git status --short"],
@@ -121,7 +121,7 @@
       {
         title: "06 — Verificar",
         event: "WORK.VERIFIED",
-        heading: "La evidencia decide si está hecho.",
+        heading: "Verificar los criterios de aceptación.",
         description: "Ejecuta las pruebas adecuadas, comprueba el comportamiento y conserva resultados útiles para el reporte final.",
         proof: "Pruebas, salida y criterio de aceptación",
         terminal: [
@@ -134,7 +134,7 @@
       {
         title: "07 — Entregar",
         event: "DEPLOY.RECORDED",
-        heading: "Cerrar el circuito, no solo el editor.",
+        heading: "Registrar y comunicar la entrega.",
         description: "La entrega queda asociada a un commit verificable; después se actualizan kanban, reporte y estado del agente.",
         proof: "Commit + push + reporte + tarjeta terminada",
         terminal: [

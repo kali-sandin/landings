@@ -8,11 +8,36 @@ Landing pública de The Office, añadida como proyecto independiente sin modific
 - styles.css — diseño responsive con estética editorial + pixel art
 - app.js — flujo interactivo, mini oficina, navegación, reveal y carga de capturas
 - assets/favicon.svg — favicon propio
-- assets/screenshots/README.md — nombres y guía para las capturas pendientes
+- tests/test_landing.py — pruebas estáticas sin dependencias externas
 
 ## Capturas
 
-Los placeholders permanecen visibles mientras no exista su imagen. Al subir un PNG con el nombre documentado en assets/screenshots/README.md, la captura aparecerá automáticamente.
+Los paneles de referencia permanecen visibles mientras no exista su imagen. No son capturas de producto. Al añadir un PNG en `assets/screenshots/` con uno de estos nombres, la imagen aparecerá automáticamente:
+
+- `office-overview.png`
+- `kanban-detail.png`
+- `project-switcher.png`
+- `agent-workflow.png`
+- `map-editor.png`
+- `agent-profiles.png`
+
+## Criterios de contenido y diseño
+
+La landing presenta la visión del proyecto, no un informe de su estado operativo. El tono es técnico y descriptivo. Las secciones y tarjetas tienen espaciado compacto, con contenido legible y alturas flexibles; la galería usa tres columnas en escritorio, dos en tablet y una en móvil. La representación animada se identifica como demo.
+
+## Verificación
+
+Desde la raíz del repositorio:
+
+```sh
+python3 -m unittest discover -s the-office-project/tests -v
+node --check the-office-project/app.js
+git diff --check
+```
+
+Para una revisión visual, abrir la web a 1440, 1024, 768, 390 y 320 px de ancho. Comprobar que el documento no desborda horizontalmente, que el diagrama y los pasos del flujo permiten desplazamiento interno, y que funcionan los controles anterior, siguiente, selección de paso y pausa/reanudación. Repetir con movimiento reducido y con JavaScript desactivado para comprobar la lectura del contenido.
+
+Las imágenes de la galería son opcionales. Mientras no se aporten, los paneles de referencia deben mantenerse visibles, sin iconos de imagen rota.
 
 ## Prueba local
 

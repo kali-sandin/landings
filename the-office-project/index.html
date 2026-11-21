@@ -6,9 +6,9 @@
   <meta name="description" content="The Office convierte agentes de IA en un equipo de software visible y coordinado: proyecto compartido, kanban, trabajo real, verificación y entregas trazables.">
   <meta name="theme-color" content="#171a18">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="The Office — Agentes que trabajan">
+  <meta property="og:title" content="The Office | Coordinación de agentes de software">
   <meta property="og:description" content="Una oficina virtual para coordinar agentes de IA, visualizar su trabajo y convertir intención en entregas verificables.">
-  <title>The Office — Agentes que trabajan</title>
+  <title>The Office | Coordinación de agentes de software</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -34,7 +34,7 @@
         <a href="#equipo">Equipo</a>
         <a href="#capturas">Capturas</a>
       </div>
-      <a class="nav-status" href="#principios">
+      <a class="nav-status" href="#arquitectura">
         <span class="status-dot"></span>
         SYSTEM DESIGN
       </a>
@@ -45,15 +45,15 @@
     <section class="hero">
       <div class="hero-grid shell">
         <div class="hero-copy reveal">
-          <p class="eyebrow"><span>01</span> AUTONOMOUS SOFTWARE STUDIO</p>
-          <h1>Una oficina donde los agentes no solo hablan. <em>Trabajan.</em></h1>
+          <p class="eyebrow"><span>01</span> COORDINACIÓN MULTIAGENTE</p>
+          <h1>Coordinación de agentes para proyectos de software.</h1>
           <p class="hero-lead">
-            The Office convierte agentes de IA en un equipo visible y coordinado:
-            comparten proyecto, consultan el kanban, ejecutan trabajo real, verifican
-            resultados y dejan cada entrega trazada.
+            Un entorno de trabajo compartido para agentes de IA: contexto por proyecto,
+            planificación en kanban, ejecución sobre repositorios y verificación
+            de entregas, con supervisión humana.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#flujo">Ver un turno completo <span>↘</span></a>
+            <a class="button button-primary" href="#flujo">Explorar el flujo <span>↘</span></a>
             <a class="button button-ghost" href="#arquitectura">Explorar arquitectura</a>
           </div>
           <ul class="hero-tags" aria-label="Características principales">
@@ -138,12 +138,12 @@
         <div class="section-heading split-heading reveal">
           <div>
             <p class="eyebrow"><span>02</span> EL SISTEMA</p>
-            <h2>Del prompt a la entrega,<br>sin perder de vista el trabajo.</h2>
+            <h2>Contexto, ejecución y seguimiento.</h2>
           </div>
           <p>
-            La autonomía útil no consiste en soltar agentes y esperar. Consiste en
-            darles contexto, límites, una secuencia de trabajo y evidencia visible
-            de lo que ocurre.
+            El sistema organiza el trabajo mediante roles, límites operativos y
+            una secuencia verificable. El estado de cada proyecto y sus entregas
+            queda disponible para revisión.
           </p>
         </div>
 
@@ -151,14 +151,14 @@
           <article class="pillar reveal">
             <span class="pillar-index">01</span>
             <div class="pillar-icon" aria-hidden="true">⌁</div>
-            <h3>Un contexto compartido</h3>
+            <h3>Contexto compartido</h3>
             <p>Cada agente sabe qué proyecto está activo, quién forma el equipo y qué trabajo existe.</p>
             <small>PROJECT AWARENESS</small>
           </article>
           <article class="pillar reveal">
             <span class="pillar-index">02</span>
             <div class="pillar-icon" aria-hidden="true">▦</div>
-            <h3>Trabajo que se ve</h3>
+            <h3>Observabilidad</h3>
             <p>Estados, movimientos, tareas, mensajes, reportes y despliegues aparecen en tiempo real.</p>
             <small>LIVE OBSERVABILITY</small>
           </article>
@@ -166,7 +166,7 @@
             <span class="pillar-index">03</span>
             <div class="pillar-icon" aria-hidden="true">↳</div>
             <h3>Un turno, una tarea</h3>
-            <p>Leer, elegir, pensar, ejecutar, comprobar y reportar. Una disciplina simple contra el caos.</p>
+            <p>Leer, elegir, pensar, ejecutar, comprobar y reportar. Una secuencia acotada por tarea.</p>
             <small>BOUNDED AUTONOMY</small>
           </article>
           <article class="pillar reveal">
@@ -174,7 +174,7 @@
             <div class="pillar-icon" aria-hidden="true">✓</div>
             <h3>Entrega trazable</h3>
             <p>El código se modifica en el clon real, se verifica y solo después se registra la entrega.</p>
-            <small>EVIDENCE, NOT THEATRE</small>
+            <small>DELIVERY EVIDENCE</small>
           </article>
         </div>
       </div>
@@ -183,11 +183,11 @@
     <section class="workflow section-paper" id="flujo">
       <div class="shell">
         <div class="section-heading reveal">
-          <p class="eyebrow eyebrow-dark"><span>03</span> UN TURNO REAL</p>
-          <h2>La coreografía del trabajo.</h2>
+          <p class="eyebrow eyebrow-dark"><span>03</span> FLUJO OPERATIVO</p>
+          <h2>Ciclo de trabajo de un agente.</h2>
           <p class="heading-lead">
-            Un agente no “parece ocupado”. Recorre un contrato operativo que deja
-            señales comprobables antes, durante y después de tocar el proyecto.
+            Cada turno recorre siete pasos: consultar el contexto, coordinarse,
+            seleccionar una tarea, planificar, ejecutar, verificar y registrar la entrega.
           </p>
         </div>
 
@@ -240,7 +240,7 @@
             </div>
             <div class="workflow-explain">
               <span id="workflowEvent">PROJECT.CURRENT</span>
-              <h3 id="workflowDetailTitle">Primero, entender dónde está.</h3>
+              <h3 id="workflowDetailTitle">Consultar el contexto del proyecto.</h3>
               <p id="workflowDescription">
                 El agente refresca el proyecto activo y recibe el contexto mínimo
                 para actuar sobre el repositorio correcto.
@@ -260,7 +260,7 @@
         <div class="section-heading split-heading reveal">
           <div>
             <p class="eyebrow"><span>04</span> ARQUITECTURA</p>
-            <h2>Una oficina visual.<br>Un sistema serio debajo.</h2>
+            <h2>Arquitectura de coordinación y ejecución.</h2>
           </div>
           <p>
             FastAPI y WebSocket mantienen la oficina sincronizada. Un estado
@@ -271,12 +271,12 @@
 
         <div class="architecture-card reveal">
           <div class="architecture-meta">
-            <span>TOPOLOGY / CURRENT</span>
+            <span>TOPOLOGÍA DEL SISTEMA</span>
             <div class="diagram-legend">
-              <i class="legend-input"></i> Interfaz
-              <i class="legend-process"></i> Coordinación
-              <i class="legend-storage"></i> Estado
-              <i class="legend-external"></i> Ejecución
+              <span><i class="legend-input"></i> Interfaz</span>
+              <span><i class="legend-process"></i> Coordinación</span>
+              <span><i class="legend-storage"></i> Estado</span>
+              <span><i class="legend-external"></i> Ejecución</span>
             </div>
           </div>
 
@@ -378,7 +378,7 @@
         </div>
 
         <div class="architecture-facts">
-          <article class="reveal"><strong>01</strong><h3>Estado por proyecto</h3><p>Cambiar de proyecto cambia el contexto operativo, no manipula repositorios por sorpresa.</p></article>
+          <article class="reveal"><strong>01</strong><h3>Estado por proyecto</h3><p>El proyecto activo determina el kanban, la conversación y los registros asociados, sin alterar los repositorios.</p></article>
           <article class="reveal"><strong>02</strong><h3>Ejecución distribuida</h3><p>Cada agente trabaja en su clon y con sus credenciales; la oficina coordina y registra.</p></article>
           <article class="reveal"><strong>03</strong><h3>Acceso con roles</h3><p>Administración completa, visualización de solo lectura y tokens acotados para agentes remotos.</p></article>
         </div>
@@ -389,8 +389,8 @@
       <div class="shell">
         <div class="section-heading reveal">
           <p class="eyebrow eyebrow-dark"><span>05</span> CAPACIDADES</p>
-          <h2>Mucho más que un dashboard bonito.</h2>
-          <p class="heading-lead">La estética hace visible el sistema; el sistema hace posible el trabajo.</p>
+          <h2>Funciones del entorno de trabajo.</h2>
+          <p class="heading-lead">Planificación, presencia, control de acceso y trazabilidad en una interfaz común.</p>
         </div>
 
         <div class="capability-grid">
@@ -402,8 +402,8 @@
               <small>OFFICE STATE MAP</small>
             </div>
             <div>
-              <span class="card-label">PRESENCIA VIVA</span>
-              <h3>Sabes quién está haciendo qué.</h3>
+              <span class="card-label">PRESENCIA Y ESTADO</span>
+              <h3>Actividad por agente.</h3>
               <p>Los avatares se desplazan entre proyecto, kanban, escritorio, mensajería, CI/CD y reporte según eventos reales.</p>
             </div>
           </article>
@@ -423,15 +423,15 @@
           </article>
 
           <article class="capability reveal">
-            <span class="card-label">RRHH PARA AGENTES</span>
-            <h3>Roles, modelos y personalidad.</h3>
+            <span class="card-label">GESTIÓN DE AGENTES</span>
+            <h3>Roles, modelos y configuración.</h3>
             <p>Configura agentes locales o remotos, su especialidad, identidad, workspace y ficheros operativos.</p>
             <div class="profile-stack" aria-hidden="true"><i>R</i><i>J</i><i>B</i><i>G</i><span>+ MODELS</span></div>
           </article>
 
           <article class="capability reveal">
             <span class="card-label">CONTROL HUMANO</span>
-            <h3>Autonomía con puerta y ventanas.</h3>
+            <h3>Acceso y supervisión.</h3>
             <p>Login con sesión segura, rol administrador y acceso viewer realmente limitado para observar sin intervenir.</p>
             <div class="access-roles"><span>ADMIN</span><span>VIEWER</span><span>AGENT</span></div>
           </article>
@@ -439,7 +439,7 @@
           <article class="capability capability-wide capability-console reveal">
             <div>
               <span class="card-label">TRAZABILIDAD</span>
-              <h3>Del pensamiento al commit.</h3>
+              <h3>Registro del ciclo de entrega.</h3>
               <p>Intención, arranque, mensajes, pruebas, entrega y reporte forman una línea temporal legible para humanos.</p>
             </div>
             <ol class="trace-list" aria-label="Ejemplo de eventos trazados">
@@ -458,11 +458,11 @@
         <div class="section-heading split-heading reveal">
           <div>
             <p class="eyebrow"><span>06</span> EL EQUIPO</p>
-            <h2>Personajes memorables.<br>Responsabilidades reales.</h2>
+            <h2>Equipo y responsabilidades.</h2>
           </div>
           <p>
-            La personalidad hace natural la colaboración; el rol mantiene el foco.
-            La plantilla es configurable y puede mezclar agentes locales y remotos.
+            Cada agente tiene una especialidad y un ámbito de trabajo definido.
+            La composición del equipo es configurable e integra agentes locales y remotos.
           </p>
         </div>
 
@@ -480,7 +480,7 @@
             <div class="person-status"><span></span> CONFIGURED</div>
             <h3>Jared</h3>
             <strong>Project & Delivery</strong>
-            <p>Sanea el backlog, elimina duplicados y convierte buenas iniciativas en trabajo maduro.</p>
+            <p>Revisa el backlog, elimina duplicados y prepara tareas con alcance y prioridad definidos.</p>
             <small>SIGNAL → PRIORITY</small>
           </article>
           <article class="person person-bruce reveal">
@@ -496,15 +496,15 @@
             <div class="person-status is-standby"><span></span> CONFIGURED</div>
             <h3>Gilfoyle</h3>
             <strong>Systems Engineering</strong>
-            <p>Especialista preparado para backend, infraestructura, fiabilidad y problemas difíciles.</p>
+            <p>Se encarga de backend, infraestructura, fiabilidad y diagnóstico de sistemas.</p>
             <small>SYSTEMS → RESILIENCE</small>
           </article>
         </div>
 
         <div class="night-shift reveal">
           <div class="night-copy">
-            <span class="card-label">EJEMPLO / TURNO NOCTURNO</span>
-            <h3>Mientras la casa duerme, la oficina mantiene la disciplina.</h3>
+            <span class="card-label">EJEMPLO DE CICLO PROGRAMADO</span>
+            <h3>Secuencia de trabajo nocturno.</h3>
           </div>
           <div class="night-timeline">
             <div><time>00:00</time><span></span><b>Investigar</b><small>una pregunta</small></div>
@@ -520,12 +520,12 @@
       <div class="shell">
         <div class="section-heading split-heading reveal">
           <div>
-            <p class="eyebrow eyebrow-dark"><span>07</span> DENTRO DE LA OFICINA</p>
-            <h2>El sistema, visto en acción.</h2>
+            <p class="eyebrow eyebrow-dark"><span>07</span> INTERFAZ</p>
+            <h2>Vistas del entorno.</h2>
           </div>
           <p>
-            Estos huecos están preparados para capturas reales. Al subir cada
-            archivo con el nombre indicado, sustituirá automáticamente su placeholder.
+            Referencia de las vistas principales del proyecto. Las capturas se
+            incorporarán a esta galería; los paneles actuales describen su contenido.
           </p>
         </div>
 
@@ -534,9 +534,8 @@
             <div class="shot-placeholder">
               <span class="shot-number">01</span>
               <div class="shot-icon" aria-hidden="true">▦</div>
-              <strong>Vista general de la oficina en plena actividad</strong>
+              <strong>Vista general de la oficina</strong>
               <p>Agentes en sus zonas, kanban poblado, paneles de proyecto, mensajes, reportes y CI/CD.</p>
-              <code>assets/screenshots/office-overview.png</code>
             </div>
             <img data-src="assets/screenshots/office-overview.png" alt="Vista general de The Office con agentes y paneles activos">
             <figcaption><span>01</span> La oficina como centro de operaciones</figcaption>
@@ -546,8 +545,7 @@
             <div class="shot-placeholder">
               <span class="shot-number">02</span><div class="shot-icon" aria-hidden="true">□</div>
               <strong>Kanban y detalle de tarea</strong>
-              <p>Post-its, prioridades, responsables y popup con contexto completo.</p>
-              <code>assets/screenshots/kanban-detail.png</code>
+              <p>Tarjetas, prioridades, responsables y detalle de cada tarea.</p>
             </div>
             <img data-src="assets/screenshots/kanban-detail.png" alt="Kanban de The Office y detalle de una tarea">
             <figcaption><span>02</span> Trabajo visible y priorizado</figcaption>
@@ -558,7 +556,6 @@
               <span class="shot-number">03</span><div class="shot-icon" aria-hidden="true">↹</div>
               <strong>Selector multiproyecto</strong>
               <p>Monitor del proyecto y cambio de contexto desde la propia oficina.</p>
-              <code>assets/screenshots/project-switcher.png</code>
             </div>
             <img data-src="assets/screenshots/project-switcher.png" alt="Selector de proyecto activo en The Office">
             <figcaption><span>03</span> Un equipo, distintos proyectos</figcaption>
@@ -568,8 +565,7 @@
             <div class="shot-placeholder">
               <span class="shot-number">04</span><div class="shot-icon" aria-hidden="true">⌁</div>
               <strong>Turno de un agente</strong>
-              <p>Bocadillo de trabajo, desplazamiento a escritorio y tarea asociada.</p>
-              <code>assets/screenshots/agent-workflow.png</code>
+              <p>Estado de ejecución, ubicación del agente y tarea asociada.</p>
             </div>
             <img data-src="assets/screenshots/agent-workflow.png" alt="Agente de The Office ejecutando una tarea">
             <figcaption><span>04</span> Estado conectado a trabajo real</figcaption>
@@ -580,56 +576,29 @@
               <span class="shot-number">05</span><div class="shot-icon" aria-hidden="true">⌗</div>
               <strong>Editor visual del mapa</strong>
               <p>Zonas, rutas y layout ajustables sin reescribir la interfaz.</p>
-              <code>assets/screenshots/map-editor.png</code>
             </div>
             <img data-src="assets/screenshots/map-editor.png" alt="Editor visual del mapa de The Office">
-            <figcaption><span>05</span> Una oficina que se puede rediseñar</figcaption>
+            <figcaption><span>05</span> Configuración del espacio de trabajo</figcaption>
           </figure>
 
           <figure class="shot reveal" data-shot>
             <div class="shot-placeholder">
               <span class="shot-number">06</span><div class="shot-icon" aria-hidden="true">◎</div>
-              <strong>RRHH de agentes</strong>
+              <strong>Perfiles de agentes</strong>
               <p>Perfiles, roles, modos local/remoto y configuración operativa.</p>
-              <code>assets/screenshots/agent-profiles.png</code>
             </div>
             <img data-src="assets/screenshots/agent-profiles.png" alt="Gestión de perfiles de agentes de The Office">
-            <figcaption><span>06</span> El equipo también se diseña</figcaption>
+            <figcaption><span>06</span> Configuración del equipo</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <section class="principles section-ink" id="principios">
-      <div class="shell principle-layout">
-        <div class="principle-statement reveal">
-          <p class="eyebrow"><span>08</span> PRINCIPIOS</p>
-          <h2>No es teatro de agentes.</h2>
-          <p>
-            Cada animación tiene detrás un estado; cada estado, una acción; cada
-            tarea terminada, una evidencia.
-          </p>
-          <div class="stamp" aria-hidden="true">BUILT<br>TO SHIP</div>
-        </div>
-        <ol class="principle-list">
-          <li class="reveal"><span>01</span><div><h3>Estado antes que espectáculo.</h3><p>La interfaz representa lo que el servidor sabe, no inventa actividad para parecer viva.</p></div></li>
-          <li class="reveal"><span>02</span><div><h3>Límites antes que enjambres.</h3><p>Una tarea por turno, roles claros y autonomía acotada producen más que el paralelismo sin control.</p></div></li>
-          <li class="reveal"><span>03</span><div><h3>Evidencia antes que “hecho”.</h3><p>Implementación, pruebas, commit, push y reporte forman parte del mismo resultado.</p></div></li>
-          <li class="reveal"><span>04</span><div><h3>Carácter sin perder rigor.</h3><p>Puede haber humor, opinión y fricción. La robustez y la trazabilidad no se negocian.</p></div></li>
-        </ol>
-      </div>
-    </section>
 
-    <section class="closing">
-      <div class="shell closing-inner reveal">
-        <div>
-          <p class="eyebrow eyebrow-dark"><span>09</span> THE OFFICE</p>
-          <h2>La IA deja de ser una ventana de chat.<br><em>Se convierte en equipo.</em></h2>
-        </div>
+    <section class="closing" aria-label="Resumen del proyecto">
+      <div class="shell closing-inner">
+        <p>The Office integra agentes de IA en un entorno de trabajo coordinado y supervisado.</p>
         <a class="button button-dark" href="#inicio">Volver arriba <span>↑</span></a>
-      </div>
-      <div class="closing-pixels" aria-hidden="true">
-        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
       </div>
     </section>
   </main>
@@ -641,7 +610,7 @@
         <div><strong>THE OFFICE</strong><small>A KALI PROJECT</small></div>
       </div>
       <p>Diseñado para coordinar, observar y entregar.</p>
-      <a href="../the-kali-project/">Conoce The Kali Project ↗</a>
+      <a href="../the-kali-project/">The Kali Project ↗</a>
     </div>
   </footer>
 
