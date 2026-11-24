@@ -133,8 +133,8 @@ class LandingTests(unittest.TestCase):
         self.assertIn('Observabilidad de la actividad del agente.', self.html)
         self.assertIn('thinking, working, reporting', self.html)
         self.assertIn('Habilita o deshabilita cada agente', self.html)
-        self.assertIn('PROJECT SYNC', self.js)
-        self.assertIn('0101 1100', self.js)
+        self.assertIn('PROJECT SYNC', (ROOT/'ambient.js').read_text())
+        self.assertIn('0101 1100', (ROOT/'ambient.js').read_text())
         self.assertNotIn('turnos de 15 minutos', self.html)
         self.assertNotIn('minuto/360', (ROOT / 'README.md').read_text())
 

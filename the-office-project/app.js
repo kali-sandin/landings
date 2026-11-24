@@ -208,21 +208,6 @@
     schedule();
   }
 
-  // Binary/message background packets; no polling, canvas, frame loop or new requests.
-  document.querySelectorAll('.hero, .architecture, .team').forEach((section, sectionIndex) => {
-    const layer = document.createElement('div');
-    layer.className = 'data-flow'; layer.setAttribute('aria-hidden', 'true');
-    for (let i = 0; i < 6; i++) {
-      const packet = document.createElement('span'); packet.className = 'data-packet';
-      packet.style.setProperty('--top', `${12 + i * 14}%`);
-      packet.textContent = ['0101 1100 · PROJECT SYNC · 0011', '1010 0011 · TASK ASSIGNED · 0110', '0011 1001 · REVIEW PASSED · 1010', '1100 0101 · EVENT RECEIVED · 1001', '0110 1010 · TESTS OK · 0011', '1001 0110 · COMMIT VERIFIED · 1100'][i];
-      packet.style.setProperty('--bend', `${(i % 2 ? -1 : 1) * (30 + i * 9)}px`);
-      packet.style.setProperty('--duration', `${20 + i * 3 + sectionIndex * 2}s`);
-      packet.style.setProperty('--delay', `${-i * 7 - sectionIndex * 3}s`);
-      layer.appendChild(packet);
-    }
-    section.prepend(layer);
-  });
   document.addEventListener('visibilitychange', () => {
     document.documentElement.classList.toggle('motion-paused', document.hidden);
   });

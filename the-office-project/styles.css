@@ -429,8 +429,8 @@ footer { color: var(--paper); background: var(--ink); }
 .arch-zone text { fill: currentColor; font: 700 12px var(--mono); letter-spacing: .04em; }
 .server-zone { color: var(--violet); }
 .server-zone rect { fill: rgba(143,112,255,.05); }
-.agent-zone { color: var(--amber); }
-.agent-zone rect { fill: rgba(246,183,60,.04); }
+.agent-zone { color: var(--red); }
+.agent-zone rect { fill: rgba(237,101,94,.055); }
 .repo-zone { color: var(--cyan); }
 .repo-zone rect { fill: rgba(48,197,181,.04); }
 .arch-node rect { fill: #1e2625; stroke: rgba(244,237,223,.3); }
@@ -440,7 +440,7 @@ footer { color: var(--paper); background: var(--ink); }
 .arch-node .json-icon { font: 700 17px var(--mono); fill: var(--violet); }
 .arch-edge { fill: none; stroke: rgba(244,237,223,.55); stroke-width: 1.5; color: var(--paper); }
 .arch-label text { text-anchor: middle; fill: rgba(244,237,223,.7); font: 500 11px var(--mono); paint-order: stroke; stroke: #171a18; stroke-width: 4px; stroke-linejoin: round; }
-.legend-client { background: var(--blue); }.legend-server { background: var(--violet); }.legend-agent { background: var(--amber); }.legend-repo { background: var(--cyan); }
+.legend-client { background: var(--blue); }.legend-server { background: var(--violet); }.legend-agent { background: var(--red); }.legend-repo { background: var(--cyan); }
 .architecture-meta { flex-wrap: wrap; }
 @media(max-width:1050px) { .hero-grid { grid-template-columns: 1fr; }.hero-shot { max-width: 900px; } }
 @media(max-width:780px) { .capability-wide { display: grid; grid-template-columns: 1fr; }.architecture-svg { min-width: 900px; }.capability-wide .capability-visual { margin-bottom: 0; } }
@@ -491,10 +491,9 @@ footer { color: var(--paper); background: var(--ink); }
 /* Six drifting packets per dark section: transform/opacity only, no frame loop. */
 .hero, .section-dark, .section-ink { isolation: isolate; }
 .data-flow { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; }
-.data-packet { position: absolute; left: -38%; top: var(--top); width: max-content; white-space: nowrap; color: #a6d7c8; font: 600 14px var(--mono); letter-spacing: .06em; text-shadow: 0 0 16px #30c5b533; opacity: 0; animation: packet-flow var(--duration) linear var(--delay) infinite; }
-@keyframes packet-flow { 0% { transform: translate3d(0,0,0) rotate(-8deg); opacity: 0; } 15% { opacity: .28; } 46% { transform: translate3d(60vw,var(--bend),0) rotate(12deg); opacity: .18; } 80% { opacity: .28; } 100% { transform: translate3d(160vw,0,0) rotate(-12deg); opacity: 0; } }
-.data-packet:nth-child(even) { animation-direction: reverse; }
-.motion-paused .data-packet, .image-preview-open .data-packet { animation-play-state: paused; }
+.data-packet { position: absolute; left: 0; top: var(--top); width: max-content; white-space: nowrap; color: #a6d7c8; font: 600 12px var(--mono); letter-spacing: .05em; opacity: 0; animation: var(--route) var(--duration) linear var(--delay) infinite; }
+
+.motion-paused .data-packet, .image-preview-open .data-packet { position: absolute; left: 0; top: var(--top); width: max-content; white-space: nowrap; color: #a6d7c8; font: 600 12px var(--mono); letter-spacing: .05em; opacity: 0; animation: var(--route) var(--duration) linear var(--delay) infinite; }
 @media (prefers-reduced-motion: reduce) { .data-flow { display: none; } #image-lightbox, #image-lightbox::backdrop, .lightbox-figure { animation: none; transition: none; } }
 
 .shift-event:nth-child(even) { top: 100px; }
@@ -540,3 +539,12 @@ footer { color: var(--paper); background: var(--ink); }
   .hero-ticker { overflow-x: auto; }
   .hero-ticker .ticker-track { animation: none; }
 }
+
+/* Opaque content surfaces: ambient packets never show through information panels. */
+.hero-ticker { border-top: 0; }
+.team-grid, .person, .night-shift { background: var(--ink); }
+.arch-edge > path { transition: stroke 240ms ease, stroke-width 240ms ease; }
+.arch-edge > path.is-active { stroke: var(--cyan); stroke-width: 3; marker-end: url(#arrow-active); }
+.arch-edge > path.is-active[marker-start] { marker-start: url(#arrow-active); }
+.architecture-svg #arrow-active path { fill: var(--cyan); }
+@media (prefers-reduced-motion: reduce) { .arch-edge > path { transition: none; } }
