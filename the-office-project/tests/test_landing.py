@@ -64,7 +64,7 @@ class LandingTests(unittest.TestCase):
     def test_local_assets_exist(self):
         for asset in self.page.local_assets:
             with self.subTest(asset=asset):
-                self.assertTrue((ROOT / asset).is_file())
+                self.assertTrue((ROOT / asset.split('?',1)[0]).is_file())
 
     def test_document_semantics(self):
         self.assertEqual(self.page.lang, 'es')
@@ -111,7 +111,7 @@ class LandingTests(unittest.TestCase):
 
     def test_in_page_lightbox_and_footer(self):
         self.assertIn('id="image-lightbox"', self.html)
-        self.assertEqual(self.html.count('target="_blank"'), 1)
+        self.assertEqual(self.html.count('target="_blank"'), 2)
         self.assertIn('https://kali-sandin.github.io/landings/the-kali-project/" target="_blank" rel="noopener noreferrer"', self.html)
         self.assertNotIn('SYSTEM DESIGN', self.html)
         self.assertNotIn('Volver arriba', self.html)
@@ -140,6 +140,21 @@ class LandingTests(unittest.TestCase):
         self.assertIn('0101 1100', (ROOT/'ambient.js').read_text())
         self.assertNotIn('turnos de 15 minutos', self.html)
         self.assertNotIn('minuto/360', (ROOT / 'README.md').read_text())
+
+    def test_mobile_navigation_and_preview(self):
+        for control in ('lightbox-zoom','lightbox-close','lightbox-original','lightbox-stage'):
+            self.assertIn(control,self.page.ids)
+        self.assertIn('class="mobile-nav"',self.html)
+        self.assertIn('<body id="inicio">',self.html)
+        self.assertNotIn('site-header" id="inicio"',self.html)
+        self.assertIn('architecture-mobile',self.html)
+        self.assertIn('min-width: 0; width: 100%',self.css)
+        self.assertIn('clip-path="url(#avatar-circle)"',self.html)
+        self.assertEqual(self.html.count('class="model-badge"'),4)
+        exported=(ROOT/'architecture.svg').read_text()
+        self.assertNotIn('href="assets/',exported)
+        self.assertIn('data:image/webp;base64,',exported)
+        self.assertIn('Agente Remoto',exported)
 
     def test_fallback_content_is_not_hidden_without_javascript(self):
         reveal = re.search(r'\.reveal\s*\{([^}]+)\}', self.css)

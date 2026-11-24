@@ -67,7 +67,7 @@
           packet.path.setAttribute('d',pathData(packet.points,baseline));
           const length=packet.points.at(-1).distance;
           packet.animate.setAttribute('to',length+384);
-          packet.animate.setAttribute('dur',`${(length+768)/55}s`);
+          packet.animate.setAttribute('dur',`${(length+768)/85}s`);
         });
         sync();
       }

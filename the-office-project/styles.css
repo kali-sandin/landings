@@ -431,7 +431,7 @@ footer { color: var(--paper); background: var(--ink); }
 .server-zone rect { fill: rgba(246,183,60,.045); }
 .agent-zone { color: var(--red); }
 .agent-zone rect { fill: rgba(237,101,94,.055); }
-.repo-zone { color: #d8dedd; }
+.repo-zone { color: #f5f7f7; }
 .repo-zone rect { fill: rgba(220,225,224,.035); }
 .arch-node rect { fill: #1e2625; stroke: rgba(244,237,223,.3); }
 .arch-node text { fill: var(--paper); text-anchor: middle; font: 700 13px var(--sans); }
@@ -440,7 +440,7 @@ footer { color: var(--paper); background: var(--ink); }
 .arch-node .json-icon { font: 700 17px var(--mono); fill: var(--violet); }
 .arch-edge { fill: none; stroke: rgba(244,237,223,.55); stroke-width: 1.5; color: var(--paper); }
 .arch-label text { text-anchor: middle; fill: rgba(244,237,223,.7); font: 500 11px var(--mono); paint-order: stroke; stroke: #171a18; stroke-width: 4px; stroke-linejoin: round; }
-.legend-client { background: var(--blue); }.legend-server { background: var(--amber); }.legend-agent { background: var(--red); }.legend-repo { background: #d8dedd; }
+.legend-client { background: var(--blue); }.legend-server { background: var(--amber); }.legend-agent { background: var(--red); }.legend-repo { background: #f5f7f7; }
 .architecture-meta { flex-wrap: wrap; }
 @media(max-width:1050px) { .hero-grid { grid-template-columns: 1fr; }.hero-shot { max-width: 900px; } }
 @media(max-width:780px) { .capability-wide { display: grid; grid-template-columns: 1fr; }.architecture-svg { min-width: 900px; }.capability-wide .capability-visual { margin-bottom: 0; } }
@@ -550,3 +550,63 @@ footer { color: var(--paper); background: var(--ink); }
 @media (prefers-reduced-motion: reduce) { .arch-edge > path { transition: none; } }
 
 .footer-inner p { text-align: center; }
+
+/* Responsive refinements keep the desktop hierarchy and remove nested Y scrolling. */
+.architecture-host { min-width: 0; width: 100%; }
+.architecture-scroll { overflow: hidden; }
+.arch-node .sub { font-size: 13px; }
+.remote-zone { color: var(--blue); }
+.remote-zone rect { fill: rgba(92,157,237,.025); }
+.remote-zone > text { font-size: 16px; }
+.architecture-host [data-node="remote-agent"] text,
+.architecture-host [data-node="remote-clone"] text { font-size: 16px; }
+.architecture-host [data-node="remote-agent"] .sub,
+.architecture-host [data-node="remote-clone"] .sub { font-size: 12px; }
+.diagram-note { display: block; line-height: 1.6; font-size: 12px; }
+.diagram-note a { display: inline-block; margin-left: 12px; color: var(--cyan); }
+.model-badge { display: flex; align-items: center; gap: 8px; margin-top: 14px; font: 600 12px/1.5 var(--mono); color: #e1e6df; }
+.model-badge img { flex: 0 0 20px; width: 20px; height: 20px; object-fit: contain; }
+.flow-step { height: auto; min-height: 130px; padding-bottom: 16px; }
+.flow-step small { display: block; margin-top: 4px; line-height: 1.45; white-space: normal; }
+.workflow-track { overflow-x: auto; overflow-y: hidden; grid-auto-rows: minmax(130px,auto); }
+.flow-hint, .timeline-hint { display: none; }
+.mobile-nav, .architecture-mobile { display: none; }
+#image-lightbox[open] { display: flex; flex-direction: column; padding: 12px; gap: 12px; }
+.lightbox-toolbar { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; flex: 0 0 auto; z-index: 1; }
+.lightbox-toolbar button, .lightbox-toolbar a { color: #f4eddf; background: #222b28; border: 1px solid #75867b; border-radius: 4px; font: 600 12px/1.4 var(--mono); padding: 10px 12px; cursor: pointer; text-decoration: none; min-height: 44px; }
+.lightbox-stage { width: 100%; flex: 1; min-height: 0; overflow: auto; display: grid; align-items: center; justify-items: center; touch-action: pan-x pan-y pinch-zoom; overscroll-behavior: contain; }
+.lightbox-figure { max-width: 100%; padding: 0; }
+.lightbox-figure img { max-width: 100%; max-height: calc(100dvh - 155px); }
+#image-lightbox.is-zoomed .lightbox-stage { display: block; cursor: grab; user-select: none; }
+#image-lightbox.is-zoomed .lightbox-figure { align-items: flex-start; width: max-content; max-width: none; }
+#image-lightbox.is-zoomed .lightbox-figure img { max-width: none; max-height: none; }
+#image-lightbox .lightbox-hint { position: static; flex: 0 0 auto; text-align: center; }
+.lightbox-toolbar :focus-visible { outline: 3px solid var(--cyan); outline-offset: 2px; }
+@media(max-width:1050px) {
+  .mobile-nav { display: block; margin-left: auto; position: relative; }
+  .mobile-nav summary { cursor: pointer; list-style: none; border: 1px solid #68736a; padding: 10px 12px; font: 600 12px var(--mono); min-height: 44px; display: flex; align-items: center; gap: 12px; }
+  .mobile-nav summary::-webkit-details-marker { display: none; }
+  .mobile-nav nav { position: absolute; right: 0; top: calc(100% + 8px); min-width: 210px; display: grid; padding: 8px; gap: 4px; background: #171a18; border: 1px solid #68736a; box-shadow: 0 8px 24px #0006; }
+  .mobile-nav nav a { padding: 12px; text-decoration: none; font: 600 13px var(--mono); }
+  .mobile-nav nav a:hover, .mobile-nav nav a:focus-visible { background: #303b33; }
+  .flow-hint, .timeline-hint { display: block; margin: 0; padding: 10px 14px; font: 500 11px/1.5 var(--mono); }
+  .timeline-hint { margin-top: 16px; padding-inline: 0; color: #c2cbc2; }
+}
+@media(max-width:780px) {
+  .architecture-scroll, .architecture-card > .diagram-note { display: none; }
+  .architecture-mobile { display: grid; justify-items: stretch; padding: 16px; gap: 8px; font: 600 14px/1.5 var(--sans); }
+  .mobile-arch-node { border: 1px solid #8fa29a; padding: 12px; background: #202824; text-align: center; }
+  .mobile-arch-node span { display: block; margin-top: 5px; font: 500 12px/1.5 var(--mono); color: #ccd4cd; }
+  .mobile-arch-host { padding: 12px; border: 1px dashed #89958c; display: grid; gap: 8px; }
+  .mobile-arch-host > strong { text-align: center; font: 600 12px/1.5 var(--mono); margin-bottom: 4px; }
+  .mobile-arch-arrow { display: block; text-align: center; color: var(--cyan); }
+  .mobile-arch-node.service { border-color: var(--amber); }.mobile-arch-node.local { border-color: var(--red); }.mobile-arch-node.client { border-color: var(--blue); }.mobile-arch-node.git { border-color: #f5f7f7; }
+  .architecture-expand { color: var(--cyan); text-align: center; padding: 12px 0; font: 600 12px var(--mono); }
+  .architecture-facts { grid-template-columns: 1fr; }
+  .flow-step { min-height: 142px; }
+  .workflow-track { grid-auto-rows: minmax(142px,auto); }
+  .workflow-controls { flex-wrap: wrap; }
+  .workflow-controls > div:first-child { min-width: 0; }
+  .terminal-bar b { overflow-wrap: anywhere; }
+  .lightbox-toolbar button, .lightbox-toolbar a { font-size: 11px; padding: 9px; }
+}

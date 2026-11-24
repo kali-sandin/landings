@@ -45,6 +45,18 @@
     sections.forEach((section) => navObserver.observe(section));
   }
 
+  // Native details remains navigable without JavaScript.
+  document.querySelectorAll('.mobile-nav a').forEach(link => link.addEventListener('click', () => {
+    document.querySelector('.mobile-nav').open = false;
+  }));
+  document.querySelector('.brand')?.addEventListener('click', event => {
+    event.preventDefault();
+    window.scrollTo({top: 0, behavior: prefersReducedMotion.matches ? 'auto' : 'smooth'});
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') document.querySelector('.mobile-nav')?.removeAttribute('open');
+  });
+
   const workflow = document.querySelector("[data-workflow]");
   if (workflow) {
     const steps = [...workflow.querySelectorAll(".flow-step")];
