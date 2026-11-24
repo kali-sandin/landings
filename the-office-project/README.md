@@ -10,20 +10,22 @@ Landing pública de The Office, añadida como proyecto independiente sin modific
 - assets/favicon.svg — favicon propio
 - tests/test_landing.py — pruebas estáticas sin dependencias externas
 
-## Capturas
+## Capturas reales
 
-Los paneles de referencia permanecen visibles mientras no exista su imagen. No son capturas de producto. Al añadir un PNG en `assets/screenshots/` con uno de estos nombres, la imagen aparecerá automáticamente:
+Siete JPG en `assets/screenshots/`, integrados por contexto (no galería final):
+- office-overview: hero.
+- agent-thinking: presencia.
+- kanban-overview y task-detail: planificación.
+- map-editor: configuración.
+- deploy-history: trazabilidad.
+- agent-profiles: ejemplo de equipo en RRHH.
 
-- `office-overview.png`
-- `kanban-detail.png`
-- `project-switcher.png`
-- `agent-workflow.png`
-- `map-editor.png`
-- `agent-profiles.png`
+Las imágenes conservan su proporción original y abren el original al pulsarlas.
+Los avatares del equipo de ejemplo viven en `assets/team/`.
 
 ## Criterios de contenido y diseño
 
-La landing presenta la visión del proyecto, no un informe de su estado operativo. El tono es técnico y descriptivo. Las secciones y tarjetas tienen espaciado compacto, con contenido legible y alturas flexibles; la galería usa tres columnas en escritorio, dos en tablet y una en móvil. La representación animada se identifica como demo.
+La landing presenta la visión del proyecto, no un informe de su estado operativo. El tono es técnico y descriptivo. Las secciones y tarjetas tienen espaciado compacto, con contenido legible y alturas flexibles; la galería usa tres columnas en escritorio, dos en tablet y una en móvil. La hero utiliza una captura real. El equipo y los horarios se presentan como ejemplos configurables.
 
 ## Verificación
 
@@ -37,7 +39,7 @@ git diff --check
 
 Para una revisión visual, abrir la web a 1440, 1024, 768, 390 y 320 px de ancho. Comprobar que el documento no desborda horizontalmente, que el diagrama y los pasos del flujo permiten desplazamiento interno, y que funcionan los controles anterior, siguiente, selección de paso y pausa/reanudación. Repetir con movimiento reducido y con JavaScript desactivado para comprobar la lectura del contenido.
 
-Las imágenes de la galería son opcionales. Mientras no se aporten, los paneles de referencia deben mantenerse visibles, sin iconos de imagen rota.
+La tira repite dos grupos idénticos, sin gap externo: el desplazamiento -50% equivale exactamente al ancho de un grupo. Con movimiento reducido se detiene.
 
 ## Prueba local
 

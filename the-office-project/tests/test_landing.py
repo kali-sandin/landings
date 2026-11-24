@@ -26,6 +26,8 @@ class Page(HTMLParser):
         href = attrs.get('href', '')
         if href.startswith('#'):
             self.fragments.append(href[1:])
+        if tag == 'img' and attrs.get('src'):
+            self.local_assets.append(attrs['src'])
         if tag == 'script' and attrs.get('src'):
             self.local_assets.append(attrs['src'])
         if tag == 'link' and attrs.get('rel') in ('stylesheet', 'icon'):
@@ -79,11 +81,29 @@ class LandingTests(unittest.TestCase):
         for control in ('workflowPrev', 'workflowNext', 'workflowPlay'):
             self.assertIn(control, self.page.ids)
 
-    def test_project_sections_and_gallery_preserved(self):
-        for section in ('sistema', 'flujo', 'arquitectura', 'capacidades', 'equipo', 'capturas'):
+    def test_sections_and_real_images(self):
+        for section in ('flujo', 'arquitectura', 'capacidades', 'equipo'):
             self.assertIn(section, self.page.sections)
-        self.assertEqual(self.page.shots, 6)
-        self.assertIn('interface demo', self.html)
+        self.assertNotIn('sistema', self.page.sections)
+        self.assertNotIn('capturas', self.page.sections)
+        self.assertNotIn('interface demo', self.html)
+        for name in ('office-overview', 'kanban-overview', 'map-editor', 'agent-profiles', 'deploy-history', 'agent-thinking', 'task-detail'):
+            self.assertIn('assets/screenshots/'+name+'.jpg', self.html)
+        self.assertIn('totalmente configurables', self.html)
+
+    def test_ticker_groups_are_identical(self):
+        groups = re.findall(r'<div class="ticker-group">(.*?)</div>', self.html, re.S)
+        self.assertEqual(len(groups), 2)
+        self.assertEqual(groups[0], groups[1])
+        self.assertIn('.hero-ticker .ticker-track { gap: 0;', self.css)
+
+    def test_architecture_topology(self):
+        self.assertIn('THE OFFICE / CONTROL PLANE', self.html)
+        self.assertIn('Project State · JSON', self.html)
+        self.assertIn('GIT LOCAL', self.html)
+        self.assertIn('GIT REMOTO', self.html)
+        self.assertIn('Gateway · iniciar turno', self.html)
+        self.assertIn('contexto · estado · reportes', self.html)
 
     def test_fallback_content_is_not_hidden_without_javascript(self):
         reveal = re.search(r'\.reveal\s*\{([^}]+)\}', self.css)

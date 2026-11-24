@@ -407,3 +407,43 @@ footer { color: var(--paper); background: var(--ink); }
   .shot-grid { grid-template-columns: 1fr; }
   .closing-inner { flex-direction: column; gap: 16px; }
 }
+
+/* Real product captures: preserve each source ratio, never stretch or crop UI. */
+.product-shot { margin: 20px 0 0; min-width: 0; border: 1px solid var(--line-dark); background: #101722; }
+.product-shot a { display: block; }
+.product-shot img { width: 100%; height: auto; display: block; object-fit: contain; }
+.product-shot figcaption { color: var(--paper); padding: 10px 14px; font: 600 10px/1.5 var(--mono); }
+.hero-shot { margin: 0; border-color: var(--line-light); box-shadow: 9px 9px 0 rgba(143,112,255,.16); }
+.hero-grid { grid-template-columns: .85fr 1.35fr; }
+.capability-wide { grid-template-columns: 1.2fr 1fr; }
+.capability .product-shot { min-height: 0; }
+.capability-console > .product-shot { order: 2; }
+.team-shot { margin: 0 0 24px; border-color: var(--line-light); }
+.person-avatar { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; border: 1px solid var(--line-light); }
+.night-timeline small { display: block; margin-top: 6px; font: 600 9px/1.5 var(--mono); }
+/* Each group owns the trailing spacing, so -50% is exactly one full period. */
+.hero-ticker .ticker-track { gap: 0; padding: 0; animation: ticker 24s linear infinite; }
+.ticker-group { display: flex; align-items: center; flex: 0 0 auto; gap: 28px; padding: 11px 28px 11px 0; min-width: 100vw; justify-content: space-around; }
+.arch-zone { color: var(--blue); }
+.arch-zone rect { fill: rgba(92,157,237,.04); stroke: currentColor; stroke-opacity: .5; }
+.arch-zone text { fill: currentColor; font: 700 10px var(--mono); letter-spacing: .04em; }
+.server-zone { color: var(--violet); }
+.server-zone rect { fill: rgba(143,112,255,.05); }
+.agent-zone { color: var(--amber); }
+.agent-zone rect { fill: rgba(246,183,60,.04); }
+.repo-zone { color: var(--cyan); }
+.repo-zone rect { fill: rgba(48,197,181,.04); }
+.arch-node rect { fill: #1e2625; stroke: rgba(244,237,223,.3); }
+.arch-node text { fill: var(--paper); text-anchor: middle; font: 700 12px var(--sans); }
+.arch-node .sub { fill: rgba(244,237,223,.65); font: 500 10px var(--mono); }
+.arch-node use { fill: none; stroke: currentColor; stroke-width: 1.4; color: var(--paper); }
+.arch-node .json-icon { font: 700 17px var(--mono); fill: var(--violet); }
+.arch-edge { fill: none; stroke: rgba(244,237,223,.55); stroke-width: 1.5; color: var(--paper); }
+.arch-label text { text-anchor: middle; fill: rgba(244,237,223,.7); font: 500 9px var(--mono); paint-order: stroke; stroke: #171a18; stroke-width: 4px; stroke-linejoin: round; }
+.legend-client { background: var(--blue); }.legend-server { background: var(--violet); }.legend-agent { background: var(--amber); }.legend-repo { background: var(--cyan); }
+.architecture-meta { flex-wrap: wrap; }
+@media(max-width:1050px) { .hero-grid { grid-template-columns: 1fr; }.hero-shot { max-width: 900px; } }
+@media(max-width:780px) { .capability-wide { display: grid; grid-template-columns: 1fr; }.architecture-svg { min-width: 900px; }.capability-wide .capability-visual { margin-bottom: 0; } }
+@media(prefers-reduced-motion:reduce) { .hero-ticker .ticker-track { animation: none; }.ticker-group:nth-child(2) { display: none; } }
+
+.schedule-note { margin: 12px 0 0; color: rgba(244,237,223,.58); font-size: 12px; }

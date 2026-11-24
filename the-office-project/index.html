@@ -28,11 +28,10 @@
         </span>
       </a>
       <div class="nav-links">
-        <a href="#sistema">Sistema</a>
         <a href="#flujo">Flujo</a>
         <a href="#arquitectura">Arquitectura</a>
         <a href="#equipo">Equipo</a>
-        <a href="#capturas">Capturas</a>
+        <a href="#capacidades">Funciones</a>
       </div>
       <a class="nav-status" href="#arquitectura">
         <span class="status-dot"></span>
@@ -64,126 +63,15 @@
           </ul>
         </div>
 
-        <div class="office-window reveal reveal-delay" aria-label="Representación visual de The Office">
-          <div class="window-bar">
-            <div class="window-title">
-              <span class="window-icon"></span>
-              theoffice.live
-            </div>
-            <div class="window-state"><span></span> interface demo</div>
-          </div>
-
-          <div class="office-app">
-            <div class="mini-kanban" aria-hidden="true">
-              <div class="mini-board-head">
-                <strong>SPRINT BOARD</strong>
-                <span>TURN BOARD</span>
-              </div>
-              <div class="mini-columns">
-                <div><small>BACKLOG</small><i class="task task-purple"></i><i class="task task-blue short"></i></div>
-                <div><small>TO DO</small><i class="task task-cyan"></i></div>
-                <div><small>IN PROGRESS</small><i class="task task-yellow wide"></i></div>
-                <div><small>REVIEW</small><i class="task task-red"></i></div>
-                <div><small>DONE</small><i class="task task-green short"></i><i class="task task-green"></i></div>
-              </div>
-            </div>
-
-            <div class="office-floor" id="officeFloor" aria-hidden="true">
-              <div class="floor-label">OFFICE FLOOR</div>
-              <div class="floor-zone zone-board">KANBAN</div>
-              <div class="floor-zone zone-project">PROJECT</div>
-              <div class="floor-zone zone-cicd">CI/CD</div>
-              <div class="floor-zone zone-lounge">LOUNGE</div>
-              <div class="desk desk-a"></div>
-              <div class="desk desk-b"></div>
-              <div class="desk desk-c"></div>
-              <div class="desk desk-d"></div>
-              <div class="agent-pixel agent-richard" data-agent="Richard"><b>R</b></div>
-              <div class="agent-pixel agent-jared" data-agent="Jared"><b>J</b></div>
-              <div class="agent-pixel agent-bruce" data-agent="Bruce"><b>B</b></div>
-              <div class="agent-pixel agent-gilfoyle" data-agent="Gilfoyle"><b>G</b></div>
-            </div>
-
-            <div class="event-console" aria-live="polite">
-              <div class="console-head"><span>EXAMPLE STREAM</span><span id="eventCounter">0042</span></div>
-              <ol id="heroEventLog">
-                <li><time>00:00</time><span class="event-violet">RICHARD</span><b>research.complete</b></li>
-                <li><time>01:00</time><span class="event-purple">JARED</span><b>kanban.assign</b></li>
-                <li><time>02:15</time><span class="event-amber">BRUCE</span><b>work.started</b></li>
-                <li class="is-live"><time>02:42</time><span class="event-cyan">SYSTEM</span><b>deploy.verified</b></li>
-              </ol>
-            </div>
-          </div>
-
-          <div class="window-footer">
-            <span><b>4</b> configured agents</span>
-            <span><b>1</b> selected project</span>
-            <span class="window-footer-live"><i></i> WebSocket-ready</span>
-          </div>
-        </div>
+<figure class="product-shot hero-shot reveal"><a href="assets/screenshots/office-overview.jpg" target="_blank" rel="noopener" aria-label="Ampliar: Vista general real de The Office"><img src="assets/screenshots/office-overview.jpg" alt="Vista general real de The Office" width="2132" height="1199" loading="eager" decoding="async"></a><figcaption>Proyecto, kanban, agentes y entregas en una oficina compartida.</figcaption></figure>
       </div>
-      <div class="hero-ticker" aria-hidden="true">
-        <div>
-          <span>PROJECT CONTEXT</span><i>◆</i><span>SHARED KANBAN</span><i>◆</i>
-          <span>VISIBLE STATE</span><i>◆</i><span>LOCAL EXECUTION</span><i>◆</i>
-          <span>VERIFIED DELIVERY</span><i>◆</i><span>PROJECT CONTEXT</span><i>◆</i>
-          <span>SHARED KANBAN</span><i>◆</i><span>VISIBLE STATE</span><i>◆</i>
-          <span>LOCAL EXECUTION</span><i>◆</i><span>VERIFIED DELIVERY</span><i>◆</i>
-        </div>
-      </div>
+      <div class="hero-ticker" aria-hidden="true"><div class="ticker-track"><div class="ticker-group"><span>PROJECT CONTEXT</span><i>◆</i><span>SHARED KANBAN</span><i>◆</i><span>VISIBLE STATE</span><i>◆</i><span>LOCAL EXECUTION</span><i>◆</i><span>VERIFIED DELIVERY</span><i>◆</i></div><div class="ticker-group"><span>PROJECT CONTEXT</span><i>◆</i><span>SHARED KANBAN</span><i>◆</i><span>VISIBLE STATE</span><i>◆</i><span>LOCAL EXECUTION</span><i>◆</i><span>VERIFIED DELIVERY</span><i>◆</i></div></div></div>
     </section>
 
-    <section class="manifesto section-dark" id="sistema">
-      <div class="shell">
-        <div class="section-heading split-heading reveal">
-          <div>
-            <p class="eyebrow"><span>02</span> EL SISTEMA</p>
-            <h2>Contexto, ejecución y seguimiento.</h2>
-          </div>
-          <p>
-            El sistema organiza el trabajo mediante roles, límites operativos y
-            una secuencia verificable. El estado de cada proyecto y sus entregas
-            queda disponible para revisión.
-          </p>
-        </div>
-
-        <div class="pillars">
-          <article class="pillar reveal">
-            <span class="pillar-index">01</span>
-            <div class="pillar-icon" aria-hidden="true">⌁</div>
-            <h3>Contexto compartido</h3>
-            <p>Cada agente sabe qué proyecto está activo, quién forma el equipo y qué trabajo existe.</p>
-            <small>PROJECT AWARENESS</small>
-          </article>
-          <article class="pillar reveal">
-            <span class="pillar-index">02</span>
-            <div class="pillar-icon" aria-hidden="true">▦</div>
-            <h3>Observabilidad</h3>
-            <p>Estados, movimientos, tareas, mensajes, reportes y despliegues aparecen en tiempo real.</p>
-            <small>LIVE OBSERVABILITY</small>
-          </article>
-          <article class="pillar reveal">
-            <span class="pillar-index">03</span>
-            <div class="pillar-icon" aria-hidden="true">↳</div>
-            <h3>Un turno, una tarea</h3>
-            <p>Leer, elegir, pensar, ejecutar, comprobar y reportar. Una secuencia acotada por tarea.</p>
-            <small>BOUNDED AUTONOMY</small>
-          </article>
-          <article class="pillar reveal">
-            <span class="pillar-index">04</span>
-            <div class="pillar-icon" aria-hidden="true">✓</div>
-            <h3>Entrega trazable</h3>
-            <p>El código se modifica en el clon real, se verifica y solo después se registra la entrega.</p>
-            <small>DELIVERY EVIDENCE</small>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="workflow section-paper" id="flujo">
+<section class="workflow section-paper" id="flujo">
       <div class="shell">
         <div class="section-heading reveal">
-          <p class="eyebrow eyebrow-dark"><span>03</span> FLUJO OPERATIVO</p>
+          <p class="eyebrow eyebrow-dark"><span>02</span> FLUJO OPERATIVO</p>
           <h2>Ciclo de trabajo de un agente.</h2>
           <p class="heading-lead">
             Cada turno recorre siete pasos: consultar el contexto, coordinarse,
@@ -259,7 +147,7 @@
       <div class="shell">
         <div class="section-heading split-heading reveal">
           <div>
-            <p class="eyebrow"><span>04</span> ARQUITECTURA</p>
+            <p class="eyebrow"><span>03</span> ARQUITECTURA</p>
             <h2>Arquitectura de coordinación y ejecución.</h2>
           </div>
           <p>
@@ -269,113 +157,39 @@
           </p>
         </div>
 
-        <div class="architecture-card reveal">
-          <div class="architecture-meta">
-            <span>TOPOLOGÍA DEL SISTEMA</span>
-            <div class="diagram-legend">
-              <span><i class="legend-input"></i> Interfaz</span>
-              <span><i class="legend-process"></i> Coordinación</span>
-              <span><i class="legend-storage"></i> Estado</span>
-              <span><i class="legend-external"></i> Ejecución</span>
-            </div>
-          </div>
-
-          <div class="architecture-scroll" tabindex="0" aria-label="Diagrama de arquitectura de The Office">
-            <svg class="architecture-svg" viewBox="0 0 1180 650" role="img" aria-labelledby="architectureTitle architectureDesc">
-              <title id="architectureTitle">Arquitectura de The Office</title>
-              <desc id="architectureDesc">Humanos y agentes remotos entran por la interfaz y las herramientas, pasan por el servidor de coordinación, consultan estado por proyecto y ejecutan trabajo en agentes OpenClaw con clones locales y Git.</desc>
-              <defs>
-                <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                  <path d="M 0 0 L 10 5 L 0 10 z"></path>
-                </marker>
-              </defs>
-
-              <g class="edges">
-                <path d="M190 145 H330" marker-end="url(#arrow)"></path>
-                <path d="M190 265 C255 265 265 205 330 205" marker-end="url(#arrow)"></path>
-                <path d="M520 195 H645" marker-end="url(#arrow)"></path>
-                <path d="M520 195 C590 195 585 360 645 360" marker-end="url(#arrow)"></path>
-                <path d="M815 195 H955" marker-end="url(#arrow)"></path>
-                <path d="M815 360 H955" marker-end="url(#arrow)"></path>
-                <path d="M1045 255 V495" marker-end="url(#arrow)"></path>
-                <path d="M955 545 H815" marker-end="url(#arrow)"></path>
-                <path d="M645 545 H520" marker-end="url(#arrow)"></path>
-                <path class="edge-return" d="M425 485 V285" marker-end="url(#arrow)"></path>
-              </g>
-
-              <g class="zones">
-                <rect x="40" y="65" width="190" height="275" rx="14"></rect>
-                <text x="64" y="98">ENTRADAS</text>
-                <rect x="305" y="65" width="240" height="275" rx="14"></rect>
-                <text x="329" y="98">CONTROL PLANE</text>
-                <rect x="620" y="65" width="220" height="390" rx="14"></rect>
-                <text x="644" y="98">PROJECT STATE</text>
-                <rect x="930" y="65" width="220" height="390" rx="14"></rect>
-                <text x="954" y="98">EXECUTION</text>
-                <rect x="305" y="470" width="845" height="135" rx="14"></rect>
-                <text x="329" y="498">DELIVERY LOOP</text>
-              </g>
-
-              <g class="node node-input">
-                <rect x="70" y="115" width="120" height="62" rx="8"></rect>
-                <text class="node-title" x="130" y="141">Humano</text>
-                <text class="node-sub" x="130" y="160">admin / viewer</text>
-              </g>
-              <g class="node node-input">
-                <rect x="70" y="235" width="120" height="62" rx="8"></rect>
-                <text class="node-title" x="130" y="261">Agente remoto</text>
-                <text class="node-sub" x="130" y="280">token dedicado</text>
-              </g>
-              <g class="node node-process">
-                <rect x="330" y="135" width="190" height="120" rx="8"></rect>
-                <text class="node-title" x="425" y="171">FastAPI + Auth</text>
-                <text class="node-sub" x="425" y="194">HTTP · sesión HttpOnly</text>
-                <text class="node-sub" x="425" y="216">WebSocket · eventos</text>
-                <text class="node-sub" x="425" y="238">validación de escrituras</text>
-              </g>
-              <g class="node node-storage">
-                <rect x="645" y="135" width="170" height="120" rx="8"></rect>
-                <text class="node-title" x="730" y="169">Proyecto activo</text>
-                <text class="node-sub" x="730" y="192">kanban · chat</text>
-                <text class="node-sub" x="730" y="214">reportes · deploys</text>
-                <text class="node-sub" x="730" y="236">estado aislado</text>
-              </g>
-              <g class="node node-storage">
-                <rect x="645" y="320" width="170" height="80" rx="8"></rect>
-                <text class="node-title" x="730" y="350">Mapa + presencia</text>
-                <text class="node-sub" x="730" y="373">zonas · rutas · estado</text>
-              </g>
-              <g class="node node-external">
-                <rect x="955" y="135" width="170" height="120" rx="8"></rect>
-                <text class="node-title" x="1040" y="169">OpenClaw agents</text>
-                <text class="node-sub" x="1040" y="192">roles especializados</text>
-                <text class="node-sub" x="1040" y="214">workspaces propios</text>
-                <text class="node-sub" x="1040" y="236">locales o remotos</text>
-              </g>
-              <g class="node node-external">
-                <rect x="955" y="320" width="170" height="80" rx="8"></rect>
-                <text class="node-title" x="1040" y="350">Clon local</text>
-                <text class="node-sub" x="1040" y="373">código · tests · Git</text>
-              </g>
-              <g class="node node-external">
-                <rect x="955" y="515" width="170" height="60" rx="8"></rect>
-                <text class="node-title" x="1040" y="540">Git remoto</text>
-                <text class="node-sub" x="1040" y="559">push verificable</text>
-              </g>
-              <g class="node node-storage">
-                <rect x="645" y="515" width="170" height="60" rx="8"></rect>
-                <text class="node-title" x="730" y="540">Deploy record</text>
-                <text class="node-sub" x="730" y="559">commit · estado · error</text>
-              </g>
-              <g class="node node-process">
-                <rect x="330" y="515" width="190" height="60" rx="8"></rect>
-                <text class="node-title" x="425" y="540">Reporte de turno</text>
-                <text class="node-sub" x="425" y="559">evidencia + cierre</text>
-              </g>
-            </svg>
-          </div>
-          <p class="diagram-note">Desliza horizontalmente para explorar el diagrama en pantallas pequeñas.</p>
-        </div>
+<div class="architecture-card reveal">
+<div class="architecture-meta"><span>ARQUITECTURA / RESPONSABILIDADES</span><div class="diagram-legend"><span><i class="legend-client"></i> Clientes</span><span><i class="legend-server"></i> Servidor</span><span><i class="legend-agent"></i> OpenClaw</span><span><i class="legend-repo"></i> Repositorios Git</span></div></div>
+<div class="architecture-scroll" tabindex="0" aria-label="Diagrama de arquitectura, desplazable horizontalmente">
+<svg class="architecture-svg" viewBox="0 0 1180 650" role="img" aria-labelledby="architectureTitle architectureDesc">
+<title id="architectureTitle">Clientes, control plane, OpenClaw y repositorios Git</title>
+<desc id="architectureDesc">Humanos y clientes remotos consultan la API del servidor. El control plane contiene API, autenticación, eventos y estado JSON por proyecto. Los agentes OpenClaw interactúan con la API, ejecutan sobre clones locales y publican mediante Git en el remoto.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="currentColor"/></marker>
+<symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/></symbol>
+<symbol id="icon-agent" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="15" rx="3"/><path d="M12 6V2M0 12h3m18 0h3M8 16h8"/><circle cx="8" cy="11" r="1"/><circle cx="16" cy="11" r="1"/></symbol>
+<symbol id="icon-git" viewBox="0 0 24 24"><circle cx="6" cy="4" r="3"/><circle cx="18" cy="7" r="3"/><circle cx="6" cy="20" r="3"/><path d="M6 7v10m0-4c8 0 12 0 12-3"/></symbol>
+<symbol id="icon-github" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.08c-3.14.68-3.8-1.33-3.8-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 1.72 2.63 1.22 3.27.93.1-.72.4-1.22.72-1.5-2.5-.29-5.14-1.25-5.14-5.57 0-1.23.44-2.24 1.16-3.03-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.08 1.16a10.7 10.7 0 0 1 5.61 0c2.14-1.45 3.08-1.16 3.08-1.16.61 1.55.23 2.7.11 2.98.72.79 1.16 1.8 1.16 3.03 0 4.33-2.64 5.28-5.15 5.56.4.35.76 1.03.76 2.08v3.09c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8z"/></symbol></defs>
+<g class="arch-zone client-zone"><rect x="20" y="55" width="220" height="315" rx="12"/><text x="40" y="87">CLIENTES</text></g>
+<g class="arch-zone server-zone"><rect x="305" y="55" width="365" height="535" rx="12"/><image href="assets/favicon.svg" x="325" y="68" width="24" height="24"/><text x="360" y="87">THE OFFICE / CONTROL PLANE</text></g>
+<g class="arch-zone agent-zone"><rect x="760" y="55" width="395" height="245" rx="12"/><image href="assets/openclaw.svg" x="780" y="68" width="24" height="24"/><text x="815" y="87">OPENCLAW / RUNTIME</text></g>
+<g class="arch-zone repo-zone"><rect x="760" y="365" width="180" height="225" rx="12"/><text x="780" y="395">GIT LOCAL</text></g>
+<g class="arch-zone repo-zone"><rect x="980" y="365" width="175" height="225" rx="12"/><text x="998" y="395">GIT REMOTO</text></g>
+<g class="arch-edge" marker-end="url(#arrow)">
+<path d="M220 150H330"/><path d="M330 205H265V215H220"/>
+<path d="M220 295H280V240H330"/>
+<path d="M790 145H640"/><path d="M640 230H790"/>
+<path d="M485 260V330" marker-start="url(#arrow)"/>
+<path d="M950 265V320H850V425"/>
+<path d="M920 460H1000"/><path d="M1000 505H920"/>
+</g>
+<g class="arch-label"><text x="273" y="138">HTTP</text><text x="272" y="195">WS · eventos</text><text x="271" y="320">CLI / API</text><text x="715" y="127">contexto · estado · reportes</text><text x="715" y="253">Gateway · iniciar turno</text><text x="531" y="302">leer / persistir</text><text x="1008" y="337">editar · probar · commit</text><text x="960" y="447">push</text><text x="960" y="529">fetch / pull</text></g>
+<g class="arch-node"><rect x="40" y="120" width="180" height="60" rx="7"/><use href="#icon-user" x="55" y="136" width="24" height="24"/><text x="145" y="146">Humano</text><text class="sub" x="145" y="165">navegador · admin/viewer</text></g>
+<g class="arch-node"><rect x="40" y="265" width="180" height="65" rx="7"/><use href="#icon-agent" x="55" y="281" width="24" height="24"/><text x="145" y="291">Cliente remoto</text><text class="sub" x="145" y="312">office-* · token acotado</text></g>
+<g class="arch-node"><rect x="330" y="115" width="310" height="145" rx="7"/><image href="assets/favicon.svg" x="345" y="132" width="24" height="24"/><text x="490" y="145">FastAPI + autenticación</text><text class="sub" x="485" y="175">API HTTP · WebSocket</text><text class="sub" x="485" y="200">roles · validación · coordinación</text><text class="sub" x="485" y="230">despacho de turnos y eventos</text></g>
+<g class="arch-node state-node"><rect x="330" y="330" width="310" height="225" rx="7"/><text class="json-icon" x="351" y="360">{ }</text><text x="500" y="360">Project State · JSON</text><text class="sub" x="485" y="397">registro de proyectos · contexto activo</text><text class="sub" x="485" y="427">kanban · chat · reportes · entregas</text><text class="sub" x="485" y="457">mapa · presencia · configuración</text><text class="sub" x="485" y="499">estado aislado por proyecto</text><text class="sub" x="485" y="527">persistencia del servidor, no un runtime</text></g>
+<g class="arch-node"><rect x="790" y="115" width="335" height="150" rx="7"/><image href="assets/openclaw.svg" x="805" y="132" width="26" height="26"/><text x="970" y="145">OpenClaw Agents</text><text class="sub" x="957" y="180">modelo · herramientas · workspace</text><text class="sub" x="957" y="210">consulta y actualiza la API de The Office</text><text class="sub" x="957" y="240">ejecución local o remota</text></g>
+<g class="arch-node"><rect x="780" y="425" width="140" height="120" rx="7"/><use href="#icon-git" x="836" y="438" width="24" height="24"/><text x="850" y="486">Clon local</text><text class="sub" x="850" y="515">código · tests · Git</text></g>
+<g class="arch-node"><rect x="1000" y="425" width="135" height="120" rx="7"/><use href="#icon-github" x="1054" y="438" width="24" height="24"/><text x="1067" y="486">Git remoto</text><text class="sub" x="1067" y="515">GitHub / servidor Git</text></g>
+</svg></div><p class="diagram-note">Desliza para explorar. Los colores distinguen componentes, no fases de ejecución.</p></div>
 
         <div class="architecture-facts">
           <article class="reveal"><strong>01</strong><h3>Estado por proyecto</h3><p>El proyecto activo determina el kanban, la conversación y los registros asociados, sin alterar los repositorios.</p></article>
@@ -388,20 +202,14 @@
     <section class="capabilities section-paper" id="capacidades">
       <div class="shell">
         <div class="section-heading reveal">
-          <p class="eyebrow eyebrow-dark"><span>05</span> CAPACIDADES</p>
+          <p class="eyebrow eyebrow-dark"><span>04</span> CAPACIDADES</p>
           <h2>Funciones del entorno de trabajo.</h2>
           <p class="heading-lead">Planificación, presencia, control de acceso y trazabilidad en una interfaz común.</p>
         </div>
 
         <div class="capability-grid">
           <article class="capability capability-wide reveal">
-            <div class="capability-visual live-map" aria-hidden="true">
-              <span class="map-route route-one"></span><span class="map-route route-two"></span>
-              <i class="map-desk map-desk-a"></i><i class="map-desk map-desk-b"></i>
-              <b class="map-agent map-agent-a">R</b><b class="map-agent map-agent-b">B</b>
-              <small>OFFICE STATE MAP</small>
-            </div>
-            <div>
+<figure class="product-shot capability-visual"><a href="assets/screenshots/agent-thinking.jpg" target="_blank" rel="noopener" aria-label="Ampliar: Agentes y pensamiento visible en la oficina"><img src="assets/screenshots/agent-thinking.jpg" alt="Agentes y pensamiento visible en la oficina" width="832" height="545" loading="lazy" decoding="async"></a><figcaption>Presencia e intención vinculadas a la actividad real.</figcaption></figure>            <div>
               <span class="card-label">PRESENCIA Y ESTADO</span>
               <h3>Actividad por agente.</h3>
               <p>Los avatares se desplazan entre proyecto, kanban, escritorio, mensajería, CI/CD y reporte según eventos reales.</p>
@@ -412,21 +220,21 @@
             <span class="card-label">KANBAN</span>
             <h3>Trabajo priorizado y navegable.</h3>
             <p>Cinco estados, prioridades explícitas, responsables, histórico completo, filtros y detalle de cada tarjeta.</p>
-            <div class="mini-priorities"><i>HIGH</i><i>MEDIUM</i><i>LOW</i></div>
+            <figure class="product-shot "><a href="assets/screenshots/kanban-overview.jpg" target="_blank" rel="noopener" aria-label="Ampliar: Listado completo de tareas y filtros"><img src="assets/screenshots/kanban-overview.jpg" alt="Listado completo de tareas y filtros" width="1558" height="1044" loading="lazy" decoding="async"></a><figcaption>Kanban completo, prioridades e histórico.</figcaption></figure>
           </article>
 
           <article class="capability reveal">
             <span class="card-label">MULTIPROYECTO</span>
             <h3>Una oficina, varios contextos.</h3>
             <p>El proyecto activo se selecciona desde la interfaz y mantiene separados su kanban, chat, reportes y entregas.</p>
-            <div class="project-switch"><span>MICROMUNDO</span><b>⌄</b></div>
+            <figure class="product-shot "><a href="assets/screenshots/task-detail.jpg" target="_blank" rel="noopener" aria-label="Ampliar: Edición de una tarea del proyecto activo"><img src="assets/screenshots/task-detail.jpg" alt="Edición de una tarea del proyecto activo" width="569" height="386" loading="lazy" decoding="async"></a><figcaption>Detalle, responsable y estado de una tarea.</figcaption></figure>
           </article>
 
           <article class="capability reveal">
             <span class="card-label">GESTIÓN DE AGENTES</span>
             <h3>Roles, modelos y configuración.</h3>
-            <p>Configura agentes locales o remotos, su especialidad, identidad, workspace y ficheros operativos.</p>
-            <div class="profile-stack" aria-hidden="true"><i>R</i><i>J</i><i>B</i><i>G</i><span>+ MODELS</span></div>
+            <p>Configura agentes locales o remotos, sus puestos y el espacio de trabajo; ajusta zonas y rutas desde el editor visual.</p>
+            <figure class="product-shot "><a href="assets/screenshots/map-editor.jpg" target="_blank" rel="noopener" aria-label="Ampliar: Editor visual del mapa de The Office"><img src="assets/screenshots/map-editor.jpg" alt="Editor visual del mapa de The Office" width="2112" height="1186" loading="lazy" decoding="async"></a><figcaption>Zonas, rutas y puestos configurables.</figcaption></figure>
           </article>
 
           <article class="capability reveal">
@@ -442,12 +250,7 @@
               <h3>Registro del ciclo de entrega.</h3>
               <p>Intención, arranque, mensajes, pruebas, entrega y reporte forman una línea temporal legible para humanos.</p>
             </div>
-            <ol class="trace-list" aria-label="Ejemplo de eventos trazados">
-              <li><time>02:15:04</time><b>think</b><span>Plan de implementación registrado</span></li>
-              <li><time>02:15:09</time><b>work</b><span>task_908 → IN_PROGRESS</span></li>
-              <li><time>02:41:32</time><b>deploy</b><span>commit 9fd21a · push OK</span></li>
-              <li><time>02:42:01</time><b>report</b><span>Pruebas, métricas y cierre</span></li>
-            </ol>
+<figure class="product-shot "><a href="assets/screenshots/deploy-history.jpg" target="_blank" rel="noopener" aria-label="Ampliar: Historial real de entregas y commits"><img src="assets/screenshots/deploy-history.jpg" alt="Historial real de entregas y commits" width="1227" height="780" loading="lazy" decoding="async"></a><figcaption>Cada entrega queda vinculada a su commit y resultado.</figcaption></figure>
           </article>
         </div>
       </div>
@@ -457,18 +260,18 @@
       <div class="shell">
         <div class="section-heading split-heading reveal">
           <div>
-            <p class="eyebrow"><span>06</span> EL EQUIPO</p>
-            <h2>Equipo y responsabilidades.</h2>
+            <p class="eyebrow"><span>05</span> EL EQUIPO</p>
+            <h2>Un equipo de ejemplo.<br>Tu configuración.</h2>
           </div>
           <p>
-            Cada agente tiene una especialidad y un ámbito de trabajo definido.
-            La composición del equipo es configurable e integra agentes locales y remotos.
+            Esta plantilla es solo un ejemplo: nombres, imágenes, roles, modelos, número de agentes y horarios son totalmente configurables. Puedes combinar agentes locales y remotos.
           </p>
         </div>
 
+<figure class="product-shot team-shot reveal"><a href="assets/screenshots/agent-profiles.jpg" target="_blank" rel="noopener" aria-label="Ampliar: Configuración real de la plantilla en RRHH"><img src="assets/screenshots/agent-profiles.jpg" alt="Configuración real de la plantilla en RRHH" width="2123" height="1177" loading="lazy" decoding="async"></a><figcaption>RRHH: un ejemplo de plantilla editable, no un equipo obligatorio.</figcaption></figure>
         <div class="team-grid">
           <article class="person person-richard reveal">
-            <div class="person-top"><span class="pixel-face">R</span><i>01</i></div>
+            <div class="person-top"><img class="person-avatar" src="assets/team/richard.png" alt="Richard" width="64" height="64" loading="lazy"><i>01</i></div>
             <div class="person-status"><span></span> CONFIGURED</div>
             <h3>Richard</h3>
             <strong>Research & Architecture</strong>
@@ -476,7 +279,7 @@
             <small>DISCOVERY → EVIDENCE</small>
           </article>
           <article class="person person-jared reveal">
-            <div class="person-top"><span class="pixel-face">J</span><i>02</i></div>
+            <div class="person-top"><img class="person-avatar" src="assets/team/jared.png" alt="Jared" width="64" height="64" loading="lazy"><i>02</i></div>
             <div class="person-status"><span></span> CONFIGURED</div>
             <h3>Jared</h3>
             <strong>Project & Delivery</strong>
@@ -484,7 +287,7 @@
             <small>SIGNAL → PRIORITY</small>
           </article>
           <article class="person person-bruce reveal">
-            <div class="person-top"><span class="pixel-face">B</span><i>03</i></div>
+            <div class="person-top"><img class="person-avatar" src="assets/team/bruce-lee.png" alt="Bruce Lee" width="64" height="64" loading="lazy"><i>03</i></div>
             <div class="person-status"><span></span> CONFIGURED</div>
             <h3>Bruce Lee</h3>
             <strong>Principal Engineering</strong>
@@ -492,7 +295,7 @@
             <small>CODE → VERIFY</small>
           </article>
           <article class="person person-gilfoyle reveal">
-            <div class="person-top"><span class="pixel-face">G</span><i>04</i></div>
+            <div class="person-top"><img class="person-avatar" src="assets/team/gilfoyle.png" alt="Gilfoyle" width="64" height="64" loading="lazy"><i>04</i></div>
             <div class="person-status is-standby"><span></span> CONFIGURED</div>
             <h3>Gilfoyle</h3>
             <strong>Systems Engineering</strong>
@@ -505,97 +308,19 @@
           <div class="night-copy">
             <span class="card-label">EJEMPLO DE CICLO PROGRAMADO</span>
             <h3>Secuencia de trabajo nocturno.</h3>
+            <p class="schedule-note">Roles y horarios ilustrativos, configurables para cada equipo.</p>
           </div>
           <div class="night-timeline">
-            <div><time>00:00</time><span></span><b>Investigar</b><small>una pregunta</small></div>
-            <div><time>01:00</time><span></span><b>Preparar</b><small>1–3 tareas</small></div>
-            <div><time>02:00</time><span></span><b>Construir</b><small>código + pruebas</small></div>
-            <div><time>06:00</time><span></span><b>Consolidar</b><small>evidencia + reporte</small></div>
+            <div><time>00:00</time><span></span><b>Investigar</b><small>Richard · una pregunta</small></div>
+            <div><time>01:00</time><span></span><b>Preparar</b><small>Jared · 1–3 tareas</small></div>
+            <div><time>02:00</time><span></span><b>Construir</b><small>Bruce Lee · código + pruebas</small></div>
+            <div><time>06:00</time><span></span><b>Consolidar</b><small>Bruce Lee · evidencia + reporte</small></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="screenshots section-paper" id="capturas">
-      <div class="shell">
-        <div class="section-heading split-heading reveal">
-          <div>
-            <p class="eyebrow eyebrow-dark"><span>07</span> INTERFAZ</p>
-            <h2>Vistas del entorno.</h2>
-          </div>
-          <p>
-            Referencia de las vistas principales del proyecto. Las capturas se
-            incorporarán a esta galería; los paneles actuales describen su contenido.
-          </p>
-        </div>
-
-        <div class="shot-grid">
-          <figure class="shot shot-featured reveal" data-shot>
-            <div class="shot-placeholder">
-              <span class="shot-number">01</span>
-              <div class="shot-icon" aria-hidden="true">▦</div>
-              <strong>Vista general de la oficina</strong>
-              <p>Agentes en sus zonas, kanban poblado, paneles de proyecto, mensajes, reportes y CI/CD.</p>
-            </div>
-            <img data-src="assets/screenshots/office-overview.png" alt="Vista general de The Office con agentes y paneles activos">
-            <figcaption><span>01</span> La oficina como centro de operaciones</figcaption>
-          </figure>
-
-          <figure class="shot reveal" data-shot>
-            <div class="shot-placeholder">
-              <span class="shot-number">02</span><div class="shot-icon" aria-hidden="true">□</div>
-              <strong>Kanban y detalle de tarea</strong>
-              <p>Tarjetas, prioridades, responsables y detalle de cada tarea.</p>
-            </div>
-            <img data-src="assets/screenshots/kanban-detail.png" alt="Kanban de The Office y detalle de una tarea">
-            <figcaption><span>02</span> Trabajo visible y priorizado</figcaption>
-          </figure>
-
-          <figure class="shot reveal" data-shot>
-            <div class="shot-placeholder">
-              <span class="shot-number">03</span><div class="shot-icon" aria-hidden="true">↹</div>
-              <strong>Selector multiproyecto</strong>
-              <p>Monitor del proyecto y cambio de contexto desde la propia oficina.</p>
-            </div>
-            <img data-src="assets/screenshots/project-switcher.png" alt="Selector de proyecto activo en The Office">
-            <figcaption><span>03</span> Un equipo, distintos proyectos</figcaption>
-          </figure>
-
-          <figure class="shot reveal" data-shot>
-            <div class="shot-placeholder">
-              <span class="shot-number">04</span><div class="shot-icon" aria-hidden="true">⌁</div>
-              <strong>Turno de un agente</strong>
-              <p>Estado de ejecución, ubicación del agente y tarea asociada.</p>
-            </div>
-            <img data-src="assets/screenshots/agent-workflow.png" alt="Agente de The Office ejecutando una tarea">
-            <figcaption><span>04</span> Estado conectado a trabajo real</figcaption>
-          </figure>
-
-          <figure class="shot reveal" data-shot>
-            <div class="shot-placeholder">
-              <span class="shot-number">05</span><div class="shot-icon" aria-hidden="true">⌗</div>
-              <strong>Editor visual del mapa</strong>
-              <p>Zonas, rutas y layout ajustables sin reescribir la interfaz.</p>
-            </div>
-            <img data-src="assets/screenshots/map-editor.png" alt="Editor visual del mapa de The Office">
-            <figcaption><span>05</span> Configuración del espacio de trabajo</figcaption>
-          </figure>
-
-          <figure class="shot reveal" data-shot>
-            <div class="shot-placeholder">
-              <span class="shot-number">06</span><div class="shot-icon" aria-hidden="true">◎</div>
-              <strong>Perfiles de agentes</strong>
-              <p>Perfiles, roles, modos local/remoto y configuración operativa.</p>
-            </div>
-            <img data-src="assets/screenshots/agent-profiles.png" alt="Gestión de perfiles de agentes de The Office">
-            <figcaption><span>06</span> Configuración del equipo</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-
-    <section class="closing" aria-label="Resumen del proyecto">
+<section class="closing" aria-label="Resumen del proyecto">
       <div class="shell closing-inner">
         <p>The Office integra agentes de IA en un entorno de trabajo coordinado y supervisado.</p>
         <a class="button button-dark" href="#inicio">Volver arriba <span>↑</span></a>
