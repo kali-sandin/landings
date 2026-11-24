@@ -7,7 +7,7 @@ Landing pública de The Office, añadida como proyecto independiente sin modific
 - index.html — narrativa, componentes y diagrama SVG accesible
 - styles.css — diseño responsive con estética editorial + pixel art
 - app.js — flujo interactivo y navegación
-- ambient.js — rutas ortogonales aleatorias, animadas con CSS
+- ambient.js — rutas SVG ortogonales aleatorias, texto snake carácter a carácter
 - diagram-flow.js — secuencia visual de interacciones cada 1,5 s
 - lightbox.js — ampliación accesible de capturas en diálogo nativo
 - assets/favicon.svg — favicon propio
@@ -68,12 +68,14 @@ URL esperada en GitHub Pages:
 
 ## Diagrama y secuencia de ejemplo
 
-El límite Raspberry Pi incluye The Office Server (Web, Control Plane, estado), OpenClaw local y Git local. Humano, agente remoto y Git remoto quedan fuera. La web media la interacción humana y recibe los eventos WS del control plane. Las flechas se etiquetan según su relación.
+El límite Raspberry Pi incluye The Office Service (Web, Control Plane, estado), OpenClaw local y Git local. Humano, agente remoto y Git remoto quedan fuera. La web media la interacción humana y recibe los eventos WS del control plane. Las flechas se etiquetan según su relación.
 
 La secuencia nocturna se representa a escala: posición = minuto/420. Richard00:00 y07:00 (code reviews); Jared01:00; Gilfoyle01:30 (servicios) y06:30 (rendimiento/procesos zombies); Bruce cada30min02:00–06:00 (9turnos, último de consolidación). Es un ejemplo configurable, no una declaración de scheduler activo.
 
-El fondo anima seis cadenas binarias con mensajes breves por sección oscura. Las rutas se calculan al montar o cambiar el ancho: cuadrícula de 48 px, tramos exclusivamente horizontales/verticales y giros aleatorios de 90 grados. CSS interpola transform/opacity; no hay canvas, bucle de frames JS ni peticiones. Tarjetas de equipo y cronología opacas impiden que el fondo se transparente entre la información. Se pausa con pestaña oculta o imagen ampliada, y desaparece con movimiento reducido.
+El fondo anima seis cadenas binarias con mensajes breves por sección oscura. Las rutas se calculan al montar o cambiar el ancho: cuadrícula de 48 px, tramos exclusivamente horizontales/verticales y giros aleatorios de 90 grados. SVG textPath distribuye los caracteres sobre el recorrido: el texto dobla las esquinas como una serpiente en lugar de desplazar un bloque. SMIL anima startOffset; no hay un elemento animado por letra, canvas, bucle de frames JS ni peticiones. Los tramos verticales son de 3–6 celdas (144–288px, limitados en los extremos del recorrido). Se pausa también cada sección fuera de vista. Tarjetas de equipo y cronología opacas impiden que el fondo se transparente entre la información. Se pausa con pestaña oculta o imagen ampliada, y desaparece con movimiento reducido.
 
 Los textos auxiliares usan tamaños más legibles sin ampliar los títulos. El pie reserva su propia fila para la frase completa cuando no cabe junto a marca y enlace. Kali abre en una nueva pestaña externa. En el diagrama, OpenClaw y el Control Plane intercambian flechas horizontales; Git remoto se sitúa por debajo del límite de la Raspberry. El logotipo de servidor usa los cuatro rombos de la marca.
 
 El agente remoto se alinea horizontalmente con Control Plane. OpenClaw usa rojo; Git remoto queda centrado bajo el servidor, con conexiones en L al clon local. Las flechas resaltadas simulan primero el recorrido humano y el agente local, y después un agente remoto: cambios cada 1,5 s, no telemetría. El temporizador se detiene si el diagrama no está visible, con pestaña oculta, imagen ampliada o movimiento reducido.
+
+La cabecera del contorno físico es The Office Server (Raspberry Pi 5); el servicio interno usa amarillo/naranja, OpenClaw rojo y los repositorios gris/blanco. El agente remoto de ejemplo (Moss) dispone de un clon en su entorno y comparte el mismo remoto Git; los cuatro agentes locales tienen sus caras en OpenClaw. Observabilidad incluye dirección humana: instrucciones individuales o al chat común, no solo tareas del kanban. El pie centra su frase.

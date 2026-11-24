@@ -427,12 +427,12 @@ footer { color: var(--paper); background: var(--ink); }
 .arch-zone { color: var(--blue); }
 .arch-zone rect { fill: rgba(92,157,237,.04); stroke: currentColor; stroke-opacity: .5; }
 .arch-zone text { fill: currentColor; font: 700 12px var(--mono); letter-spacing: .04em; }
-.server-zone { color: var(--violet); }
-.server-zone rect { fill: rgba(143,112,255,.05); }
+.server-zone { color: var(--amber); }
+.server-zone rect { fill: rgba(246,183,60,.045); }
 .agent-zone { color: var(--red); }
 .agent-zone rect { fill: rgba(237,101,94,.055); }
-.repo-zone { color: var(--cyan); }
-.repo-zone rect { fill: rgba(48,197,181,.04); }
+.repo-zone { color: #d8dedd; }
+.repo-zone rect { fill: rgba(220,225,224,.035); }
 .arch-node rect { fill: #1e2625; stroke: rgba(244,237,223,.3); }
 .arch-node text { fill: var(--paper); text-anchor: middle; font: 700 13px var(--sans); }
 .arch-node .sub { fill: rgba(244,237,223,.65); font: 500 12px var(--mono); }
@@ -440,7 +440,7 @@ footer { color: var(--paper); background: var(--ink); }
 .arch-node .json-icon { font: 700 17px var(--mono); fill: var(--violet); }
 .arch-edge { fill: none; stroke: rgba(244,237,223,.55); stroke-width: 1.5; color: var(--paper); }
 .arch-label text { text-anchor: middle; fill: rgba(244,237,223,.7); font: 500 11px var(--mono); paint-order: stroke; stroke: #171a18; stroke-width: 4px; stroke-linejoin: round; }
-.legend-client { background: var(--blue); }.legend-server { background: var(--violet); }.legend-agent { background: var(--red); }.legend-repo { background: var(--cyan); }
+.legend-client { background: var(--blue); }.legend-server { background: var(--amber); }.legend-agent { background: var(--red); }.legend-repo { background: #d8dedd; }
 .architecture-meta { flex-wrap: wrap; }
 @media(max-width:1050px) { .hero-grid { grid-template-columns: 1fr; }.hero-shot { max-width: 900px; } }
 @media(max-width:780px) { .capability-wide { display: grid; grid-template-columns: 1fr; }.architecture-svg { min-width: 900px; }.capability-wide .capability-visual { margin-bottom: 0; } }
@@ -491,8 +491,8 @@ footer { color: var(--paper); background: var(--ink); }
 /* Six drifting packets per dark section: transform/opacity only, no frame loop. */
 .hero, .section-dark, .section-ink { isolation: isolate; }
 .data-flow { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; }
-.data-packet { position: absolute; left: 0; top: var(--top); width: max-content; white-space: nowrap; color: #a6d7c8; font: 600 12px var(--mono); letter-spacing: .05em; opacity: 0; animation: var(--route) var(--duration) linear var(--delay) infinite; }
-
+.data-flow-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; }
+.data-packet { fill: #a6d7c8; font: 600 12px var(--mono); letter-spacing: .05em; opacity: .18; }
 .motion-paused .data-packet, .image-preview-open .data-packet { position: absolute; left: 0; top: var(--top); width: max-content; white-space: nowrap; color: #a6d7c8; font: 600 12px var(--mono); letter-spacing: .05em; opacity: 0; animation: var(--route) var(--duration) linear var(--delay) infinite; }
 @media (prefers-reduced-motion: reduce) { .data-flow { display: none; } #image-lightbox, #image-lightbox::backdrop, .lightbox-figure { animation: none; transition: none; } }
 
@@ -548,3 +548,5 @@ footer { color: var(--paper); background: var(--ink); }
 .arch-edge > path.is-active[marker-start] { marker-start: url(#arrow-active); }
 .architecture-svg #arrow-active path { fill: var(--cyan); }
 @media (prefers-reduced-motion: reduce) { .arch-edge > path { transition: none; } }
+
+.footer-inner p { text-align: center; }

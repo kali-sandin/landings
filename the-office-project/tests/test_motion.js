@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
-const {route,GRID,keyframes}=require('../ambient');
+const {route,GRID,pathData}=require('../ambient');
 const {STEPS,setup}=require('../diagram-flow');
 const html=fs.readFileSync(require('node:path').join(__dirname,'../index.html'),'utf8');
 for(let n=0;n<100;n++){
@@ -10,10 +10,11 @@ for(let n=0;n<100;n++){
     const p=points[i];assert.equal(Math.abs(p.x)%GRID,0);assert.equal(Math.abs(p.y)%GRID,0);
     if(i){const q=points[i-1];assert.ok((p.x===q.x)!==(p.y===q.y),'strictly one axis moves');assert.ok(p.offset>q.offset);}
   }
-  assert.ok(!keyframes('test',points).includes('rotate'));
+  assert.ok(pathData(points,96).startsWith('M'));
+  assert.ok(!pathData(points,96).includes('rotate'));
 }
 const ids=[...html.matchAll(/data-flow-edge="([^"]+)"/g)].map(m=>m[1]);
-assert.equal(new Set(ids).size,11);assert.ok(STEPS.every(step=>step.every(id=>ids.includes(id))));
+assert.equal(new Set(ids).size,12);assert.ok(STEPS.every(step=>step.every(id=>ids.includes(id))));
 function classes(){const set=new Set();return {add:c=>set.add(c),remove:c=>set.delete(c),contains:c=>set.has(c),toggle(c,b){b?set.add(c):set.delete(c);}};}
 const edges=ids.map(id=>({dataset:{flowEdge:id},classList:classes()}));
 let io,mut,mediaChange,ticks=new Map(),counter=0,visibility;

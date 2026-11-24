@@ -9,7 +9,7 @@
     ['human-web'], ['web-api'], ['api-state'], ['api-web'],
     ['api-agents'], ['git-pull'], ['agents-git'], ['git-push'],
     ['agents-api'], ['api-state','api-web'],
-    ['remote-api'], ['api-state'], ['remote-git'],
+    ['remote-api'], ['api-state'], ['remote-git'], ['remote-work'],
     ['remote-api'], ['api-state','api-web']
   ];
   function setup(doc,win){

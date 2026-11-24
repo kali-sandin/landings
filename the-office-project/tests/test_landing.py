@@ -98,8 +98,8 @@ class LandingTests(unittest.TestCase):
         self.assertIn('.hero-ticker .ticker-track { gap: 0;', self.css)
 
     def test_architecture_topology(self):
-        self.assertIn('The Office Server', self.html)
-        self.assertIn('RASPBERRY PI 5 · MISMO SERVIDOR', self.html)
+        self.assertIn('The Office Service', self.html)
+        self.assertIn('The Office Server (Raspberry Pi 5)', self.html)
         self.assertIn('Control Plane', self.html)
         self.assertIn('interfaz de oficina', self.html)
         self.assertNotIn('token acotado', self.html)
@@ -130,9 +130,12 @@ class LandingTests(unittest.TestCase):
         self.assertIn('ticker-result', self.html)
         for agent in ('richard', 'jared', 'bruce-lee', 'gilfoyle'):
             self.assertIn('assets/team/'+agent+'.png', self.html)
-        self.assertIn('Observabilidad de la actividad del agente.', self.html)
+        self.assertIn('Observabilidad y dirección del trabajo del agente.', self.html)
         self.assertIn('thinking, working, reporting', self.html)
         self.assertIn('Habilita o deshabilita cada agente', self.html)
+        self.assertIn('Envía instrucciones directamente a un agente o al chat de la oficina', self.html)
+        self.assertIn('assets/team/moss.png', self.html)
+        self.assertIn('data-node="remote-clone"', self.html)
         self.assertIn('PROJECT SYNC', (ROOT/'ambient.js').read_text())
         self.assertIn('0101 1100', (ROOT/'ambient.js').read_text())
         self.assertNotIn('turnos de 15 minutos', self.html)
