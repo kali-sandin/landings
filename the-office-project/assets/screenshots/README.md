@@ -1,12 +1,13 @@
-# Capturas pendientes
+# Capturas reales de The Office
 
-Sube las capturas con estos nombres exactos. La landing las detectará y sustituirá automáticamente cada placeholder:
+Se integran como imágenes normales en la sección relacionada; no hay galería final ni sustitución automática de placeholders.
 
-- office-overview.png — vista general, con agentes y paneles activos
-- kanban-detail.png — kanban con una tarjeta abierta
-- project-switcher.png — monitor y selector multiproyecto
-- agent-workflow.png — agente trabajando, con tarea y bocadillo visibles
-- map-editor.png — editor visual de zonas y rutas
-- agent-profiles.png — pantalla de RRHH / perfiles de agentes
+- `office-overview.jpg`: captura 1, hero (2132 ×1199).
+- `kanban-overview.jpg`: captura 2, listado de tareas (1558 ×1044).
+- `map-editor.jpg`: captura 3, configuración del mapa (2112 ×1186).
+- `agent-profiles.jpg`: captura de RRHH regenerada desde la aplicación tras reparar la lectura de modelos (2123 ×1177).
+- `deploy-history.jpg`: captura 5, trazabilidad de entregas (1227 ×780).
+- `agent-thinking.jpg`: captura 6, presencia/pensamiento (832 ×545).
+- `task-detail.jpg`: captura 7, detalle de tarjeta (569 ×386).
 
-Conviene exportarlas en formato horizontal, idealmente 16:9 y con al menos 1600 px de ancho. No incluyas tokens, rutas privadas ni otros datos sensibles.
+Cada imagen mantiene su proporción; no forzar todas a16:9 ni recortar controles. Pulsar abre el original. Capturas revisadas sin credenciales; no añadir tokens ni configuración privada.

@@ -25,7 +25,7 @@ Los avatares del equipo de ejemplo viven en `assets/team/`.
 
 ## Criterios de contenido y diseño
 
-La landing presenta la visión del proyecto, no un informe de su estado operativo. El tono es técnico y descriptivo. Las secciones y tarjetas tienen espaciado compacto, con contenido legible y alturas flexibles; la galería usa tres columnas en escritorio, dos en tablet y una en móvil. La hero utiliza una captura real. El equipo y los horarios se presentan como ejemplos configurables.
+La landing presenta la visión del proyecto, no un informe de su estado operativo. El tono es técnico y descriptivo. Las secciones y tarjetas tienen espaciado compacto, con contenido legible y alturas flexibles; las capturas se distribuyen junto a las funciones que documentan y conservan sus proporciones originales. La hero utiliza una captura real. El equipo y los horarios se presentan como ejemplos configurables.
 
 ## Verificación
 
