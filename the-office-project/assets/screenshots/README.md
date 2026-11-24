@@ -10,4 +10,8 @@ Se integran como imágenes normales en la sección relacionada; no hay galería 
 - `agent-thinking.jpg`: captura 6, presencia/pensamiento (832 ×545).
 - `task-detail.jpg`: captura 7, detalle de tarjeta (569 ×386).
 
-Cada imagen mantiene su proporción; no forzar todas a16:9 ni recortar controles. Pulsar abre el original. Capturas revisadas sin credenciales; no añadir tokens ni configuración privada.
+Cada imagen mantiene su proporción; no forzar todas a16:9 ni recortar controles. Pulsar amplía en la misma página, y otro clic o Escape cierra. Capturas revisadas sin credenciales; no añadir tokens ni configuración privada.
+
+- `project-editor.jpg`: captura8, edición del proyecto activo (886×818).
+- `agent-detail.jpg`: captura9, ficha individual de Richard (1617×989).
+- `login.png`: recurso original de la pantalla de acceso (629×660).

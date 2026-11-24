@@ -208,14 +208,22 @@
     schedule();
   }
 
-  document.querySelectorAll("[data-shot]").forEach((figure) => {
-    const image = figure.querySelector("img[data-src]");
-    if (!image) return;
-    image.addEventListener("load", () => figure.classList.add("has-image"));
-    image.addEventListener("error", () => {
-      figure.classList.remove("has-image");
-      image.removeAttribute("src");
-    });
-    image.src = image.dataset.src;
+  // Quiet background packets; no polling, canvas, frame loop or new requests.
+  document.querySelectorAll('.hero, .architecture, .team').forEach((section, sectionIndex) => {
+    const layer = document.createElement('div');
+    layer.className = 'data-flow'; layer.setAttribute('aria-hidden', 'true');
+    for (let i = 0; i < 6; i++) {
+      const packet = document.createElement('span'); packet.className = 'data-packet';
+      packet.style.setProperty('--top', `${12 + i * 14}%`);
+      packet.style.setProperty('--length', `${20 + (i % 3) * 22}px`);
+      packet.style.setProperty('--bend', `${(i % 2 ? -1 : 1) * (30 + i * 9)}px`);
+      packet.style.setProperty('--duration', `${23 + i * 5 + sectionIndex * 2}s`);
+      packet.style.setProperty('--delay', `${-i * 7 - sectionIndex * 3}s`);
+      layer.appendChild(packet);
+    }
+    section.prepend(layer);
+  });
+  document.addEventListener('visibilitychange', () => {
+    document.documentElement.classList.toggle('motion-paused', document.hidden);
   });
 })();

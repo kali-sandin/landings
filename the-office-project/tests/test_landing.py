@@ -87,7 +87,7 @@ class LandingTests(unittest.TestCase):
         self.assertNotIn('sistema', self.page.sections)
         self.assertNotIn('capturas', self.page.sections)
         self.assertNotIn('interface demo', self.html)
-        for name in ('office-overview', 'kanban-overview', 'map-editor', 'agent-profiles', 'deploy-history', 'agent-thinking', 'task-detail'):
+        for name in ('office-overview', 'kanban-overview', 'map-editor', 'agent-profiles', 'deploy-history', 'agent-thinking', 'task-detail', 'project-editor', 'agent-detail'):
             self.assertIn('assets/screenshots/'+name+'.jpg', self.html)
         self.assertIn('totalmente configurables', self.html)
 
@@ -98,12 +98,31 @@ class LandingTests(unittest.TestCase):
         self.assertIn('.hero-ticker .ticker-track { gap: 0;', self.css)
 
     def test_architecture_topology(self):
-        self.assertIn('THE OFFICE / CONTROL PLANE', self.html)
+        self.assertIn('The Office Server', self.html)
+        self.assertIn('RASPBERRY PI 5 · MISMO SERVIDOR', self.html)
+        self.assertIn('Control Plane', self.html)
+        self.assertIn('interfaz de oficina', self.html)
+        self.assertNotIn('token acotado', self.html)
         self.assertIn('Project State · JSON', self.html)
         self.assertIn('GIT LOCAL', self.html)
         self.assertIn('GIT REMOTO', self.html)
         self.assertIn('Gateway · iniciar turno', self.html)
         self.assertIn('contexto · estado · reportes', self.html)
+
+    def test_in_page_lightbox_and_footer(self):
+        self.assertIn('id="image-lightbox"', self.html)
+        self.assertNotIn('target="_blank"', self.html)
+        self.assertNotIn('SYSTEM DESIGN', self.html)
+        self.assertNotIn('Volver arriba', self.html)
+        self.assertNotIn('<section class="closing"', self.html)
+        self.assertIn('assets/screenshots/login.png', self.html)
+
+    def test_scaled_night_sequence(self):
+        minutes = [int(n) for n in re.findall(r'data-minute="(\d+)"', self.html)]
+        self.assertEqual(minutes, [0,60]+list(range(120,361,15)))
+        pins = re.findall(r'class="shift-event" style="--at:([0-9.]+)%" data-minute="(\d+)"', self.html)
+        for position, minute in pins:
+            self.assertAlmostEqual(float(position), int(minute)/360*100, places=5)
 
     def test_fallback_content_is_not_hidden_without_javascript(self):
         reveal = re.search(r'\.reveal\s*\{([^}]+)\}', self.css)

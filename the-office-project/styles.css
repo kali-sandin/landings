@@ -447,3 +447,55 @@ footer { color: var(--paper); background: var(--ink); }
 @media(prefers-reduced-motion:reduce) { .hero-ticker .ticker-track { animation: none; }.ticker-group:nth-child(2) { display: none; } }
 
 .schedule-note { margin: 12px 0 0; color: rgba(244,237,223,.58); font-size: 12px; }
+
+/* In-page, keyboard-accessible image preview. */
+.product-shot a, .web-node a { cursor: zoom-in; }
+.image-preview-open { overflow: hidden; }
+#image-lightbox { border: 0; padding: 24px 16px 48px; margin: 0; width: 100vw; height: 100dvh; max-width: none; max-height: none; background: transparent; color: var(--paper); overflow: hidden; opacity: 1; transition: opacity 180ms ease; cursor: zoom-out; }
+#image-lightbox[open] { display: flex; align-items: center; justify-content: center; animation: preview-fade-in 180ms ease; }
+#image-lightbox::backdrop { background: rgba(5,9,12,.94); opacity: 1; transition: opacity 180ms ease; animation: preview-fade-in 180ms ease; }
+#image-lightbox.is-closing, #image-lightbox.is-closing::backdrop { opacity: 0; }
+.lightbox-figure { margin: 0; max-width: 94vw; display: flex; flex-direction: column; align-items: center; animation: preview-zoom-in 220ms ease-out; transition: transform 180ms ease; }
+.lightbox-figure img { display: block; width: auto; height: auto; max-width: 100%; max-height: calc(100dvh - 112px); object-fit: contain; box-shadow: 0 12px 60px #0009; }
+.lightbox-figure figcaption { margin-top: 14px; max-width: 70ch; text-align: center; font: 500 12px/1.5 var(--mono); }
+.lightbox-hint { position: absolute; bottom: 16px; font: 500 10px var(--mono); color: #b5bcbc; }
+#image-lightbox.is-closing .lightbox-figure { transform: scale(.985); }
+@keyframes preview-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes preview-zoom-in { from { transform: scale(.96); } to { transform: scale(1); } }
+.portrait-shot { max-width: 400px; margin-inline: auto; }
+.login-shot { max-width: 280px; margin-inline: auto; background: transparent; border: 0; }
+.login-shot img { max-height: 340px; }
+.login-shot figcaption { background: #101722; }
+.architecture-host { min-width: 1100px; }
+.architecture-host .arch-node text { font-size: 16px; }
+.architecture-host .arch-node .sub { font-size: 13px; }
+.architecture-host .arch-zone > text { font-size: 14px; }
+.architecture-host .arch-label text { font-size: 12px; }
+.host-boundary > rect { fill: rgba(244,237,223,.012); stroke: rgba(244,237,223,.2); stroke-dasharray: 7 8; }
+.host-boundary use { fill: none; stroke: #b5bdba; stroke-width: 1.2; }
+.host-boundary text { fill: #a6aeab; font: 650 13px var(--mono); letter-spacing: .08em; }
+/* Every pin uses its real minute offset; narrow views scroll the axis, not the page. */
+.shift-example { display: block; padding: 24px; }
+.shift-scroll { margin-top: 24px; overflow-x: auto; padding: 0 28px; }
+.shift-track { position: relative; min-width: 920px; height: 205px; margin: 16px 24px 0; }
+.shift-axis { position: absolute; left: 0; right: 0; top: 30px; height: 1px; background: rgba(244,237,223,.3); }
+.shift-axis > span { position: absolute; top: -28px; transform: translateX(-50%); font: 650 10px var(--mono); color: var(--amber); }
+.shift-axis > span::after { content: ''; position: absolute; top: 24px; left: 50%; height: 9px; width: 1px; background: #bec4b5; }
+.shift-events { list-style: none; margin: 0; padding: 0; }
+.shift-event { position: absolute; left: var(--at); top: 48px; width: 48px; transform: translateX(-50%); display: grid; justify-items: center; gap: 6px; text-align: center; }
+.shift-event::before { content: ''; position: absolute; top: -18px; height: 12px; width: 1px; background: rgba(244,237,223,.2); }
+.shift-event time { font: 500 8px var(--mono); color: #b7bfb3; }
+.shift-event img { width: 28px; height: 28px; object-fit: cover; border: 1px solid #dcd5bf66; border-radius: 50%; }
+.shift-event > span { font: 500 8px var(--mono); color: #d8dece; }
+.footer-inner p { max-width: 66ch; line-height: 1.6; }
+/* Six drifting packets per dark section: transform/opacity only, no frame loop. */
+.hero, .section-dark, .section-ink { isolation: isolate; }
+.data-flow { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; }
+.data-packet { position: absolute; left: -15%; top: var(--top); width: var(--length); height: 1px; background: #a6d7c8; opacity: 0; animation: packet-flow var(--duration) linear var(--delay) infinite; }
+@keyframes packet-flow { 0% { transform: translate3d(0,0,0) rotate(-8deg); opacity: 0; } 15% { opacity: .075; } 46% { transform: translate3d(60vw,var(--bend),0) rotate(12deg); opacity: .045; } 80% { opacity: .075; } 100% { transform: translate3d(130vw,0,0) rotate(-12deg); opacity: 0; } }
+.data-packet:nth-child(even) { animation-direction: reverse; }
+.motion-paused .data-packet, .image-preview-open .data-packet { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .data-flow { display: none; } #image-lightbox, #image-lightbox::backdrop, .lightbox-figure { animation: none; transition: none; } }
+
+.shift-event:nth-child(even) { top: 100px; }
+.shift-event:nth-child(even)::before { top: -70px; height: 64px; }
