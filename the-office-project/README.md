@@ -15,7 +15,7 @@ Landing pública de The Office, añadida como proyecto independiente sin modific
 
 Capturas en `assets/screenshots/`, integradas por contexto (no galería final):
 - office-overview: hero.
-- agent-thinking: intención/pensamiento visible.
+- agent-thinking: observabilidad de actividad; ejemplo de pensamiento registrado.
 - kanban-overview y task-detail: planificación.
 - map-editor: editor del espacio de trabajo.
 - project-editor: edición del proyecto activo.
@@ -45,7 +45,7 @@ git diff --check
 
 Para una revisión visual, abrir la web a 1440, 1024, 768, 390 y 320 px de ancho. Comprobar que el documento no desborda horizontalmente, que el diagrama y los pasos del flujo permiten desplazamiento interno, y que funcionan los controles anterior, siguiente, selección de paso y pausa/reanudación. Repetir con movimiento reducido y con JavaScript desactivado para comprobar la lectura del contenido.
 
-La tira repite dos grupos idénticos, sin gap externo: el desplazamiento -50% equivale exactamente al ancho de un grupo. Con movimiento reducido se detiene.
+La tira simula un turno completo de Richard, Jared, Bruce Lee y Gilfoyle: acción, comando y resultado diferenciados por color, con avatares. Repite dos grupos idénticos, sin gap externo: el desplazamiento -50% equivale exactamente al ancho de un grupo. No representa actividad en directo. Hover/foco la pausa; con movimiento reducido se detiene y permite desplazamiento manual.
 
 ## Prueba local
 
@@ -67,6 +67,8 @@ URL esperada en GitHub Pages:
 
 El límite Raspberry Pi incluye The Office Server (Web, Control Plane, estado), OpenClaw local y Git local. Humano, agente remoto y Git remoto quedan fuera. La web media la interacción humana y recibe los eventos WS del control plane. Las flechas se etiquetan según su relación.
 
-La secuencia nocturna se representa a escala: posición = minuto/360. Richard00:00; Jared01:00; Bruce cada15min02:00–06:00 (17turnos, último de consolidación). Es un ejemplo configurable, no una declaración de scheduler activo.
+La secuencia nocturna se representa a escala: posición = minuto/420. Richard00:00 y07:00 (code reviews); Jared01:00; Gilfoyle01:30 (servicios) y06:30 (rendimiento/procesos zombies); Bruce cada30min02:00–06:00 (9turnos, último de consolidación). Es un ejemplo configurable, no una declaración de scheduler activo.
 
-El fondo anima seis trazos por sección oscura usando solo transform/opacity en CSS; no canvas ni bucle de frames JS ni peticiones. Se pausa con pestaña oculta o imagen ampliada, y desaparece con movimiento reducido.
+El fondo anima seis cadenas binarias con mensajes breves por sección oscura usando solo transform/opacity en CSS; no canvas ni bucle de frames JS ni peticiones. Se pausa con pestaña oculta o imagen ampliada, y desaparece con movimiento reducido.
+
+Los textos auxiliares usan tamaños más legibles sin ampliar los títulos. El pie reserva su propia fila para la frase completa cuando no cabe junto a marca y enlace. Kali abre en una nueva pestaña externa. En el diagrama, OpenClaw y el Control Plane intercambian flechas horizontales; Git remoto se sitúa por debajo del límite de la Raspberry. El logotipo de servidor usa los cuatro rombos de la marca.

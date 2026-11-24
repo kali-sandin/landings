@@ -92,7 +92,7 @@ class LandingTests(unittest.TestCase):
         self.assertIn('totalmente configurables', self.html)
 
     def test_ticker_groups_are_identical(self):
-        groups = re.findall(r'<div class="ticker-group">(.*?)</div>', self.html, re.S)
+        groups = re.findall(r'<div class="ticker-group"[^>]*>(.*?)</div>', self.html, re.S)
         self.assertEqual(len(groups), 2)
         self.assertEqual(groups[0], groups[1])
         self.assertIn('.hero-ticker .ticker-track { gap: 0;', self.css)
@@ -107,11 +107,12 @@ class LandingTests(unittest.TestCase):
         self.assertIn('GIT LOCAL', self.html)
         self.assertIn('GIT REMOTO', self.html)
         self.assertIn('Gateway · iniciar turno', self.html)
-        self.assertIn('contexto · estado · reportes', self.html)
+        self.assertIn('contexto · estado', self.html)
 
     def test_in_page_lightbox_and_footer(self):
         self.assertIn('id="image-lightbox"', self.html)
-        self.assertNotIn('target="_blank"', self.html)
+        self.assertEqual(self.html.count('target="_blank"'), 1)
+        self.assertIn('https://kali-sandin.github.io/landings/the-kali-project/" target="_blank" rel="noopener noreferrer"', self.html)
         self.assertNotIn('SYSTEM DESIGN', self.html)
         self.assertNotIn('Volver arriba', self.html)
         self.assertNotIn('<section class="closing"', self.html)
@@ -119,10 +120,23 @@ class LandingTests(unittest.TestCase):
 
     def test_scaled_night_sequence(self):
         minutes = [int(n) for n in re.findall(r'data-minute="(\d+)"', self.html)]
-        self.assertEqual(minutes, [0,60]+list(range(120,361,15)))
+        self.assertEqual(minutes, [0,60,90]+list(range(120,361,30))+[390,420])
         pins = re.findall(r'class="shift-event" style="--at:([0-9.]+)%" data-minute="(\d+)"', self.html)
         for position, minute in pins:
-            self.assertAlmostEqual(float(position), int(minute)/360*100, places=5)
+            self.assertAlmostEqual(float(position), int(minute)/420*100, places=5)
+
+    def test_demo_activity_and_labels(self):
+        self.assertIn('Simulación de turnos de agentes', self.html)
+        self.assertIn('ticker-result', self.html)
+        for agent in ('richard', 'jared', 'bruce-lee', 'gilfoyle'):
+            self.assertIn('assets/team/'+agent+'.png', self.html)
+        self.assertIn('Observabilidad de la actividad del agente.', self.html)
+        self.assertIn('thinking, working, reporting', self.html)
+        self.assertIn('Habilita o deshabilita cada agente', self.html)
+        self.assertIn('PROJECT SYNC', self.js)
+        self.assertIn('0101 1100', self.js)
+        self.assertNotIn('turnos de 15 minutos', self.html)
+        self.assertNotIn('minuto/360', (ROOT / 'README.md').read_text())
 
     def test_fallback_content_is_not_hidden_without_javascript(self):
         reveal = re.search(r'\.reveal\s*\{([^}]+)\}', self.css)
