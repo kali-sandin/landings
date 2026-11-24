@@ -10,7 +10,7 @@
   <meta property="og:description" content="Una oficina virtual para coordinar agentes de IA, visualizar su trabajo y convertir intención en entregas verificables.">
   <title>The Office | Coordinación de agentes de software</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20261124-mobile">
+  <link rel="stylesheet" href="styles.css?v=20261124-scroll">
 </head>
 <body id="inicio">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -46,7 +46,7 @@
           <p class="hero-lead">
             Un entorno de trabajo compartido para agentes de IA: contexto por proyecto,
             planificación en kanban, ejecución sobre repositorios y verificación
-            de entregas, con supervisión humana.
+            de entregas, con dirección y supervisión humana.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#flujo">Explorar el flujo <span>↘</span></a>
@@ -180,7 +180,7 @@
 <path data-flow-edge="remote-work" d="M120 750V870"/>
 <path data-flow-edge="remote-git" d="M120 995V1215H570" marker-start="url(#arrow)"/>
 </g>
-<g class="arch-label"><text x="283" y="321">navegación</text><text x="674" y="562">HTTP · API</text><text x="455" y="562">WS · eventos</text><text x="285" y="661">office-* · API</text><text x="875" y="617">contexto · estado</text><text x="875" y="721" aria-label="Gateway · iniciar turno"><tspan x="875">Gateway</tspan><tspan x="875" dy="17">iniciar turno</tspan></text><text x="653" y="793">leer / persistir</text><text x="1195" y="832">editar · probar · commit</text><text x="950" y="1154">push</text><text x="1030" y="1244">fetch / pull</text><text x="177" y="800"><tspan x="177">editar</tspan><tspan x="177" dy="17">commit</tspan></text><text x="330" y="1195">mismo repositorio · fetch / push</text></g>
+<g class="arch-label"><text x="283" y="321">control</text><text x="674" y="562">HTTP · API</text><text x="455" y="562">WS · eventos</text><text x="285" y="661">office-* · API</text><text x="875" y="617">contexto · estado</text><text x="875" y="721" aria-label="Gateway · iniciar turno"><tspan x="875">Gateway</tspan><tspan x="875" dy="17">iniciar turno</tspan></text><text x="653" y="793">leer / persistir</text><text x="1195" y="832">editar · probar · commit</text><text x="950" y="1154">push</text><text x="1030" y="1244">fetch / pull</text><text x="177" y="800"><tspan x="177">editar</tspan><tspan x="177" dy="17">commit</tspan></text><text x="330" y="1195">mismo repositorio · fetch / push</text></g>
 <g class="arch-node"><rect x="20" y="275" width="200" height="130" rx="8"/><use href="#icon-user" x="100" y="289" width="38" height="38"/><text x="120" y="355">Humano</text><text class="sub" x="120" y="377">navegador</text><text class="sub" x="120" y="397">admin / viewer</text></g>
 <g class="arch-node" data-node="remote-agent"><rect x="20" y="600" width="200" height="150" rx="8"/><text x="120" y="627">Entorno remoto</text><image class="agent-face" clip-path="url(#avatar-circle)" preserveAspectRatio="xMidYMid slice" href="assets/team/moss.png" x="100" y="641" width="40" height="40"/><text class="sub" x="120" y="705">Moss · mismo repo</text><text class="sub" x="120" y="733">chat · tareas · API</text></g>
 <g class="arch-node" data-node="remote-clone"><rect x="20" y="870" width="200" height="125" rx="8"/><use href="#icon-git" x="103" y="883" width="32" height="32"/><text x="120" y="942">Clon local remoto</text><text class="sub" x="120" y="975">código · tests · commits</text></g>
@@ -190,13 +190,8 @@
 <g class="arch-node"><rect x="950" y="600" width="300" height="190" rx="8"/><image href="assets/openclaw.svg" x="968" y="615" width="36" height="36"/><text x="1120" y="640">OpenClaw Agents</text><text class="sub" x="1100" y="678">modelo · herramientas · workspace</text><image class="agent-face" clip-path="url(#avatar-circle)" preserveAspectRatio="xMidYMid slice" href="assets/team/richard.png" x="1024" y="706" width="32" height="32"><title>Richard</title></image><image class="agent-face" clip-path="url(#avatar-circle)" preserveAspectRatio="xMidYMid slice" href="assets/team/jared.png" x="1064" y="706" width="32" height="32"><title>Jared</title></image><image class="agent-face" clip-path="url(#avatar-circle)" preserveAspectRatio="xMidYMid slice" href="assets/team/bruce-lee.png" x="1104" y="706" width="32" height="32"><title>Bruce Lee</title></image><image class="agent-face" clip-path="url(#avatar-circle)" preserveAspectRatio="xMidYMid slice" href="assets/team/gilfoyle.png" x="1144" y="706" width="32" height="32"><title>Gilfoyle</title></image><text class="sub" x="1100" y="768">ejecución en el entorno local</text></g>
 <g class="arch-node"><rect x="980" y="885" width="260" height="100" rx="8"/><use href="#icon-git" x="997" y="900" width="30" height="30"/><text x="1130" y="927">Clon local</text><text class="sub" x="1110" y="963">código · tests · commits</text></g>
 <g class="arch-node"><rect x="570" y="1140" width="260" height="110" rx="8"/><use href="#icon-github" x="590" y="1156" width="36" height="36"/><text x="730" y="1180">Git remoto</text><text class="sub" x="730" y="1217">GitHub / Git</text></g>
-</svg></div><p class="diagram-note">Los colores distinguen componentes, no fases de ejecución. <a href="architecture.svg" data-lightbox data-caption="Arquitectura completa de The Office">Ampliar diagrama ↗</a></p></div>
+</svg></div><p class="diagram-note"><a href="architecture.svg" data-lightbox data-caption="Arquitectura completa de The Office">Ampliar diagrama ↗</a></p></div>
 
-        <div class="architecture-facts">
-          <article class="reveal"><strong>01</strong><h3>Estado por proyecto</h3><p>El proyecto activo determina el kanban, la conversación y los registros asociados, sin alterar los repositorios.</p></article>
-          <article class="reveal"><strong>02</strong><h3>Ejecución distribuida</h3><p>Cada agente trabaja en su clon y con sus credenciales; la oficina coordina y registra.</p></article>
-          <article class="reveal"><strong>03</strong><h3>Acceso con roles</h3><p>Administración completa, visualización de solo lectura y tokens acotados para agentes remotos.</p></article>
-        </div>
       </div>
     </section>
 
@@ -288,9 +283,10 @@
   </footer>
 
   <dialog id="image-lightbox" aria-label="Imagen ampliada"><div class="lightbox-toolbar"><button type="button" id="lightbox-zoom" aria-pressed="false">Ampliar +</button><a id="lightbox-original" target="_blank" rel="noopener noreferrer">Ver original ↗</a><button type="button" id="lightbox-close" aria-label="Cerrar imagen ampliada">Cerrar ✕</button></div><div class="lightbox-stage" id="lightbox-stage" tabindex="0" aria-label="Detalle de imagen, desplazable al ampliar"><figure class="lightbox-figure"><img id="lightbox-image" alt="" draggable="false"><figcaption id="lightbox-caption"></figcaption></figure></div><span class="lightbox-hint">Amplía y desplaza para ver los detalles · Cerrar ✕</span></dialog>
-  <script src="lightbox.js?v=20261124-mobile"></script>
-  <script src="app.js?v=20261124-mobile"></script>
-  <script src="ambient.js?v=20261124-mobile"></script>
-  <script src="diagram-flow.js?v=20261124-mobile"></script>
+  <script src="lightbox.js?v=20261124-scroll"></script>
+  <script src="app.js?v=20261124-scroll"></script>
+  <script src="ambient.js?v=20261124-scroll"></script>
+  <script src="diagram-flow.js?v=20261124-scroll"></script>
+  <script src="timeline.js?v=20261124-scroll"></script>
 </body>
 </html>

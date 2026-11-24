@@ -1,0 +1,18 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const {TRAVEL,CYCLE,PULSE,delay,setup}=require('../timeline');
+const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+const minutes=[...html.matchAll(/data-minute="(\d+)"/g)].map(m=>Number(m[1]));
+assert.equal(delay(0),0);assert.equal(delay(420),TRAVEL);assert.ok(TRAVEL+PULSE<CYCLE);
+for(let i=1;i<minutes.length;i++)assert.ok(PULSE<delay(minutes[i])-delay(minutes[i-1]));
+let visibleCallback,mutationCallback,mediaChange,visibility,playing=false;
+const pins=minutes.map(minute=>({dataset:{minute},style:{setProperty(k,v){this[k]=v;}}}));
+const track={querySelectorAll:()=>pins,classList:{toggle:(name,on)=>{assert.equal(name,'timeline-playing');playing=on;}}};
+const doc={hidden:false,querySelector:()=>track,documentElement:{classList:{contains:()=>doc.modal}},addEventListener:(e,fn)=>visibility=fn};
+const media={matches:false,addEventListener:(e,fn)=>mediaChange=fn};
+const win={matchMedia:()=>media,IntersectionObserver:class{constructor(fn){visibleCallback=fn;}observe(){}},MutationObserver:class{constructor(fn){mutationCallback=fn;}observe(){}}};
+setup(doc,win);assert.equal(pins.at(-1).style['--pulse-delay'],'28s');
+visibleCallback([{isIntersecting:true}]);assert.equal(playing,true);
+doc.hidden=true;visibility();assert.equal(playing,false);doc.hidden=false;visibility();assert.equal(playing,true);
+doc.modal=true;mutationCallback();assert.equal(playing,false);doc.modal=false;mutationCallback();assert.equal(playing,true);
+media.matches=true;mediaChange();assert.equal(playing,false);
+console.log('Timeline: scaled arrival times, short pulses and visibility/motion/modal pauses OK');

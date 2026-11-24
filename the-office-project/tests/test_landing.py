@@ -156,6 +156,17 @@ class LandingTests(unittest.TestCase):
         self.assertIn('data:image/webp;base64,',exported)
         self.assertIn('Agente Remoto',exported)
 
+    def test_scroll_stability_and_timeline_motion(self):
+        self.assertNotIn('architecture-facts',self.html)
+        self.assertNotIn('Los colores distinguen',self.html)
+        self.assertIn('>control</text>',self.html)
+        self.assertIn('con dirección y supervisión humana.',self.html)
+        self.assertIn('contain: strict; overflow: clip; overflow-anchor: none;',self.css)
+        self.assertIn('reserveSceneHeight',self.js)
+        self.assertIn('playing && inView && !document.hidden',self.js)
+        self.assertIn('timeline-sweep 29.5s',self.css)
+        self.assertIn('timeline.js?v=',self.html)
+
     def test_fallback_content_is_not_hidden_without_javascript(self):
         reveal = re.search(r'\.reveal\s*\{([^}]+)\}', self.css)
         self.assertIsNotNone(reveal)

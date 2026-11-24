@@ -159,6 +159,10 @@
     let active = 0;
     let playing = !prefersReducedMotion.matches;
     let timer;
+    let inView = !("IntersectionObserver" in window);
+    let lastWidth = 0;
+    const detail = workflow.querySelector('.workflow-detail');
+    const controls = workflow.querySelector('.workflow-controls');
 
     function terminalMarkup(lines) {
       return lines.map(([kind, value]) => {
@@ -182,8 +186,8 @@
       proof.textContent = scene.proof;
       terminal.innerHTML = terminalMarkup(scene.terminal);
       const track = steps[active].parentElement;
-      const targetLeft = steps[active].offsetLeft - (track.clientWidth - steps[active].clientWidth) / 2;
-      track.scrollTo({ left: Math.max(0, targetLeft), behavior: prefersReducedMotion.matches ? "auto" : "smooth" });
+      const targetLeft = track.scrollLeft + steps[active].getBoundingClientRect().left - track.getBoundingClientRect().left - (track.clientWidth - steps[active].clientWidth) / 2;
+      track.scrollTo({ left: Math.max(0, targetLeft), top: 0, behavior: prefersReducedMotion.matches ? "auto" : "smooth" });
       if (focus) steps[active].focus({ preventScroll: true });
     }
 
@@ -195,8 +199,37 @@
 
     function schedule() {
       window.clearInterval(timer);
-      if (playing && !document.hidden) timer = window.setInterval(() => render(active + 1), 4800);
+      if (playing && inView && !document.hidden) timer = window.setInterval(() => render(active + 1), 4800);
     }
+
+    // Reserve the largest scene at this width, once per layout change.
+    // A rotating headline/terminal must not resize the page under the reader.
+    function reserveSceneHeight() {
+      const width = workflow.clientWidth;
+      if (width === lastWidth) return;
+      lastWidth = width;
+      detail.style.minHeight = ''; controls.style.minHeight = '';
+      let maxDetail = 0, maxControls = 0;
+      scenes.forEach(scene => {
+        title.textContent = scene.title; detailTitle.textContent = scene.heading;
+        description.textContent = scene.description; proof.textContent = scene.proof;
+        terminal.innerHTML = terminalMarkup(scene.terminal);
+        maxDetail = Math.max(maxDetail, detail.getBoundingClientRect().height);
+        maxControls = Math.max(maxControls, controls.getBoundingClientRect().height);
+      });
+      detail.style.minHeight = `${Math.ceil(maxDetail)}px`;
+      controls.style.minHeight = `${Math.ceil(maxControls)}px`;
+      const scene = scenes[active];
+      title.textContent = scene.title; detailTitle.textContent = scene.heading;
+      description.textContent = scene.description; proof.textContent = scene.proof;
+      terminal.innerHTML = terminalMarkup(scene.terminal);
+    }
+    reserveSceneHeight();
+    if ('ResizeObserver' in window) new ResizeObserver(reserveSceneHeight).observe(workflow);
+    if ('IntersectionObserver' in window) new IntersectionObserver(entries => {
+      inView = entries.some(entry => entry.isIntersecting);
+      schedule();
+    }).observe(workflow);
 
     steps.forEach((step, index) => step.addEventListener("click", () => {
       render(index);

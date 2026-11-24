@@ -43,6 +43,7 @@ node --check the-office-project/app.js
 node --check the-office-project/lightbox.js
 node the-office-project/tests/test_lightbox.js
 node the-office-project/tests/test_motion.js
+node the-office-project/tests/test_timeline.js
 git diff --check
 ```
 
@@ -88,4 +89,10 @@ La cabecera del contorno físico es The Office Server (Raspberry Pi 5); el servi
 - Lightbox: controles Cerrar, Ampliar/Ajustar y Ver original. Imagen ampliada con scroll táctil nativo y arrastre de ratón; la imagen ajustada mantiene el cierre por clic previo. Pellizco disponible según navegador; no se declara una prueba en hardware móvil físico.
 - `scripts/export_architecture.py` genera `architecture.svg` a partir del SVG principal, con recursos embebidos y miniaturas WebP solo en la copia exportada (Pillow). Los originales no se modifican. Se carga únicamente al ampliar.
 - Fichas: snapshot de la configuración consultada el24/11/2026, Richard/Jared/Gilfoyle OpenAI Sol5.6; Bruce GLM5.2. No cambia modelos ni automatizaciones. Iconos y atribución en `assets/providers`.
-- Recursos CSS/JS versionados con `?v=20261124-mobile` para no mezclar versiones antiguas en caché.
+- Recursos CSS/JS versionados con `?v=20261124-scroll` para no mezclar versiones antiguas en caché.
+
+## Estabilidad de scroll y cronología animada
+
+Las capas decorativas tienen containment estricto, overflow clip y quedan excluidas del scroll anchoring. El flujo automático se pausa fuera de vista; su detalle y cabecera reservan la altura máxima de sus siete escenas en cada ancho (medición en montaje y cambios de ancho, no en cada frame). Así los cambios de texto no redimensionan el documento mientras se lee otra sección. No se fija ni se restaura scrollY por temporizador.
+
+`timeline.js` prepara delays y pausa por visibilidad/modal/movimiento reducido. CSS dibuja el progreso amarillo durante28s, mantiene el final1,5s y reinicia. Cada cara pulsa~0,9s al llegar a su hora, menos que el intervalo mínimo2s entre eventos. Solo transform, borde/sombra; sin scroll automático, foco ni bucle JS por fotograma. La escala y el contenido de los turnos siguen siendo ilustrativos, no tareas activas.
